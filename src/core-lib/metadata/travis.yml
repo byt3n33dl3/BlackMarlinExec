@@ -1,0 +1,8 @@
+language: python
+os:
+  - linux
+  - windows
+python:
+  - 3.9
+install:
+  - python3 setup.py install
