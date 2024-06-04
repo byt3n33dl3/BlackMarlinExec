@@ -3,7 +3,7 @@
 #### [Vulnerability Report](https://github.com/pxcs/CVE-29343-Sysmon-list/)
 
 <a href="https://github.com/pxcs/BlackMarlin/">
-    <img align="center"style="padding-right:10px;" src="https://png.pngtree.com/thumb_back/fh260/background/20230605/pngtree-colorful-marlin-in-water-with-a-sword-outtro-it-image_2873101.jpg" /></a>
+    <img align="center"style="padding-right:10px;" src="https://github.com/pxcs/BlackMarlin/assets/151133481/ef88a928-41a1-4a24-810a-b70031d5efe3" /></a>
 
 ## Netwrok traffic lesson.
 
