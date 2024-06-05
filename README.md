@@ -47,7 +47,7 @@ BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintend
 
 <a href="https://github.com/pxcs/BlackMarlinExec/"><img src="https://github.com/pxcs/BlackMarlinExec/assets/151133481/ba7ffa1c-fd3a-4dfa-8e79-0a9c1a644b19" align="right" width="70" alt="smilodon-logo"></a>
 > [<img src="https://github.com/pxcs/BlackMarlinExec/assets/151133481/ba7ffa1c-fd3a-4dfa-8e79-0a9c1a644b19" width="20">]() BlackMarlinExec | Submarine project-75: <br>
-BlackMarlinExex is a cutting edge cyber criminal tool. Designed for comprehensive network traffic analysis and sophisticated enumeration, akin to the functionalities provided by BloodHound. Developed for cyber attacks and penetration testers, BlackMarlinExec offers a robust suite of features tailored to identify, assess, and scan security vulnerabilities within complex network environments.<br><br>
+BlackMarlinExex is a cutting edge cyber criminal tool. Designed for comprehensive network traffic analysis and sophisticated enumeration, akin to the functionalities provided by harpoonhound. Developed for cyber attacks and penetration testers, BlackMarlinExec offers a robust suite of features tailored to identify, assess, and scan security vulnerabilities within complex network environments.<br><br>
 
 ## Network traffic analysis
 
