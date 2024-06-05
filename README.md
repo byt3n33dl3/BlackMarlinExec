@@ -1,4 +1,43 @@
-#### Black Marlin | Swordfish attacks
+#### Black Marlin | Swordfish attacks | Enumeration tool | NTA tool
+
+<a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
+<img width="300" height="300" src="/images/swordfish.png">
+</p></a>
+
+## About BlackMarlinExec
+BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or active environment. Attackers can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to `quickly` identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. Attackers can see millions, even `billions` of attack paths within your existing architecture
+
+- **Get Domain Controllers:**
+  ```powershell
+  Get-DomainController
+  Get-DomainController -Domain <DomainName>
+  ```
+- **Enumerate Domain Users:**
+
+  ```powershell
+  Get-DomainUser | Out-File -FilePath .\DomainUsers.txt
+
+- **Enumerate Shares:**
+
+  ```powershell
+  Find-DomainShare
+
+  Find-DomainShare -CheckShareAccess
+
+  Find-InterestingDomainShareFile -Include *passwords*
+  ```
+
+- **Enum Group Policies:**
+
+  ```powershell
+  Get-DomainGPO -Properties DisplayName | Sort-Object -Property DisplayName
+
+  #Enumerate specific computer
+  Get-DomainGPO -ComputerIdentity <ComputerName> -Properties DisplayName | Sort-Object -Property DisplayName
+
+  #Get users that are local Admin group
+  Get-DomainGPOComputerLocalGroupMapping -ComputerName <ComputerName>
+  ```
 
 #### [Vulnerability Report](https://github.com/pxcs/CVE-29343-Sysmon-list/)
 
@@ -8,7 +47,7 @@
 ## Network traffic analysis
 
 #### Network Traffic Classification
-This is a research project for classifying network traffic. We collected more than 300000 flows from some network. After that, we used nDPI to analyze the flows. We got more than 100 types of applications. Then we group that application into 10 classes. After that, we tried different ML algorithms to classify them.
+This is a research project for classifying network traffic. We collected more than ***300000*** flows from some network. After that, we used nDPI to analyze the flows. We got more than 100 types of applications. Then we group that application into 10 classes. After that, we tried different ML algorithms to classify them.
 
 #### Our current results
 
@@ -90,7 +129,19 @@ Results were analyzed and compared for each model.<br/>
 Model tuning details:
 - Tuned model: Support Vector Classifier - [SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC)
 - Tuning method: [GridSearch](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
-- Results were analyzed before/after tuning.<br><hr>
+- Results were analyzed before/after tuning.<br>
+
+Publicly share you guys about my red teaming ***experiments*** tested on several environments/infrastructures that involve playing with various tools and techniques used by penetration testers and redteamers.
+
+- [x] Project in progress
+- [x] Contributions needed
+
+<hr>
+
+# Disclaimer
+***BlackMarlinExec*** is designed primarily for research, educational, and authorized testing scenarios. The purpose of developing and distributing. This tool is to provide professionals and researchers with a tool to understand and identify vulnerabilities and to bolster the security of systems. It is fundamentally imperative that users ensure they have obtained explicit, mutual consent from all involved parties before applying this tool on any system, network, or digital environment.
 
 #### Educational purposes only.<br>
-Some credit to ugs people.
+
+## Thanks to
+Some credit to ugs people, and several [Github](https://github.com/) repo.
