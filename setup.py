@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import re
 
-VERSIONFILE="minikerberos/_version.py"
+VERSIONFILE="kerberos/aioclient.py"
 verstrline = open(VERSIONFILE, "rt").read()
 VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
 mo = re.search(VSRE, verstrline, re.M)
@@ -12,14 +12,13 @@ else:
 
 setup(
 	# Application name:
-	name="minikerberos",
+	name="BlackMarlinExec",
 
 	# Version number (initial):
 	version=verstr,
 
 	# Application author details:
-	author="Tamas Jos",
-	author_email="info@skelsec.com",
+	author="pxcs",
 
 	# Packages
 	packages=find_packages(exclude=["tests*"]),
@@ -27,16 +26,6 @@ setup(
 	# Include additional files into the package
 	include_package_data=True,
 
-
-	# Details
-	url="https://github.com/skelsec/minikerberos",
-
-	zip_safe=True,
-	#
-	# license="LICENSE.txt",
-	description="Kerberos manipulation library in pure Python",
-
-	# long_description=open("README.txt").read(),
 	python_requires='>=3.6',
 	classifiers=[
 		"Programming Language :: Python :: 3.6",
@@ -54,21 +43,21 @@ setup(
 
 	entry_points={
 		'console_scripts': [
-			'minikerberos-ccacheedit   = minikerberos.examples.ccache_editor:main',
-			'minikerberos-kirbi2ccache = minikerberos.examples.kirbi2ccache:main',
-			'minikerberos-ccache2kirbi = minikerberos.examples.ccache2kirbi:main',
-			'minikerberos-ccacheroast  = minikerberos.examples.ccacheroast:main',
-			'minikerberos-getTGT       = minikerberos.examples.getTGT:main',
-			'minikerberos-getTGS       = minikerberos.examples.getTGS:main',
-			'minikerberos-getS4U2proxy = minikerberos.examples.getS4U2proxy:main',
-			'minikerberos-getS4U2self  = minikerberos.examples.getS4U2self:main',
-			'minikerberos-getNTPKInit  = minikerberos.examples.getNT:main',
-			'minikerberos-cve202233647 = minikerberos.examples.CVE_2022_33647:main',
-			'minikerberos-cve202233679 = minikerberos.examples.CVE_2022_33679:main',
-			'minikerberos-kerb23hashdecrypt = minikerberos.examples.kerb23hashdecrypt:main',
-			'minikerberos-kerberoast   = minikerberos.examples.spnroast:main',
-            'minikerberos-asreproast   = minikerberos.examples.asreproast:main',
-            'minikerberos-changepw   = minikerberos.examples.changepassword:main',
+			'Kerberos-ccacheedit   = Kerberos.examples.ccache_editor:main',
+			'Kerberos-kirbi2ccache = Kerberos.examples.kirbi2ccache:main',
+			'Kerberos-ccache2kirbi = Kerberos.examples.ccache2kirbi:main',
+			'Kerberos-ccacheroast  = Kerberos.examples.ccacheroast:main',
+			'Kerberos-getTGT       = Kerberos.examples.getTGT:main',
+			'Kerberos-getTGS       = Kerberos.examples.getTGS:main',
+			'Kerberos-getS4U2proxy = Kerberos.examples.getS4U2proxy:main',
+			'Kerberos-getS4U2self  = Kerberos.examples.getS4U2self:main',
+			'Kerberos-getNTPKInit  = Kerberos.examples.getNT:main',
+			'Kerberos-cve202233647 = Kerberos.examples.CVE_2022_33647:main',
+			'Kerberos-cve202233679 = Kerberos.examples.CVE_2022_33679:main',
+			'Kerberos-kerb23hashdecrypt = Kerberos.examples.kerb23hashdecrypt:main',
+			'Kerberos-kerberoast   = Kerberos.examples.spnroast:main',
+            'Kerberos-asreproast   = Kerberos.examples.asreproast:main',
+            'Kerberos-changepw   = Kerberos.examples.changepassword:main',
 		],
 	}
 )
