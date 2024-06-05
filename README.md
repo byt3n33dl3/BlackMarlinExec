@@ -18,7 +18,7 @@ BlackMarlinExec incorporates a specialized [Kerberos](https://github.com/pxcs/Ke
 By integrating advanced Kerberos attack techniques with [BME](https://github.com/pxcs/BlackMarlinExec/) powerful enumeration and network traffic analysis capabilities, Attackers would gain a holistic view of the network's security posture.<br>
 
 <a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
-<img width="300" height="300" src="/images/kerberos.png">
+<img width="320" height="300" src="/images/cerberus.png">
 </p></a>
 
 <hr>
