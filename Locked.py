@@ -1,4 +1,4 @@
-print("There is not have decrypt bc lazy")
+print("mission_completed")
 import os,random
 print(f"""
                                                                                           
