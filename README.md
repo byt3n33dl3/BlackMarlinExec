@@ -7,6 +7,22 @@
 ## About BlackMarlinExec
 BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or active environment. Attackers can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to `quickly` identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. Attackers can see millions, even `billions` of attack paths within your existing architecture
 
+## BlackMarlinExec Kerberos Performance
+BlackMarlinExec incorporates a specialized [Kerberos](https://github.com/pxcs/KerberossianCracker) attack module, empowering security professionals to effectively test and exploit weaknesses within the Kerberos authentication protocol. This module is designed to enhance the enumeration and `analysis` capabilities by focusing on potential vulnerabilities in Kerberos implementations.
+
+#### Ticket Harvesting by:
+
+- AS-REP Roasting by automates the extraction of AS-REP responses for accounts that do not require pre-authentication.
+- And kerberoasting to identifies and extracts service tickets (TGS) for services that leverage Kerberos.
+
+By integrating advanced Kerberos attack techniques with [BME](https://github.com/pxcs/BlackMarlinExec/) powerful enumeration and network traffic analysis capabilities, Attackers would gain a holistic view of the network's security posture.<br>
+
+<a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
+<img width="300" height="300" src="/images/kerberos.png">
+</p></a>
+
+<hr>
+
 - **Get Domain Controllers:**
   ```powershell
   Get-DomainController
