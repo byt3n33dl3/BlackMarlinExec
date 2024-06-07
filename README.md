@@ -7,7 +7,7 @@
 ## About BlackMarlinExec
 BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or active environment. Attackers can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to `quickly` identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. Attackers can see millions, even `billions` of attack paths within your existing architecture
 
-## BlackMarlinExec Kerberos Performance
+## BlackMarlinExec [Kerberos](https://www.youtube.com/watch?v=-3MxoxdzFNI&t=353s&ab_channel=Conda) Performance
 BlackMarlinExec incorporates a specialized [Kerberos](https://github.com/pxcs/KerberossianCracker) attack module, empowering security professionals to effectively test and exploit weaknesses within the Kerberos authentication protocol. This module is designed to enhance the enumeration and `analysis` capabilities by focusing on potential vulnerabilities in Kerberos implementations.
 
 #### Ticket Harvesting by:
@@ -142,7 +142,7 @@ Trained and analyzed classification models:
 7. XGBoost: [XGBClassifier](https://xgboost.readthedocs.io/en/stable/index.html#)
 
 Evaluation method: 
-- Cross-Validation Technique: [Cross-Validator](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html)
+- Cross-Validation Technique: [Cross_Validator](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html)
 - Folds number: Anon
 - Shuffled: Enabled
 
