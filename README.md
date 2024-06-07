@@ -8,7 +8,7 @@
 BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or active environment. Attackers can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to `quickly` identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. Attackers can see millions, even `billions` of attack paths within your existing architecture.
 
 ## BlackMarlinExec [Kerberos](https://www.youtube.com/watch?v=-3MxoxdzFNI&t=353s&ab_channel=Conda) Performance
-BlackMarlinExec incorporates a specialized [Kerberos](https://github.com/pxcs/KerberossianCracker) attack module, empowering security professionals to effectively test and exploit weaknesses within the Kerberos authentication protocol. This module is designed to enhance the enumeration and `analysis` capabilities by focusing on potential vulnerabilities in Kerberos implementations.
+BlackMarlinExec incorporates a specialized [Kerberos](https://github.com/pxcs/KerberossianCracker) attack module, empowering attackers to effectively test and exploit weaknesses within the Kerberos authentication protocol. This module is designed to enhance the enumeration and `analysis` capabilities by focusing on potential vulnerabilities in Kerberos implementations.
 
 #### Ticket Harvesting by:
 
@@ -22,6 +22,11 @@ By integrating advanced Kerberos attack techniques with [BME](https://github.com
 </p></a>
 
 <hr>
+
+- **Information Gathering:**
+  ```powershell
+  Find-DomainTarget (-p-) (-sV-) (-Pn-) (-Al-) (-more-)
+  ```
 
 - **Get Domain Controllers:**
   ```powershell
@@ -53,6 +58,15 @@ By integrating advanced Kerberos attack techniques with [BME](https://github.com
 
   #Get users that are local Admin group
   Get-DomainGPOComputerLocalGroupMapping -ComputerName <ComputerName>
+  ```
+  
+- **Results Filtering:**
+  ```powershell
+  #grep #invert #etc
+  0.0.0.0 | grep ''
+
+  #grep with attackers .txt
+  0.0.0.0 | grep 5 (-c-)(-Pn-) 'List.txt'
   ```
 
 #### [Vulnerability Report](https://github.com/pxcs/CVE-29343-Sysmon-list/)
