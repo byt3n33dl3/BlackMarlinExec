@@ -226,6 +226,6 @@ Check out the ORG repo for more tools like this [@](https://github.com/SuttonPro
 
 ## Thanks to
 
-- Allah and [pxcs](https://github.com/pxcs/)
+- Allah and [pxcs](https://github.com/pxcs/) p3xsouger
 - Some credit to ugs people
 - And several open [Github](https://github.com/) repo.
