@@ -68,6 +68,38 @@ By integrating advanced Kerberos attack techniques with [BME](https://github.com
   #grep with attackers .txt
   0.0.0.0 | grep 5 (-c-)(-Pn-) 'List.txt'
   ```
+<hr>
+
+## Main Usage
+
+```
+usage: BME [-h] [--command COMMAND] [--output OUTPUT] [--interface INTERFACE] [--port PORT]
+
+options:
+  -h, --help            show this help message and exit
+  --command COMMAND, -c COMMAND
+                        command to run on the target (default: calc)
+  --output OUTPUT, -o OUTPUT
+                        output maldoc file (default: BME)
+  --interface INTERFACE, -i INTERFACE
+                        network interface or IP address to host the HTTP server (default: eth0)
+  --port PORT, -p PORT  port to serve the HTTP server (default: 8000)
+```
+
+## Examples
+
+Pop results `BME.exe` :
+
+```
+$ BME.exe   
+[+] copied staging doc ./
+[+] finalizing payload doc ./
+[x] created maldoc ./
+[x] serving payload on :8000 (Example)
+```
+- [x] Output
+- [x] Output
+- [x] Output
 
 #### [Vulnerability Report](https://github.com/pxcs/CVE-29343-Sysmon-list/)
 
@@ -184,10 +216,16 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 
 <hr>
 
-# Disclaimer
+## Disclaimer
 ***BlackMarlinExec*** is designed primarily for research, identification, and authorized testing scenarios. This tool is to provide professionals and researchers with a tool to understand and identify vulnerabilities of the security systems. It is fundamentally imperative that users ensure they have obtained explicit, mutual consent from all involved parties before applying this tool on any system, or network.
 
 #### Educational purposes only.<br>
 
+## Sutton_Program Organization
+Check out the ORG repo for more tools like this [@](https://github.com/SuttonProgram)
+
 ## Thanks to
-Some credit to ugs people, and several [Github](https://github.com/) repo.
+
+- Allah and [pxcs](https://github.com/pxcs/)
+- Some credit to ugs people
+- And several open [Github](https://github.com/) repo.
