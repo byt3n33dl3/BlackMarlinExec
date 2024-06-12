@@ -1,3 +1,8 @@
+[![Version](https://img.shields.io/nuget/v/BlackMarlinExec?label=version&logo=nuget)](https://www.nuget.org/packages/BlackMarlinExec/)
+![Downloads](https://img.shields.io/nuget/dt/SharpHoundCommon)
+[![Coverage](https://bloodhoundad.github.io/SharpHoundCommon/coverage/report/badge_combined.svg)](https://github.com/pxcs/BlackMarlinExec/)
+[![Documentation](https://img.shields.io/static/v1?label=&message=documentation&color=blue)](https://github.com/pxcs/BlackMarlinExec/)
+
 #### Black Marlin | Swordfish attacks | Enumeration tool | NTA tool | [BME](https://github.com/pxcs/BlackMarlinExec/) |
 
 <a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
