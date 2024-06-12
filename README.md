@@ -19,7 +19,72 @@ By integrating advanced Kerberos attack techniques with [BME](https://github.com
 
 <a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
 <img width="320" height="300" src="/images/qerberus.png">
+</p></a><hr>
+
+## Small Demonstration for [TCP](https://github.com/pxcs/BlackMarlinExec/tree/main/bma/ABAMB/tunnel_barracuda) Killer
+
+<img src="https://raw.githubusercontent.com/ayedo/tcpkiller/master/screencaptures/basic-demonstration.gif?token=ABEFFFRQETGKEPZ2BVEHDVK6QDF4O" width="830px" height="600px"/>
+<br>
+
+## Intro About [Barracuda](https://github.com/pxcs/BlackMarlinExec/tree/main/bma/ABAMB) Attacks
+
+<a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
+<img width="320" height="300" src="/images/barracuda.png">
 </p></a>
+
+### Main Features:
+ - Shows a list of processes, and tcp ports they are listening to
+ - The list can by filtered by port number
+ - You can select a process, and terminate it
+ 
+#### There are many tools that implement this functionality. This tool will additionally:
+ - Resolve the application name of java processes (if `jps` is available)
+ - For IANA registered ports you can hover over the port number, and it will show additional information
+ - On windows, will show the names of services running as children of `ABAMB.exe`
+<br>
+
+Shuts down a TCP connection on Linux, macOS, and Windows. Local and remote endpoint arguments can be copied from the output of `netstat_lanW.`
+
+The functionality offered by *tcp_killer* is intended to mimic [TCPView](https://technet.microsoft.com/en-us/sysinternals/tcpview.aspx)'s "Close Connection" functionality and [tcpdrop](http://man.openbsd.org/tcpdrop.8)'s functionality on Linux and macOS.
+
+## Basic Usage
+
+`BME_barracuda.py [-verbose] <local endpoint> <remote endpoint>`
+
+#### Arguments:
+
+    -verbose           Show verbose output
+    <local endpoint>   Connection's local IP address and port
+    <remote endpoint>  Connection's remote IP address and port
+
+#### Examples:
+
+    BME_barracuda.py 10.31.33.7:50246 93.184.216.34:443
+    BME_barracuda.py 2001:db8:85a3::8a2e:370:7334.93 2606:2800:220:1:248:1893:25c8:1946.80
+    BME_barracuda.py -verbose [2001:4860:4860::8888]:46820 [2607:f8b0:4005:807::200e]:80
+
+### Full Example
+```
+geffner@ubuntu:~$ # Create a server to listen on TCP port 12345
+geffner@ubuntu:~$ nc -d -l -p 12345 &
+[1] 135578
+
+geffner@ubuntu:~$ # Connect to the local server on TCP port 12345
+geffner@ubuntu:~$ nc -v -d localhost 12345 &
+[2] 135579
+Connection to localhost 12345 port [tcp/*] succeeded!
+
+geffner@ubuntu:~$ # Find the connection endpoints
+geffner@ubuntu:~$ netstat -lanW | grep 12345.*ESTABLISHED
+tcp        0      0 127.0.0.1:33994         127.0.0.1:12345         ESTABLISHED
+tcp        0      0 127.0.0.1:12345         127.0.0.1:33994         ESTABLISHED
+
+geffner@ubuntu:~$ # Kill the connection by copying and pasting the output of netstat
+geffner@ubuntu:~$ python BME_barracuda.py 127.0.0.1:33994         127.0.0.1:12345
+TCP connection was successfully shutdown.
+[1]-  Done                    nc -d -l -p 12345
+[2]+  Done                    nc -v -d localhost 12345
+```
 
 ## [LDAP](https://www.youtube.com/watch?v=Xjpi8xYqPcY&pp=ygUUa2VyYmVyb3MgdnMga2VyYmVyb3M%3D) & Kerberos Protocol Potential Attacks
 Using [BlackMarlinExec](https://github.com/pxcs/BlackMarlinExec/) to get benefits of integration. Firstly find a significant risk. An attacker would steal user credentials through malware or AD Attacks using [BME](https://github.com/pxcs/BlackMarlinExec/), enabling them to `obtain` a Ticket Granting Ticket (TGT) and access network services. Man-in-the-Middle (MITM) attacks pose another threat, where an attacker intercepts communication using [BME](https://github.com/pxcs/BlackMarlinExec/) to get access between the user and the Key Distribution Center (KDC) or between services and the LDAP directory, potentially `stealing` or `modifying` data.
@@ -138,8 +203,8 @@ $ BME.exe
 [x] serving payload on :8000 (Example)
 ```
 - [x] Output
-- [x] Output
-- [x] Output
+- [x] Compromising Kerberos
+- [x] Kerberos `Compromised!`
 
 #### [Vulnerability Report](https://github.com/pxcs/CVE-29343-Sysmon-list/)
 
