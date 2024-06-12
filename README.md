@@ -22,14 +22,13 @@ By integrating advanced Kerberos attack techniques with [BME](https://github.com
 </p></a><hr>
 
 ## Small Demonstration for [TCP](https://github.com/pxcs/BlackMarlinExec/tree/main/bma/ABAMB/tunnel_barracuda) Killer
-
-<img src="https://raw.githubusercontent.com/ayedo/tcpkiller/master/screencaptures/basic-demonstration.gif?token=ABEFFFRQETGKEPZ2BVEHDVK6QDF4O" width="830px" height="600px"/>
-<br>
+During an enumeration attack, hackers verify records stored in a web server using brute-force methods. These attacks occur on web pages that interact with web server databases after a user submits a form. The two most commonly targeted web app pages in enumeration attacks are login pages and `password` reset [pages.](https://www.techtarget.com/searchsecurity/tip/What-enumeration-attacks-are-and-how-to-prevent-them)
 
 ## Intro About [Barracuda](https://github.com/pxcs/BlackMarlinExec/tree/main/bma/ABAMB) Attacks
 
 <a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
-<img width="320" height="300" src="/images/barracuda.png">
+<img width="150" height="150" src="/images/barracuda.png">
+<img width="150" height="150" src="/images/PEN-300_Fill.svg">
 </p></a>
 
 ### Main Features:
