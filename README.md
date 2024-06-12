@@ -36,7 +36,7 @@ Attackers intercept communications between users and the Key Distribution Center
 Biggest lose was the assumption of secure time system, and resolution of synchronization required.
 
 <a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
-<img width="250" height="250" src="/images/kerberos_protocol_center.png">
+<img width="250" height="250" src="/images/keb5.png">
 </p></a>
 
 Users authenticate once with Kerberos and can `access` multiple services without re-entering credentials, thanks to the TGT. ~Haha~ this is the time when the attackers could use this privileges.
