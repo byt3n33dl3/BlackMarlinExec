@@ -28,7 +28,7 @@ During an enumeration attack, hackers verify records stored in a web server usin
 
 <a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
 <img width="150" height="150" src="/images/barracuda.png">
-<img width="150" height="150" src="/images/PEN-300_Fill.svg">
+<img width="150" height="150" src="/images/WEB-300_Fill.svg">
 </p></a>
 
 ### Main Features:
