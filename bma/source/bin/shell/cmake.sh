@@ -9,12 +9,12 @@ commits_per_year=2
 
 # Set your GitHub username, email, and repository name
 github_username="pxcs"
-github_email="sulabaziz09@gmail.com"
+github_email="xx-x--x"
 repository_name="BlackMarlinExec"
 
 # Set Git config
 git config user.name "pxcs"
-git config user.email "sulabaziz09@gmail.com"
+git config user.email "x---x---x-x-x"
 
 for year in $(seq $start_year $end_year); do
     for i in $(seq 1 $commits_per_year); do
