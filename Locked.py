@@ -79,7 +79,7 @@ if code_10 == 'N':
     print("2 random")
     code_8 = input('Setup:')
     if code_8 == '2':
-        ID_random_char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'
+        ID_random_char = 'x-x-x-x'
         ID_char = ''
         print('Writing ID Pls wait. . .')
         for bit_ID in range(random.randint(0,100)):
