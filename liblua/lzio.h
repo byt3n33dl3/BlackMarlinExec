@@ -9,6 +9,7 @@
 #define lzio_h
 
 #include "lua.h"
+#include "BME.h"
 
 #include "lmem.h"
 

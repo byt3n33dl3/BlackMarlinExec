@@ -13,6 +13,7 @@
 #include <string.h>
 
 #include "lua.h"
+#include "BME.h"
 
 #include "llimits.h"
 #include "lmem.h"
