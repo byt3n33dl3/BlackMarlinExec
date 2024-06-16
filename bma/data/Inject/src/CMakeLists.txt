@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.8)
-project (Injections)
+project (BME-Injections)
 
 add_definitions(-DUNICODE -D_UNICODE)
 
