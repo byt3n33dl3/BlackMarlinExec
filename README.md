@@ -53,11 +53,11 @@ The functionality offered by *tcp_killer* is intended to mimic [TCPView](https:/
 
 ## Basic Usage
 
-`BME_barracuda.py [-verbose] <local endpoint> <remote endpoint>`
+`BME_barracuda.py [-pS] <local endpoint> <remote endpoint>`
 
 #### Arguments:
 
-    -verbose           Show verbose output
+    -pS           Show poisoning output
     <local endpoint>   Connection's local IP address and port
     <remote endpoint>  Connection's remote IP address and port
 
@@ -69,22 +69,22 @@ The functionality offered by *tcp_killer* is intended to mimic [TCPView](https:/
 
 ### Full Example
 ```
-geffner@ubuntu:~$ # Create a server to listen on TCP port 12345
-geffner@ubuntu:~$ nc -d -l -p 12345 &
+kali@kali:~$ # Create a server to listen on TCP port 12345
+kali@kali:~$ nc -d -l -p 12345 &
 [1] 135578
 
-geffner@ubuntu:~$ # Connect to the local server on TCP port 12345
-geffner@ubuntu:~$ nc -v -d localhost 12345 &
+kali@kali:~$ # Connect to the local server on TCP port 12345
+kali@kali:~$ nc -v -d localhost 12345 &
 [2] 135579
 Connection to localhost 12345 port [tcp/*] succeeded!
 
-geffner@ubuntu:~$ # Find the connection endpoints
-geffner@ubuntu:~$ netstat -lanW | grep 12345.*ESTABLISHED
+kali@kali:~$ # Find the connection endpoints
+kali@kali:~$ netstat -lanW | grep 12345.*ESTABLISHED
 tcp        0      0 127.0.0.1:33994         127.0.0.1:12345         ESTABLISHED
 tcp        0      0 127.0.0.1:12345         127.0.0.1:33994         ESTABLISHED
 
-geffner@ubuntu:~$ # Kill the connection by copying and pasting the output of netstat
-geffner@ubuntu:~$ python BME_barracuda.py 127.0.0.1:33994         127.0.0.1:12345
+kali@kali:~$ # Kill the connection by copying and pasting the output of netstat
+kali@kali:~$ python BME_barracuda.py 127.0.0.1:33994         127.0.0.1:12345
 TCP connection was successfully shutdown.
 [1]-  Done                    nc -d -l -p 12345
 [2]+  Done                    nc -v -d localhost 12345
@@ -331,10 +331,12 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 #### Educational purposes only.<br>
 
 ## Sutton_Program Organization
-Check out the ORG repo for more tools like this [@](https://github.com/SuttonProgram)
+Check out the ORG repo for more tools like this at [SuttonProgram](https://github.com/SuttonProgram)
 
 ## Thanks to
 
 - Allah and [pxcs](https://github.com/pxcs/) p3xsouger
-- Some credit to ugs people
+- My Offsec team [GangstaCrew](https://github.com/GangstaCrew)
+- People in Offensive Cyber
+- Some credit to U.G people
 - And several open [Github](https://github.com/) repo.
