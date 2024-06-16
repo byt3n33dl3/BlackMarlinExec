@@ -11,8 +11,8 @@ from os.path import dirname
 from os.path import join as path_join
 
 from cme.context import Context
-from cme.logger import CMEAdapter
-from cme.paths import CME_PATH
+from cme.logger import BMEAdapter
+from cme.paths import BME_PATH
 
 
 class ModuleLoader:
