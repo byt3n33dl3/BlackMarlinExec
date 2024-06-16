@@ -9,6 +9,7 @@ import sys
 from os import listdir
 from os.path import dirname
 from os.path import join as path_join
+from bma import barracuda as first_path
 
 from cme.context import Context
 from cme.logger import BMEAdapter
