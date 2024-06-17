@@ -1,7 +1,7 @@
 ---
 info:
   title: BlackMarlinExec
-  description: Nenumerate, attack, or poisoning target inside networks
+  description: Enenumerate, attack, or poisoning target inside networks
   x-cortex-git:
     github:
       alias: pxcs
