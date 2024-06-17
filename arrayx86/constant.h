@@ -1,15 +1,6 @@
 #ifndef CONSTANT_H
 #define CONSTANT_H
-/**********************************************************************
 
-  constant.h -
-
-  $Author$
-  created at: Sun Nov 15 00:09:33 2009
-
-  Copyright (C) 2009 Yusuke Endoh
-
-**********************************************************************/
 #include "ruby/ruby.h"
 #include "id_table.h"
 

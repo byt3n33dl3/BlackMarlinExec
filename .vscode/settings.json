@@ -1,0 +1,5 @@
+{
+    "files.associations": {
+        "addr2line.h": "c"
+    }
+}

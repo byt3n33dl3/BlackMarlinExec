@@ -1,14 +1,3 @@
-/**********************************************************************
-
-  compile.c - ruby node tree -> VM instruction sequence
-
-  $Author$
-  created at: 04/01/01 03:42:15 JST
-
-  Copyright (C) 2004-2007 Koichi Sasada
-
-**********************************************************************/
-
 #include "ruby/internal/config.h"
 #include <math.h>
 

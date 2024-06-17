@@ -1,13 +1,3 @@
-/**********************************************************************
-
-  addr2line.c -
-
-  $Author$
-
-  Copyright (C) 2010 Shinichiro Hamaji
-
-**********************************************************************/
-
 #if defined(__clang__) && defined(__has_warning)
 #if __has_warning("-Wgnu-empty-initializer")
 #pragma clang diagnostic ignored "-Wgnu-empty-initializer"

@@ -1,14 +1,3 @@
-/**********************************************************************
-
-  bignum.c -
-
-  $Author$
-  created at: Fri Jun 10 00:48:55 JST 1994
-
-  Copyright (C) 1993-2007 Yukihiro Matsumoto
-
-**********************************************************************/
-
 #include "ruby/internal/config.h"
 
 #include <ctype.h>

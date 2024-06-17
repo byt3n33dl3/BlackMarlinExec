@@ -1,10 +1,3 @@
-/*
-  complex.c: Coded by Tadayoshi Funaba 2008-2012
-
-  This implementation is based on Keiju Ishitsuka's Complex library
-  which is written in ruby.
-*/
-
 #include "ruby/internal/config.h"
 
 #if defined _MSC_VER
