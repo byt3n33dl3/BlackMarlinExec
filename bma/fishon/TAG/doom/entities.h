@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "types.h"
+#include "level.h"
 
 // Shortcuts
 //#define create_player(x, y)   {create_coords((double) x + (double)0.5, (double) y + (double)0.5), create_coords(1, 0), create_coords(0, -0.66), 0, 100}
