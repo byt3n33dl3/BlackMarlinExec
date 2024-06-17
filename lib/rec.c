@@ -1,3 +1,8 @@
+/**\
+ *
+ * BME - Network traffic analyzer
+ */
+
 #include <pthread.h>
 #include <sys/resource.h>
 #include <unistd.h>

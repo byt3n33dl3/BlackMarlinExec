@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "addr2line.h": "c"
+        "addr2line.h": "c",
+        "stddef.h": "c",
+        "config.h": "c",
+        "dfilter-int.h": "c",
+        "dfilter.h": "c",
+        "dfilter-plugin.h": "c"
     }
 }

@@ -1,13 +1,6 @@
 /** @file
  *
- * Routines for providing general range support to the dfilter library
- *
- * Copyright (c) 2000 by Ed Warnicke <hagbard@physics.rutgers.edu>
- *
- * Wireshark - Network traffic analyzer
- * By Gerald Combs
- * Copyright 1999 Gerald Combs
- * SPDX-License-Identifier: GPL-2.0-or-later
+ * BME - Network traffic analyzer
  */
 
 #ifndef __DRANGE_H__

@@ -1,10 +1,5 @@
 /*
- * Wireshark - Network traffic analyzer
- *
- * Copyright 1998 Gerald Combs <gerald@wireshark.org>
- *
- * SPDX-License-Identifier: GPL-2.0-or-later
- */
+ * BME - Network traffic analyzer
 
 // #include "config.h"
 // #define WS_LOG_DOMAIN LOG_DOMAIN_DFILTER
