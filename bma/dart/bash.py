@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
-from cme.paths import DATA_PATH
+
+from bma.paths import DATA_PATH
+from bma.ABAMB import BARRRACUDA_C
 
 
 def get_script(path):
