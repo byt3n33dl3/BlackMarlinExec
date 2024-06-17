@@ -64,6 +64,7 @@ class Report:
             "bounty": self.bounty,
             "upvotes": self.upvotes,
             "downvotes": self.downvotes,
+            "password_status": self.status,
         }
 
     def to_json(self) -> str:
