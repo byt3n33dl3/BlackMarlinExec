@@ -1,10 +1,8 @@
-## Istiophoriformes, Barracuda attacks in [BME](https://github.com/pxcs/BlackMarlinExec/) Protocols
-#### Barracuda attacks | Enumeration tool | NTA tool |
-
 [![Version](https://img.shields.io/nuget/v/BlackMarlinExec?label=version&logo=nuget)](https://www.nuget.org/packages/BlackMarlinExec/)
 [![Documentation](https://img.shields.io/static/v1?label=&message=documentation&color=blue)](https://github.com/pxcs/BlackMarlinExec/)
 
-## Intro About [Barracuda](https://github.com/pxcs/BlackMarlinExec/tree/main/bma/ABAMB) Attacks
+## Istiophoriformes, Barracuda attacks in [BME](https://github.com/pxcs/BlackMarlinExec/) Protocols
+#### Barracuda attacks | Enumeration tool | NTA tool |
 
 <a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
 <img width="300" height="300" src="/images/WEB-300_Fill.svg">
