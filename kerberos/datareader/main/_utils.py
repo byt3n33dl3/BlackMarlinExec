@@ -4,6 +4,7 @@ from pandas import to_datetime
 import requests
 
 from pandas_datareader.compat import is_number
+from main import base
 
 
 class SymbolWarning(UserWarning):

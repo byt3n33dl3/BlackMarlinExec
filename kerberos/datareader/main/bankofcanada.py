@@ -1,5 +1,5 @@
 from pandas_datareader.base import _BaseReader
-
+from main import base
 
 class BankOfCanadaReader(_BaseReader):
     """Get data for the given name from Bank of Canada.

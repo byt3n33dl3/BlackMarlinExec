@@ -1,7 +1,3 @@
-# the script goes through files on C:\ and tries to replace openssl DLLs (see $filesToUpdate) with newer version found anywhere in $sourceDir.
-# admin rights are highly recommended, as many of such DLLs are located in Program Files.
-# the openssl zip file I use: https://www.firedaemon.com/download-firedaemon-openssl
-
 $sourceDir = "C:\temp\openssl-3"
 $makeBackup = $true
 
