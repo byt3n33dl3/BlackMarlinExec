@@ -91,11 +91,13 @@ static void print_usage (const char *badoption) {
   "Available options are:\n"
   "  -e stat   execute string 'stat'\n"
   "  -i        enter interactive mode after executing 'script'\n"
+  "  -d domain enter interactive domain script 'name'\n"
   "  -l mod    require library 'mod' into global 'mod'\n"
   "  -l g=mod  require library 'mod' into global 'g'\n"
   "  -v        show version information\n"
   "  -E        ignore environment variables\n"
   "  -W        turn warnings on\n"
+  "  -pS       Show poisoning output results\n"
   "  --        stop handling options\n"
   "  -         stop handling options and execute stdin\n"
   ,
