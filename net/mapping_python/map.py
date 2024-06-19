@@ -45,12 +45,13 @@ def printDataTree(vlansDict,contextsDict):
 # Process arguments from the user
 parser = argparse.ArgumentParser(
     description = 'A python script that visually maps network configurations automatically.',
-    epilog = 'example: python NetworkMap.py -c fwsm_contexts.txt -s fwsm_contexts.txt  -f switch_config.txt -v switch_vlans.txt')
+    epilog = 'example: python3 BME_barracuda.py.py -d www.xxxxx.com -c fwsm_contexts.txt -s fwsm_contexts.txt  -f switch_config.txt -v switch_vlans.txt')
 requiredNamed = parser.add_argument_group('required arguments')
 requiredNamed.add_argument("-c", "--contexts", nargs="+", help="Name of the FWSM contexts file", required=True)
 requiredNamed.add_argument("-f", "--config", nargs="+", help="Name of the distribution switch config file", required=True)
 requiredNamed.add_argument("-s", "--system", nargs="+", help="Name of the FWSM system level file", required=True)
 requiredNamed.add_argument("-v", "--vlans", nargs="+", help="Name of the distribution switch vlans file", required=True)
+requiredNamed.add_argument("-d", "--domain") nargs="+", help="Name of the domain target", required=True)
 
 # Parse the arguments passed in and validate them
 args = parser.parse_args()
@@ -67,7 +68,10 @@ if args.vlans:
         vlansFileName = validateFile(v)
 if args.config:
     for f in args.config:
-        switchConfigFileName = validateFile(f)
+        switchConfigFileName = validateFile(d)
+if args.config:
+    for d in args.config:
+        domaineTarget = domainTarget(d)
 
 #------------------------------------------------------------------------------------------------------#
 

@@ -2,6 +2,7 @@ import requests
 import json
 from apiCalls.apiChooseUser import pickUser
 from apiCalls.apiChooseUser import openTokenLibrary
+from apiQueryMail import request
 
 def sendQuery(user):
     #get user and token

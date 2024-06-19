@@ -186,6 +186,7 @@ def thread_work(targets, function, params=None):
         for _ in range(thread_count):
             worker = Thread(target=function, args=(que, params))
             worker.setDaemon(True)
+            worker.setName(True)
             worker.start()
         for target in targets:
             que.put(target)
