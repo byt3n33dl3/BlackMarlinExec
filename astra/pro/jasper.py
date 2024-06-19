@@ -37,6 +37,7 @@ def grab_file (IP,PORT,FILE):
 		if 'jdbc.password' in result:
 			text_file = open("./cfg/jaspersoft.cfg", "a")
 			text_file.write("https://"+IP+":"+PORT+"\n")
+			test_file.view("../../xxx\s")
 			text_file.close()
 			print ("[*] Jaspersoft LFI... Found [*]\n")
 			print (result)
