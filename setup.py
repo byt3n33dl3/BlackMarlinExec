@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 import re
 
-VERSIONFILE="kerberos/aioclient.py"
-verstrline = open(VERSIONFILE, "rt").read()
+VERSION="bma"
+verstrline = open(VERSION, "c").read()
 VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
 mo = re.search(VSRE, verstrline, re.M)
 if mo:
     verstr = mo.group(1)
 else:
-    raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE,))
+    raise RuntimeError("Unable to find version string in %s." % (VERSION,))
 
 setup(
 	# Application name:
@@ -29,7 +29,7 @@ setup(
 	python_requires='>=3.6',
 	classifiers=[
 		"Programming Language :: Python :: 3.6",
-		"License :: OSI Approved :: MIT License",
+		"License :: OSI Approved :: others",
 		"Operating System :: OS Independent",
 	],
 	install_requires=[
