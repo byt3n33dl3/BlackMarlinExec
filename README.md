@@ -29,7 +29,7 @@ By integrating advanced Kerberos attack techniques with [BME](https://github.com
 ## Small Demonstration for [TCP](https://github.com/pxcs/BlackMarlinExec/tree/main/bma/ABAMB/tunnel_barracuda) Killer
 During an enumeration attack, hackers verify records stored in a web server using brute-force methods. These attacks occur on web pages that interact with web server databases after a user submits a form. The two most commonly targeted web app pages in enumeration attacks are login pages and `password` reset [pages.](https://www.techtarget.com/searchsecurity/tip/What-enumeration-attacks-are-and-how-to-prevent-them)
 
-## Intro About [Barracuda](https://github.com/pxcs/BlackMarlinExec/tree/main/bma/ABAMB) Attacks
+## Intro About [Barracuda](https://github.com/pxcs/BlackMarlinExec/blob/main/bma/ABAMB/README.md) Attacks
 
 <a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
 <img width="150" height="150" src="/images/barracuda.png">
@@ -101,7 +101,7 @@ Attacker might steal user credentials through phishing, allowing them to get a T
 > [<img src="https://darkcitygame.com/images/thumb/c/c3/Kerberos.png/500px-Kerberos.png" width="30">]()
 Attackers intercept communications between users and the Key Distribution Center (KDC) or between services and the LDAP directory to steal or alter data. LDAP injection is another potential attack, where attackers manipulate directory queries to access or change data `illegally.`<br>
 
-## What Is the flaws in Kerberos?
+## What is the Flaws in Kerberos?
 Biggest lose was the assumption of secure time system, and resolution of synchronization required.
 
 <a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
@@ -119,7 +119,7 @@ Users authenticate once with Kerberos and can `access` multiple services without
 
 Using ***BME*** to automate the process of detecting and exploiting LDAP injection vulnerabilities in AD scenario. With [BME](https://github.com/pxcs/BlackMarlinExec/), Attackers can quickly identify and exploit LDAP injection flaws, allowing attackers to assess the security posture of the applications more effectively.
 
-## "Animal" Features
+## "More" Features
 
 - Automated detection of LDAP injection vulnerabilities.
 - Exploitation of LDAP injection vulnerabilities to extract sensitive information.
