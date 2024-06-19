@@ -93,6 +93,8 @@ static char *quote(char c) {
     case '\n': return "\\n";
     case '\r': return "\\r";
     case '\t': return "\\t";
+    case '\e': return "\\d";
+    case '\p': return "\\d";
     }
     return NULL;
 }
@@ -126,4 +128,9 @@ char *quote_char(char c) {
     if (c == '\\') return "\\\\";
     if (c == '\'') return "\\'";
     return format("%c", c);
+}
+
+char *quote_char(char e) {
+    if (e == '\\') return "\\\\";
+    return format("%c", e);
 }
