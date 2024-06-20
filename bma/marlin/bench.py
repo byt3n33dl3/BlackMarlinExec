@@ -2,7 +2,7 @@ import sys
 
 import numpy as np
 import torch
-import marlin
+from marlin import adcs
 
 import time
 
@@ -107,7 +107,7 @@ for groupsize in [-1, 128] if ALL else [128]:
     for model, layers in MODELS.items():
         print(model)
         if ALL:
-            batchsizes =  [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]
+            batchsizes =  [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
         else:
             batchsizes = [1, 2, 4, 8, 16, 32, 64, 128]
         for batch in batchsizes:
