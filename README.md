@@ -351,7 +351,7 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 <hr>
 
 <a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
-<img width="300" height="300" src="/images/grim.png">
+<img width="250" height="250" src="/images/grim.png">
 </p></a>
 
 ## Disclaimer
