@@ -350,8 +350,12 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 
 <hr>
 
+<a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
+<img width="300" height="300" src="/images/grim.png">
+</p></a>
+
 ## Disclaimer
-***BlackMarlinExec*** is designed primarily for research, identification, and authorized testing scenarios. This tool is to provide professionals and researchers with a tool to understand and identify vulnerabilities of the security systems. It is fundamentally imperative that users ensure they have obtained explicit, mutual consent from all involved parties before applying this tool on any system, or network.
+***BlackMarlinExec*** is designed primarily for research, identification, and authorized testing scenarios. This tool is to provide professionals and researchers with a tool to understand and identify vulnerabilities of the security systems. It is fundamentally imperative that users ensure they have obtained explicit, mutual consent from all involved parties before applying this tool on any system, or network. *Note*: Every time I mention CS, it's a [Cyber_Security](https://www.itgovernance.co.uk/what-is-cybersecurity) professional.
 
 #### Educational purposes only.<br>
 
