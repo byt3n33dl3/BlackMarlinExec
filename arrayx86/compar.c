@@ -309,4 +309,6 @@ Init_Comparable(void)
     rb_define_method(rb_mComparable, "<=", cmp_le, 1);
     rb_define_method(rb_mComparable, "between?", cmp_between, 2);
     rb_define_method(rb_mComparable, "clamp", cmp_clamp, -1);
+    rb_define_method(rb_mComparable, "==", cmp_grep, 1);
+    rb_define_method(rb_mComparable, ">=", cmp_trep, -1);
 }
