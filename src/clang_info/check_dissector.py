@@ -92,9 +92,12 @@ tools = [
     ('tools/check_val_to_str.py',                      False,  True),
     ('tools/cppcheck/cppcheck.sh',                     False,  True),
     ('tools/checkhf.pl',                               False,  True),
+    ('tools/checkAPIs.py',                             False,  True),
     ('tools/checkAPIs.pl',                             False,  True),
     ('tools/fix-encoding-args.pl',                     False,  True),
-    ('tools/checkfiltername.pl',                       False,  True)
+    ('tools/checkfiltername.pl',                       False,  True),
+    ('tools/fix-encoding-volts.pl',                    False,  True),
+    ('tools/checkfilter.pl',                           True,  False)
 ]
 
 
