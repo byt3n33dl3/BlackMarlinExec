@@ -20,6 +20,8 @@
  *
 */
 
+#include <dlfcn.h>
+
 #include "medusa.h"
 #include "medusa-trace.h"
 #include "medusa-utils.h"
