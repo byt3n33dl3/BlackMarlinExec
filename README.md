@@ -36,10 +36,10 @@ During an enumeration attack, CS verify records stored in a `storage` using brut
 [Barracuda](https://github.com/pxcs/BlackMarlinExec/blob/main/bma/ABAMB/) is a utility to kill all TCP connections on a network. It works by intercepting network traffic, and forging RST packets of existing connections to cause hangups. Works for both IPv4 connections and IPv6. Barracuda ( TCPkiller ) is a sneaky way to kill network connections. Any targeted system will appear to work when examined through typical diagnostics - DNS will resolve, ICMP's will go through, and the network card will be able to connect ( slow ) to the network-but no TCP connections will be sustained.
 
 <a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
-<img width="150" height="150" src="/images/barracuda.png">
+<img width="200" height="200" src="/images/barracuda.png">
 </p></a>
 
-### Main Features:
+## Main Features:
  - Shows a list of processes, and tcp ports they are listening to
  - The list can by filtered by port number
  - You can select a process, and terminate it
@@ -137,11 +137,12 @@ Users authenticate once with Kerberos and can `access` multiple services without
 <br>
 
 ## [LDAP](https://www.youtube.com/watch?v=S2mQBXcW3P0&pp=ygUMTERBUCBhdHRhY2tz) Automatic Injections
-<a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
-<img width="250" height="250" src="/images/OSEE.png">
-</p></a>
 
 Using ***BME*** to automate the process of detecting and exploiting LDAP injection vulnerabilities in AD scenario. With [BME](https://github.com/pxcs/BlackMarlinExec/), CS researcher can quickly identify and exploit LDAP injection flaws, allowing CS to assess the security posture of the applications more effectively.
+
+<a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
+<img width="170" height="170" src="/images/OSEE.svg">
+</p></a>
 
 ## "More" Features
 
