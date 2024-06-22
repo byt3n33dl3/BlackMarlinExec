@@ -1,5 +1,6 @@
-[![Version](https://img.shields.io/nuget/v/BlackMarlinExec?label=version&logo=nuget)](https://www.nuget.org/packages/BlackMarlinExec/)
+[![Version](https://img.shields.io/badge/BME-2.9.8-brightgreen.svg?maxAge=259200)](https://www.nuget.org/packages/BlackMarlinExec/)
 ![Downloads](https://img.shields.io/nuget/dt/SharpHoundCommon)
+[![Build](https://img.shields.io/badge/Best_OS_Performance-Linux-orange.svg)]()
 [![Coverage](https://bloodhoundad.github.io/SharpHoundCommon/coverage/report/badge_combined.svg)](https://github.com/pxcs/BlackMarlinExec/)
 [![Documentation](https://img.shields.io/static/v1?label=&message=documentation&color=blue)](https://github.com/pxcs/BlackMarlinExec/)
 
@@ -31,13 +32,12 @@ During an enumeration attack, CS verify records stored in a `storage` using brut
 
 ## Intro About [Barracuda](https://github.com/pxcs/BlackMarlinExec/blob/main/bma/ABAMB/README.md) Attack
 
-<a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
-<img width="150" height="150" src="/images/barracuda.png">
-<img width="150" height="150" src="/images/WEB-300_Fill.svg">
-</p></a>
-
 ### TCP Killer
 [Barracuda](https://github.com/pxcs/BlackMarlinExec/blob/main/bma/ABAMB/) is a utility to kill all TCP connections on a network. It works by intercepting network traffic, and forging RST packets of existing connections to cause hangups. Works for both IPv4 connections and IPv6. Barracuda ( TCPkiller ) is a sneaky way to kill network connections. Any targeted system will appear to work when examined through typical diagnostics - DNS will resolve, ICMP's will go through, and the network card will be able to connect ( slow ) to the network-but no TCP connections will be sustained.
+
+<a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
+<img width="150" height="150" src="/images/barracuda.png">
+</p></a>
 
 ### Main Features:
  - Shows a list of processes, and tcp ports they are listening to
@@ -138,8 +138,7 @@ Users authenticate once with Kerberos and can `access` multiple services without
 
 ## [LDAP](https://www.youtube.com/watch?v=S2mQBXcW3P0&pp=ygUMTERBUCBhdHRhY2tz) Automatic Injections
 <a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
-<img width="150" height="150" src="/images/PEN-210_Fill.svg">
-<img width="150" height="150" src="/images/PEN-200_Fill.svg">
+<img width="300" height="300" src="/images/PEN-200_Fill.svg">
 </p></a>
 
 Using ***BME*** to automate the process of detecting and exploiting LDAP injection vulnerabilities in AD scenario. With [BME](https://github.com/pxcs/BlackMarlinExec/), CS researcher can quickly identify and exploit LDAP injection flaws, allowing CS to assess the security posture of the applications more effectively.
@@ -350,10 +349,6 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 
 <hr>
 
-<a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
-<img width="250" height="250" src="/images/grim.png">
-</p></a>
-
 ## Disclaimer
 ***BlackMarlinExec*** is designed primarily for research, identification, and authorized testing scenarios. This tool is to provide professionals and researchers with a tool to understand and identify vulnerabilities of the security systems. It is fundamentally imperative that users ensure they have obtained explicit, mutual consent from all involved parties before applying this tool on any system, or network. *Note*: Every time I mention CS, it's a [Cyber_Security](https://www.itgovernance.co.uk/what-is-cybersecurity) professional.
 
@@ -365,7 +360,7 @@ Check out the ORG repo for more tools like this at [SuttonProgram](https://githu
 ## Thanks to
 
 - Allah and [pxcs](https://github.com/pxcs/) p3xsouger
-- My Offsec team [GangstaCrew](https://github.com/GangstaCrew)
-- People in Offensive Cyber
+- Our Offsec team [GangstaCrew](https://github.com/GangstaCrew)
+- People in Offensive CyberSec
 - Some credit to U.G people
 - And several open [Github](https://github.com/) repo.
