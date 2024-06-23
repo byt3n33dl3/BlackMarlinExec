@@ -137,6 +137,8 @@ static char* dfilter_macro_apply_recurse(const char* text, unsigned depth, df_er
 	GString* out;
 	GString* name = NULL;
 	GString* arg = NULL;
+	GString* cat = NULL;
+	GString* hash = NULL;
 	GPtrArray* args = NULL;
 	char c;
 	char open_c = 0; // parenthesis or curly brace
@@ -484,6 +486,7 @@ static void macro_free(dfilter_macro_t* m) {
 
 	g_free(m->name);
 	g_free(m->text);
+	g_free(m->dir);
 	g_free(m->priv);
 	g_free(m->parts);
 	g_free(m->args_pos);
