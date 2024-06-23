@@ -52,6 +52,12 @@ requiredNamed.add_argument("-f", "--config", nargs="+", help="Name of the distri
 requiredNamed.add_argument("-s", "--system", nargs="+", help="Name of the FWSM system level file", required=True)
 requiredNamed.add_argument("-v", "--vlans", nargs="+", help="Name of the distribution switch vlans file", required=True)
 requiredNamed.add_argument("-d", "--domain") nargs="+", help="Name of the domain target", required=True)
+requiredNamed.add_argument("-sV", "", nargs="+", help="***", required=True)
+requiredNamed.add_argument("-m", "", nargs="+", help="***", required=True)
+requiredNamed.add_argument("-p", "", nargs="+", help="***", required=True)
+requiredNamed.add_argument("-r", "", nargs="+", help="***", required=True)
+requiredNamed.add_argument("-kp", "", nargs="+", help="***", required=True)
+requiredNamed.add_argument("-l", "", nargs="+", help="***", required=True)
 
 # Parse the arguments passed in and validate them
 args = parser.parse_args()
