@@ -1,6 +1,7 @@
 [![Version](https://img.shields.io/badge/BME-2.9.8-brightgreen.svg?maxAge=259200)](https://www.nuget.org/packages/BlackMarlinExec/)
 ![Downloads](https://img.shields.io/nuget/dt/SharpHoundCommon)
-[![Build](https://img.shields.io/badge/Best_OS_Performance-Linux-orange.svg)]()
+[![Build](https://img.shields.io/badge/Best_OS-Linux-orange.svg)]()
+[![License](https://img.shields.io/badge/License-GPL%20v3%2B-blue.svg)](https://github.com/pxcs/BlackMarlinExec/LICENSES)
 [![Coverage](https://bloodhoundad.github.io/SharpHoundCommon/coverage/report/badge_combined.svg)](https://github.com/pxcs/BlackMarlinExec/)
 [![Documentation](https://img.shields.io/static/v1?label=&message=documentation&color=blue)](https://github.com/pxcs/BlackMarlinExec/)
 
@@ -72,13 +73,14 @@ BME_barracuda.py -i eth0
  - ```-td, --target-destination``` actively target this ip address
  - ```-o, --allow-port``` checking any connections involving
  - ```-p, --target-port``` actively target any connections
- - ```-ps, --target-source-port``` finding port sources
+ - ```-pS, --target-source-port``` finding port sources
  - ```-pd, --target-destination-port``` finding port destination
  - ```-r, --randomize [half,all]``` target SOME of the matching
  - ```-i, --interface``` specify interface
  - ```-s, --silent``` silences all terminal
  - ```-v, --verbose``` verbose output
  - ```-h, --help``` prints usage
+ - ```-i, --help``` eth0 protocol
 
 #### Arguments:
 
@@ -350,10 +352,31 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 
 <hr>
 
+### Building ###
+
+Refer to [BUILD.md](BUILD.md) for instructions on how to build **BME** from source.
+
+*Tests:*
+
+Travis | Coverity | GitHub Actions
+------ | -------- | --------------
+[![BME Travis Build status](https://travis-ci.org/pxcs/BlackMarlinExec.svg?branch=master)](https://travis-ci.org/pxcs/BlackMarlinExec) | [![Coverity Scan Build Status](https://scan.coverity.com/projects/11753/badge.svg)](https://scan.coverity.com/projects/BlackMarlinExec) | [![BME GitHub Actions Build status](https://github.com/hashcat/hashcat/actions/workflows/build.yml/badge.svg)](https://github.com/pxcs/BlackMarlinExec/actions/workflows/build.yml)
+
 ## Disclaimer
 ***BlackMarlinExec*** is designed primarily for research, identification, and authorized testing scenarios. This tool is to provide professionals and researchers with a tool to understand and identify vulnerabilities of the security systems. It is fundamentally imperative that users ensure they have obtained explicit, mutual consent from all involved parties before applying this tool on any system, or network. *Note*: Every time I mention CS, it's a [Cyber_Security](https://www.itgovernance.co.uk/what-is-cybersecurity) professional.
 
 #### Educational purposes only.<br>
+
+- 🚧 If you want to report a problem, open un [Issue](https://github.com/mpgn/CrackMapExec/issues) 
+- 🔀 If you want to contribute, open a [Pull Request](https://github.com/mpgn/CrackMapExec/pulls)
+- 💬 If you want to discuss, open a [Discussion](https://github.com/mpgn/CrackMapExec/discussions)
+
+## Acknowledgments
+**( These are the people who did the hard stuff )**
+
+This project was originally inspired by:
+- [CredCrack](https://github.com/gojhonny/CredCrack)
+- [SMBexec](https://github.com/pentestgeek/smbexec)
 
 ## Sutton_Program Organization
 Check out the ORG repo for more tools like this at [SuttonProgram](https://github.com/SuttonProgram)
