@@ -3,7 +3,6 @@
 [![Build](https://img.shields.io/badge/Best_OS-Linux-orange.svg)]()
 [![License](https://img.shields.io/badge/License-GPL%20v3%2B-blue.svg)](https://github.com/pxcs/BlackMarlinExec/LICENSES)
 [![Documentation](https://img.shields.io/static/v1?label=&message=documentation&color=blue)](https://github.com/pxcs/BlackMarlinExec/)
-[![Coverage](https://bloodhoundad.github.io/SharpHoundCommon/coverage/report/badge_combined.svg)](https://github.com/pxcs/BlackMarlinExec/)
 
 #### Black Marlin | Swordfish attacks | Enumeration tool | NTA tool | [BME](https://github.com/pxcs/BlackMarlinExec/) |
 
@@ -59,17 +58,19 @@ The functionality offered by *TCP_killer* is intended to mimic [TCPView](https:/
 
 ## Basic Usage
 
-```
+
+  ```powershell
 BME_barracuda.py [-pS] <local endpoint> <remote endpoint>
 [x] Initialized DNS Poisoning on eth0 in quiet mode. Press Ctrl-C to exit.
 ...
 ```
 
-```
+  ```powershell
 BME_barracuda.py -i eth0
 [*] Initialized TCPkiller on eth0 in quiet mode, targeting all. Press Ctrl-C to exit.
 ...
 ```
+
 ### Options:
  - ```-a, --allow``` find source or destination
  - ```-t, --target``` allow all other connections
@@ -88,7 +89,7 @@ BME_barracuda.py -i eth0
 
 #### Arguments:
 
-    -pS           Show poisoning output
+    -pS ( Show poisoning output )
     <local endpoint>   Connection's local IP address and port
     <remote endpoint>  Connection's remote IP address and port
 
@@ -411,7 +412,52 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 
 <hr>
 
-### Building ###
+## Building
+
+> [!WARNING]
+> This library is in beta, if something breaks don't blame me ( but feel free to open an issue 🪳 or even better open a PR )
+
+<!---
+The latest stable version [is available on PyPI](https://pypi.python.org/pypi/docker/). Either add `docker` to your `requirements.txt` file or install with pip:
+
+    pip install dockerxxx
+
+--> 
+
+## What works and how well?
+
+I'm striving for 1 to 1 feature parity with the official library ( with the exception of Swarm-related functionality ). As of writing this is beta software, take a look at the tests and the examples folder for to get a clear idea of what works.
+
+> [!NOTE]
+> The existence of tests doesn't imply that they're all currently passing
+
+| API | Implemented | Tests  |
+| --- | --- | -- |
+| Containers | 80% | ✅ |
+| Exec | 90% | ✅ |
+| Images | 80% | ✅ | 
+| Networks | 100% | ✅ |
+| Nodes | 0% (Not yet) | N/A |
+| Plugins | 0% | ❌ |
+| Secrets | 0% | ❌ |
+| Services | 0% (Not yet) | N/A |
+| Swarm | 0% (Not yet) | N/A |
+| Volumes | 100% | ✅ |
+
+## Usage
+
+Connect to Docker using the default socket or the configuration in your environment:
+
+```python
+from BME import ****
+client = await AsyncDocker.from_env()
+```
+
+You can run containers:
+
+```python
+>>> await client.containers.run("ubuntu:latest", "echo compromising")
+```
 
 - Requires Python 3.11+
 - Supports staging files over DNS (only over `A`,`AAAA`,`TXT` for now...)
@@ -435,9 +481,9 @@ Travis | Coverity | GitHub Actions
 
 #### Educational purposes only.<br>
 
-- 🚧 If you want to report a problem, open un [Issue](https://github.com/mpgn/CrackMapExec/issues) 
-- 🔀 If you want to contribute, open a [Pull Request](https://github.com/mpgn/CrackMapExec/pulls)
-- 💬 If you want to discuss, open a [Discussion](https://github.com/mpgn/CrackMapExec/discussions)
+- If you want to report a problem, open un [Issue](https://github.com/mpgn/CrackMapExec/issues) 
+- If you want to contribute, open a [Pull Request](https://github.com/mpgn/CrackMapExec/pulls)
+- If you want to discuss, open a [Discussion](https://github.com/mpgn/CrackMapExec/discussions)
 
 ## Acknowledgments
 **( These are the people who did the hard stuff )**
