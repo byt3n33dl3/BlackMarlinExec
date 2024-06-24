@@ -9,8 +9,10 @@
 
 <a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
 <img width="300" height="300" src="/images/swordfish.png">
-</p></a>
+</p></a><br>
 
+About **Active Directory** BlackMarlinExec, find the right attack path for pentesting and security researchs, it's ability to use graph theory to `reveal` the hidden and often unintended relationships within an online environments.
+<br>
 ## About BlackMarlinExec
 BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or Active Environment. CS can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to `quickly` identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. CS can see thousand, even `millions` of attack paths within your existing architecture.
 
@@ -229,7 +231,7 @@ options:
 Now, that you know how to start DNSChef let's configure it to fake all replies to point to 127.0.0.1 using the *--fakeip* parameter:
 
     # ./BME --fakeip 127.0.0.1 -q
-    [*] DNSChef started on interface: 127.0.0.1 
+    [*] BME started on interface: 127.0.0.1 
     [*] Using the following nameservers: 8.8.8.8
     [*] Cooking all A replies to point to 127.0.0.1
     [23:55:57] 127.0.0.1: cooking the response of type 'A' for google.com to 127.0.0.1
@@ -244,8 +246,6 @@ In the above output you an see that BME was configured to proxy all requests to 
     google.com mail is handled by 10 aspmx.l.google.com.
     google.com mail is handled by 40 alt3.aspmx.l.google.com.
     google.com mail is handled by 30 alt2.aspmx.l.google.com.
-    google.com mail is handled by 20 alt1.aspmx.l.google.com.
-    google.com mail is handled by 50 alt4.aspmx.l.google.com.
 
 As you can see the program was tricked to use 127.0.0.1 for the IPv4 address. However, the information obtained from IPv6 (AAAA) and mail (MX) records appears completely legitimate. The goal of DNSChef is to have the least impact on the correct operation of the program, so if an application relies on a specific mailserver it will correctly obtain one through this proxied request.
 
@@ -268,8 +268,6 @@ In addition to the --fakeip flag, I have now specified --fakeipv6 designed to fa
     google.com mail is handled by 10 aspmx.l.google.com.
     google.com mail is handled by 40 alt3.aspmx.l.google.com.
     google.com mail is handled by 30 alt2.aspmx.l.google.com.
-    google.com mail is handled by 20 alt1.aspmx.l.google.com.
-    google.com mail is handled by 50 alt4.aspmx.l.google.com.
 
 Once more all of the records not explicitly overriden by the application were proxied and returned from the real DNS server. However, IPv4 (A) and IPv6 (AAAA) were both faked to point to a local machine.
 
