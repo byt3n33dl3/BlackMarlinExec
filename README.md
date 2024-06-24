@@ -84,7 +84,7 @@ BME_barracuda.py -i eth0
  - ```-s, --silent``` silences all terminal
  - ```-v, --verbose``` verbose output
  - ```-h, --help``` prints usage
- - ```-i, --help``` eth0 protocol
+ - ```-i, --tcp && eth0``` net
 
 #### Arguments:
 
