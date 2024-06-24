@@ -356,7 +356,7 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 
 Refer to [BUILD.md](BUILD.md) for instructions on how to build **BME** from source.
 
-*Tests:*
+Tests:
 
 Travis | Coverity | GitHub Actions
 ------ | -------- | --------------
@@ -374,7 +374,7 @@ Travis | Coverity | GitHub Actions
 ## Acknowledgments
 **( These are the people who did the hard stuff )**
 
-This project was originally inspired by:
+This project was inspired by:
 - [CredCrack](https://github.com/gojhonny/CredCrack)
 - [SMBexec](https://github.com/pentestgeek/smbexec)
 
