@@ -2,8 +2,8 @@
 ![Downloads](https://img.shields.io/nuget/dt/SharpHoundCommon)
 [![Build](https://img.shields.io/badge/Best_OS-Linux-orange.svg)]()
 [![License](https://img.shields.io/badge/License-GPL%20v3%2B-blue.svg)](https://github.com/pxcs/BlackMarlinExec/LICENSES)
-[![Coverage](https://bloodhoundad.github.io/SharpHoundCommon/coverage/report/badge_combined.svg)](https://github.com/pxcs/BlackMarlinExec/)
 [![Documentation](https://img.shields.io/static/v1?label=&message=documentation&color=blue)](https://github.com/pxcs/BlackMarlinExec/)
+[![Coverage](https://bloodhoundad.github.io/SharpHoundCommon/coverage/report/badge_combined.svg)](https://github.com/pxcs/BlackMarlinExec/)
 
 #### Black Marlin | Swordfish attacks | Enumeration tool | NTA tool | [BME](https://github.com/pxcs/BlackMarlinExec/) |
 
@@ -58,7 +58,9 @@ The functionality offered by *TCP_killer* is intended to mimic [TCPView](https:/
 ## Basic Usage
 
 ```
-BME_barracuda.py [-pS] <local endpoint> <remote endpoint>`
+BME_barracuda.py [-pS] <local endpoint> <remote endpoint>
+[x] Initialized DNS Poisoning on eth0 in quiet mode. Press Ctrl-C to exit.
+...
 ```
 
 ```
@@ -222,6 +224,65 @@ options:
   --port PORT, -p PORT  port to serve the HTTP server (default: 8000)
 ```
 
+## Intercept all responses
+
+Now, that you know how to start DNSChef let's configure it to fake all replies to point to 127.0.0.1 using the *--fakeip* parameter:
+
+    # ./BME --fakeip 127.0.0.1 -q
+    [*] DNSChef started on interface: 127.0.0.1 
+    [*] Using the following nameservers: 8.8.8.8
+    [*] Cooking all A replies to point to 127.0.0.1
+    [23:55:57] 127.0.0.1: cooking the response of type 'A' for google.com to 127.0.0.1
+    [23:55:57] 127.0.0.1: proxying the response of type 'AAAA' for google.com
+    [23:55:57] 127.0.0.1: proxying the response of type 'MX' for google.com
+
+In the above output you an see that BME was configured to proxy all requests to 127.0.0.1. The first line of log at 08:11:23 shows that we have "cooked" the "A" record response to point to 127.0.0.1. However, further requests for 'AAAA' and 'MX' records are simply proxied from a real DNS server. Let's see the output from requesting program:
+
+    $ host google.com localhost
+    google.com has address 127.0.0.1
+    google.com has IPv6 address 2001:4860:4001:803::1001
+    google.com mail is handled by 10 aspmx.l.google.com.
+    google.com mail is handled by 40 alt3.aspmx.l.google.com.
+    google.com mail is handled by 30 alt2.aspmx.l.google.com.
+    google.com mail is handled by 20 alt1.aspmx.l.google.com.
+    google.com mail is handled by 50 alt4.aspmx.l.google.com.
+
+As you can see the program was tricked to use 127.0.0.1 for the IPv4 address. However, the information obtained from IPv6 (AAAA) and mail (MX) records appears completely legitimate. The goal of DNSChef is to have the least impact on the correct operation of the program, so if an application relies on a specific mailserver it will correctly obtain one through this proxied request.
+
+Let's fake one more request to illustrate how to target multiple records at the same time:
+
+    # ./BME --fakeip 127.0.0.1 --fakeipv6 ::1 -q
+    [*] BME started on interface: 127.0.0.1 
+    [*] Using the following nameservers: 8.8.8.8
+    [*] Cooking all A replies to point to 127.0.0.1
+    [*] Cooking all AAAA replies to point to ::1
+    [00:02:14] 127.0.0.1: cooking the response of type 'A' for google.com to 127.0.0.1
+    [00:02:14] 127.0.0.1: cooking the response of type 'AAAA' for google.com to ::1
+    [00:02:14] 127.0.0.1: proxying the response of type 'MX' for google.com
+
+In addition to the --fakeip flag, I have now specified --fakeipv6 designed to fake 'AAAA' record queries. Here is an updated program output:
+
+    $ host google.com localhost
+    google.com has address 127.0.0.1
+    google.com has IPv6 address ::1
+    google.com mail is handled by 10 aspmx.l.google.com.
+    google.com mail is handled by 40 alt3.aspmx.l.google.com.
+    google.com mail is handled by 30 alt2.aspmx.l.google.com.
+    google.com mail is handled by 20 alt1.aspmx.l.google.com.
+    google.com mail is handled by 50 alt4.aspmx.l.google.com.
+
+Once more all of the records not explicitly overriden by the application were proxied and returned from the real DNS server. However, IPv4 (A) and IPv6 (AAAA) were both faked to point to a local machine.
+
+DNSChef supports multiple record types:
+
+Record |  Description | Argument | Example
+---|---|---|---
+A     | IPv4 address |--fakeip   | --fakeip 127.0.0.1
+AAAA  | IPv6 address |--fakeipv6 | --fakeipv6 2001:db8::1
+MX    | Mail server  |--fakemail | --fakemail mail.fake.com
+CNAME | CNAME record |--fakealias| --fakealias www.fake.com
+NS    | Name server  |--fakens   | --fakens ns.fake.com
+
 ## Examples
 
 Pop results `BME.exe` :
@@ -245,7 +306,7 @@ $ BME.exe
 
 <a href="https://github.com/pxcs/BlackMarlinExec/"><img src="https://github.com/pxcs/BlackMarlinExec/assets/151133481/ba7ffa1c-fd3a-4dfa-8e79-0a9c1a644b19" align="right" width="70" alt="smilodon-logo"></a>
 > [<img src="https://github.com/pxcs/BlackMarlinExec/assets/151133481/ba7ffa1c-fd3a-4dfa-8e79-0a9c1a644b19" width="20">]() BlackMarlinExec | Submarine project-75: <br>
-***BlackMarlinExex*** is a cutting edge CS tool. Designed for comprehensive network traffic analysis and sophisticated enumeration, akin to the functionalities provided by harpoonhound. Developed for CS and penetration testers, BlackMarlinExec offers a robust suite of features tailored to identify, assess, and scan security vulnerabilities within complex network environments.<br><br>
+***BlackMarlinExec*** is a cutting edge CS tool. Designed for comprehensive network traffic analysis and sophisticated enumeration, akin to the functionalities provided by harpoonhound. Developed for CS and penetration testers, BlackMarlinExec offers a robust suite of features tailored to identify, assess, and scan security vulnerabilities within complex network environments.<br><br>
 
 ## Network traffic analysis
 
@@ -353,6 +414,15 @@ Publicly share you guys about my red teaming ***experiments*** tested on several
 <hr>
 
 ### Building ###
+
+- Requires Python 3.11+
+- Supports staging files over DNS (only over `A`,`AAAA`,`TXT` for now...)
+- Config file is now TOML
+- Optional HTTP API (allows you to query logs and update config remotely)
+- Fully async for increased performance (uses AsyncIO)
+- Structured logging and a number of QOL improvements
+- Is now a Python package
+- Dockerized
 
 Refer to [BUILD.md](BUILD.md) for instructions on how to build **BME** from source.
 
