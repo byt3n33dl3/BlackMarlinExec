@@ -1,14 +1,10 @@
 [![Version](https://img.shields.io/badge/BME-3.1.0-brightgreen.svg?maxAge=259200)](https://www.nuget.org/packages/BlackMarlinExec/)
 ![Downloads](https://img.shields.io/nuget/dt/SharpHoundCommon)
-[![Build](https://img.shields.io/badge/Best_OS-Linux-orange.svg)]()
+[![Build](https://img.shields.io/badge/Best_OS-Linux-orange.svg?color=brown)]()
 [![License](https://img.shields.io/badge/License-GPL%20v3%2B-blue.svg)](https://github.com/pxcs/BlackMarlinExec/LICENSES)
 [![Documentation](https://img.shields.io/static/v1?label=&message=documentation&color=blue)](https://github.com/pxcs/BlackMarlinExec/)
 
-#### Black Marlin | Swordfish attacks | Enumeration tool | NTA tool | [BME](https://github.com/pxcs/BlackMarlinExec/) |
-
-<a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
-<img width="300" height="300" src="/images/swordfish.png">
-</p></a><br>
+## Black Marlin | Swordfish attacks | Enumeration tool | NTA tool | [BME](https://github.com/pxcs/BlackMarlinExec/) |
 
 About **Active Directory** BlackMarlinExec, find the right attack path for pentesting and security researchs, it's ability to use graph theory to `reveal` the hidden and often unintended relationships within an online environments.
 <br>
@@ -24,10 +20,7 @@ BlackMarlinExec incorporates a specialized [Kerberos](https://github.com/pxcs/Ke
 - And kerberoasting to identifies and extracts service tickets (TGS) for services that leverage Kerberos.
 
 By integrating advanced Kerberos attack techniques with [BME](https://github.com/pxcs/BlackMarlinExec/) powerful enumeration and network traffic analysis capabilities, CS would gain a holistic view of the network's security posture.<br>
-
-<a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
-<img width="320" height="300" src="/images/qerberus.png">
-</p></a><hr>
+<hr>
 
 ## Small Demonstration for [Roasting](https://github.com/pxcs/BlackMarlinExec/tree/main/bma/ABAMB/tunnel_barracuda)
 During an enumeration attack, CS verify records stored in a `storage` using brute-force methods. These CS occur on `storage` that interact with web server databases after a user submits a form. The two most commonly targeted web app pages in enumeration attacks are login pages and `password` reset [pages.](https://www.techtarget.com/searchsecurity/tip/What-enumeration-attacks-are-and-how-to-prevent-them)
@@ -36,10 +29,6 @@ During an enumeration attack, CS verify records stored in a `storage` using brut
 
 #### TCP Killer
 [Barracuda](https://github.com/pxcs/BlackMarlinExec/blob/main/bma/ABAMB/) is a utility to kill all TCP connections on a network. It works by intercepting network traffic, and forging RST packets of existing connections to cause hangups. Works for both IPv4 connections and IPv6. Barracuda ( TCPkiller ) is a sneaky way to kill network connections. Any targeted system will appear to work when examined through typical diagnostics - DNS will resolve, ICMP's will go through, and the network card will be able to connect ( slow ) to the network-but no TCP connections will be sustained.
-
-<a href="https://github.com/pxcs/KerberossianCracker"><p align="center">
-<img width="200" height="200" src="/images/barracuda.png">
-</p></a>
 
 ## Main Features:
  - Shows a list of processes, and tcp ports they are listening to
@@ -136,20 +125,12 @@ Attackers intercept communications between users and the Key Distribution Center
 ## What is the Flaws in Kerberos?
 Biggest lose was the assumption of secure time system, and resolution of synchronization required.
 
-<a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
-<img width="250" height="250" src="/images/keb5.png">
-</p></a>
-
 Users authenticate once with Kerberos and can `access` multiple services without re-entering credentials, thanks to the TGT. *Haha* this is the time when the CS could use this privileges for testing.
 <br>
 
 ## [LDAP](https://www.youtube.com/watch?v=S2mQBXcW3P0&pp=ygUMTERBUCBhdHRhY2tz) Automatic Injections
 
 Using ***BME*** to automate the process of detecting and exploiting LDAP injection vulnerabilities in AD scenario. With [BME](https://github.com/pxcs/BlackMarlinExec/), CS researcher can quickly identify and exploit LDAP injection flaws, allowing CS to assess the security posture of the applications more effectively.
-
-<a href="https://github.com/pxcs/BlackMarlinExec/"><p align="center">
-<img width="170" height="170" src="/images/OSEE.svg">
-</p></a>
 
 ## "More" Features
 
@@ -299,10 +280,6 @@ $ BME.exe
 
 #### [Vulnerability Report](https://github.com/pxcs/CVE-29343-Sysmon-list/)
 
-<a href="https://github.com/pxcs/BlackMarlin/">
-    <img align="center"style="padding-right:10px;" src="https://github.com/pxcs/BlackMarlin/assets/151133481/ef88a928-41a1-4a24-810a-b70031d5efe3" /></a>
-<br><br>
-
 <a href="https://github.com/pxcs/BlackMarlinExec/"><img src="https://github.com/pxcs/BlackMarlinExec/assets/151133481/ba7ffa1c-fd3a-4dfa-8e79-0a9c1a644b19" align="right" width="70" alt="smilodon-logo"></a>
 > [<img src="https://github.com/pxcs/BlackMarlinExec/assets/151133481/ba7ffa1c-fd3a-4dfa-8e79-0a9c1a644b19" width="20">]() BlackMarlinExec | Submarine project-75: <br>
 ***BlackMarlinExec*** is a cutting edge CS tool. Designed for comprehensive network traffic analysis and sophisticated enumeration, akin to the functionalities provided by harpoonhound. Developed for CS and penetration testers, BlackMarlinExec offers a robust suite of features tailored to identify, assess, and scan security vulnerabilities within complex network environments.<br><br>
@@ -430,19 +407,6 @@ I'm striving for 1 to 1 feature parity with the official library ( with the exce
 
 > [!NOTE]
 > The existence of tests doesn't imply that they're all currently passing
-
-| API | Implemented | Tests  |
-| --- | --- | -- |
-| Containers | 80% | ✅ |
-| Exec | 90% | ✅ |
-| Images | 80% | ✅ | 
-| Networks | 100% | ✅ |
-| Nodes | 0% (Not yet) | N/A |
-| Plugins | 0% | ❌ |
-| Secrets | 0% | ❌ |
-| Services | 0% (Not yet) | N/A |
-| Swarm | 0% (Not yet) | N/A |
-| Volumes | 100% | ✅ |
 
 ## Usage
 
