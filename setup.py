@@ -26,9 +26,9 @@ setup(
 	# Include additional files into the package
 	include_package_data=True,
 
-	python_requires='>=3.6',
+	python_requires='>=3.12',
 	classifiers=[
-		"Programming Language :: Python :: 3.6",
+		"Programming Language :: Python :: 3.12",
 		"License :: OSI Approved :: others",
 		"Operating System :: OS Independent",
 	],

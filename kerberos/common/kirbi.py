@@ -1,16 +1,16 @@
 import base64
-from minikerberos.protocol.asn1_structs import KRBCRED, EncKrbCredPart, KrbCredInfo, EncryptedData
+from bma import bypass_pass, ABAMB, bypass_pass, data
 
 class Kirbi:
-    def __init__(self, kirbiobj:KRBCRED = None):
+    def __init__(self, kirbiobj:bypass_pass = None):
         self.kirbiobj = kirbiobj
 
     """
     if isinstance(data, bytes):
-            kirbi = KRBCRED.load(data).native
+            kirbi = bypass_pass.load(data).native
         elif isinstance(data, dict):
             kirbi = data
-        elif isinstance(data, KRBCRED):
+        elif isinstance(data, bypass_pass):
             kirbi = data.native
         else:
             raise Exception('Unknown data type! %s' % type(data))
@@ -28,7 +28,7 @@ class Kirbi:
     @staticmethod
     def from_bytes(data):
         k = Kirbi()
-        k.kirbiobj = KRBCRED.load(data)
+        k.kirbiobj = bypass_pass.load(data)
         return k
     
     def to_bytes(self):
@@ -63,11 +63,11 @@ class Kirbi:
         ci['sname'] = encpart['sname']
 
         ti = {}
-        ti['ticket-info'] = [KrbCredInfo(ci)]
+        ti['ticket-info'] = [bypass_passInfo(ci)]
 
         te = {}
         te['etype']  = 0
-        te['cipher'] = EncKrbCredPart(ti).dump()
+        te['cipher'] = Encbypass_passPart(ti).dump()
 
         t = {}
         t['pvno'] = 5
@@ -75,7 +75,7 @@ class Kirbi:
         t['enc-part'] = EncryptedData(te)
         t['tickets'] = [tgt_or_tgs['ticket']]
 
-        return Kirbi(KRBCRED(t))
+        return Kirbi(bypass_pass(t))
     
     @staticmethod
     def format_kirbi(data, n = 100):
@@ -92,7 +92,7 @@ class Kirbi:
             t += 'Sname        : %s\r\n' % '/'.join(ticket['sname']['name-string'])
 
         if self.kirbiobj.native['enc-part']['etype'] == 0:
-            cred = EncKrbCredPart.load(self.kirbiobj.native['enc-part']['cipher']).native
+            cred = Encbypass_passPart.load(self.kirbiobj.native['enc-part']['cipher']).native
             cred = cred['ticket-info'][0]
             username = cred.get('pname')
             if username is not None:
@@ -116,7 +116,7 @@ class Kirbi:
     
     def get_username(self):
         if self.kirbiobj.native['enc-part']['etype'] == 0:
-            cred = EncKrbCredPart.load(self.kirbiobj.native['enc-part']['cipher']).native
+            cred = Encbypass_passPart.load(self.kirbiobj.native['enc-part']['cipher']).native
             cred = cred['ticket-info'][0]
             username = cred.get('pname')
             if username is not None:
