@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/BME-2.9.8-brightgreen.svg?maxAge=259200)](https://www.nuget.org/packages/BlackMarlinExec/)
+[![Version](https://img.shields.io/badge/BME-3.1.0-brightgreen.svg?maxAge=259200)](https://www.nuget.org/packages/BlackMarlinExec/)
 ![Downloads](https://img.shields.io/nuget/dt/SharpHoundCommon)
 [![Build](https://img.shields.io/badge/Best_OS-Linux-orange.svg)]()
 [![License](https://img.shields.io/badge/License-GPL%20v3%2B-blue.svg)](https://github.com/pxcs/BlackMarlinExec/LICENSES)
@@ -213,7 +213,7 @@ For any questions or inquiries, feel free to contact the `developers` [@pxcs](ht
 
 ## Main Usage
 
-```
+```c
 usage: BME [-h] [--command COMMAND] [--output OUTPUT] [--interface INTERFACE] [--port PORT]
 
 options:
@@ -233,20 +233,20 @@ Now, that you know how to start DNSChef let's configure it to fake all replies t
 
     # ./BME --fakeip 127.0.0.1 -q
     [*] BME started on interface: 127.0.0.1 
-    [*] Using the following nameservers: 8.8.8.8
+    [*] Using the following nameservers: x-x-x-x
     [*] Cooking all A replies to point to 127.0.0.1
-    [23:55:57] 127.0.0.1: cooking the response of type 'A' for google.com to 127.0.0.1
-    [23:55:57] 127.0.0.1: proxying the response of type 'AAAA' for google.com
-    [23:55:57] 127.0.0.1: proxying the response of type 'MX' for google.com
+    [23:55:57] 127.0.0.1: cooking the response of type 'A' for x-x-x-x.com to 127.0.0.1
+    [23:55:57] 127.0.0.1: proxying the response of type 'AAAA' for x-x-x-x.com
+    [23:55:57] 127.0.0.1: proxying the response of type 'MX' for x-x-x-x.com
 
 In the above output you an see that BME was configured to proxy all requests to 127.0.0.1. The first line of log at 08:11:23 shows that we have "cooked" the "A" record response to point to 127.0.0.1. However, further requests for 'AAAA' and 'MX' records are simply proxied from a real DNS server. Let's see the output from requesting program:
 
     $ host google.com localhost
-    google.com has address 127.0.0.1
-    google.com has IPv6 address 2001:4860:4001:803::1001
-    google.com mail is handled by 10 aspmx.l.google.com.
-    google.com mail is handled by 40 alt3.aspmx.l.google.com.
-    google.com mail is handled by 30 alt2.aspmx.l.google.com.
+    x-x-x-x.com has address 127.0.0.1
+    x-x-x-x.com has IPv6 address 2001:4860:4001:803::1001
+    x-x-x-x.com mail is handled by 10 aspmx.l.x-x-x-x.com.
+    x-x-x-x.com mail is handled by 40 alt3.aspmx.l.x-x-x-x.com.
+    x-x-x-x.com mail is handled by 30 alt2.aspmx.l.x-x-x-x.com.
 
 As you can see the program was tricked to use 127.0.0.1 for the IPv4 address. However, the information obtained from IPv6 (AAAA) and mail (MX) records appears completely legitimate. The goal of DNSChef is to have the least impact on the correct operation of the program, so if an application relies on a specific mailserver it will correctly obtain one through this proxied request.
 
@@ -254,21 +254,21 @@ Let's fake one more request to illustrate how to target multiple records at the 
 
     # ./BME --fakeip 127.0.0.1 --fakeipv6 ::1 -q
     [*] BME started on interface: 127.0.0.1 
-    [*] Using the following nameservers: 8.8.8.8
+    [*] Using the following nameservers: x-x-x-x
     [*] Cooking all A replies to point to 127.0.0.1
     [*] Cooking all AAAA replies to point to ::1
-    [00:02:14] 127.0.0.1: cooking the response of type 'A' for google.com to 127.0.0.1
-    [00:02:14] 127.0.0.1: cooking the response of type 'AAAA' for google.com to ::1
-    [00:02:14] 127.0.0.1: proxying the response of type 'MX' for google.com
+    [00:02:14] 127.0.0.1: cooking the response of type 'A' for x-x-x-x.com to 127.0.0.1
+    [00:02:14] 127.0.0.1: cooking the response of type 'AAAA' for x-x-x-x.com to ::1
+    [00:02:14] 127.0.0.1: proxying the response of type 'MX' for x-x-x-x.com
 
 In addition to the --fakeip flag, I have now specified --fakeipv6 designed to fake 'AAAA' record queries. Here is an updated program output:
 
-    $ host google.com localhost
-    google.com has address 127.0.0.1
-    google.com has IPv6 address ::1
-    google.com mail is handled by 10 aspmx.l.google.com.
-    google.com mail is handled by 40 alt3.aspmx.l.google.com.
-    google.com mail is handled by 30 alt2.aspmx.l.google.com.
+    $ host x-x-x-x.com localhost
+    x-x-x-x.com has address 127.0.0.1
+    x-x-x-x.com has IPv6 address ::1
+    x-x-x-x.com mail is handled by 10 aspmx.l.x-x-x-x.com.
+    x-x-x-x.com mail is handled by 40 alt3.aspmx.l.x-x-x-x.com.
+    x-x-x-x.com mail is handled by 30 alt2.aspmx.l.x-x-x-x.com.
 
 Once more all of the records not explicitly overriden by the application were proxied and returned from the real DNS server. However, IPv4 (A) and IPv6 (AAAA) were both faked to point to a local machine.
 
@@ -278,9 +278,9 @@ Record |  Description | Argument | Example
 ---|---|---|---
 A     | IPv4 address |--fakeip   | --fakeip 127.0.0.1
 AAAA  | IPv6 address |--fakeipv6 | --fakeipv6 2001:db8::1
-MX    | Mail server  |--fakemail | --fakemail mail.fake.com
-CNAME | CNAME record |--fakealias| --fakealias www.fake.com
-NS    | Name server  |--fakens   | --fakens ns.fake.com
+MX    | Mail server  |--fakemail | --fakemail mail.x-x-x-x.com
+CNAME | CNAME record |--fakealias| --fakealias www.x-x-x-x.com
+NS    | Name server  |--fakens   | --fakens ns.x-x-x-x.com
 
 ## Examples
 
@@ -486,9 +486,13 @@ Travis | Coverity | GitHub Actions
 - If you want to discuss, open a [Discussion](https://github.com/mpgn/CrackMapExec/discussions)
 
 ## Acknowledgments
-**( These are the people who did the hard stuff )**
+**( Inspired by )**
 
 This project was inspired by:
+- BloodHound/AD
+- SharpHound
+- Wireshark
+- CrackMapExec
 - [CredCrack](https://github.com/gojhonny/CredCrack)
 - [SMBexec](https://github.com/pentestgeek/smbexec)
 
@@ -499,6 +503,6 @@ Check out the ORG repo for more tools like this at [SuttonProgram](https://githu
 
 - Allah and [pxcs](https://github.com/pxcs/) p3xsouger
 - Our Offsec team [GangstaCrew](https://github.com/GangstaCrew)
-- People in Offensive CyberSec
+- People in Offensive Security
 - Some credit to U.G people
 - And several open [Github](https://github.com/) repo.
