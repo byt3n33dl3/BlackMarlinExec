@@ -1,6 +1,9 @@
 import re
 import requests
 
+from bma import ABAMB
+from bma import dart
+
 
 class Web:
     @staticmethod
@@ -25,9 +28,6 @@ class Web:
                         break
                 final_links.append(item)
 
-        # '(?=href)href=\"(?P<href>[^\"]+)'
-        # 'href=[\'"]?([^\'" >]+)'
-
         urls = re.findall('href=[\'"]?([^\'" >]+)', r.text)
         for item in urls:
             if item not in final_links:
@@ -40,4 +40,4 @@ class Web:
                     final_links.append(f'{url}/{item}')
                 else:
                     final_links.append(item)
-        return final_links
+        return final_links ('href=true.txt')

