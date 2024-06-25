@@ -3,7 +3,7 @@
 #### Code of Conduct
 Introduction
 
-Welcome to our project on Kerberos attacks! This project aims to educate and inform the cybersecurity community about Kerberos vulnerabilities and defenses. To ensure a welcoming, inclusive, and ethical environment, all participants are expected to adhere to the following Code of Conduct.
+Welcome to our project on this big BME tool! This project aims to educate and inform the cybersecurity community about AD vulnerabilities and defenses. To ensure a welcoming, inclusive, and ethical environment, all participants are expected to adhere to the following Code of Conduct.
 Our Pledge
 
 In the interest of fostering an open and welcoming environment, we pledge to make participation in our project a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
