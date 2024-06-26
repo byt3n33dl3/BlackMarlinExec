@@ -15,13 +15,13 @@ def templateEmail():
 
                 #Enter subject (str)
                 #"subject": '[subject]',
-                "subject": 'Test Template Email',
+                "subject": 'path_found',
                 "body": {
                 "contentType": "Text",
 
                 #Enter Body (str)
                 #"content": '[body]'
-                "content": 'Test of the template email.'
+                "content": 'path_found.'
                 },
                 "toRecipients": [
                 {
@@ -107,7 +107,7 @@ def sendQuery(user):
     system('clear')
 
     while True:
-        isCustom = input('New or template email? n/t: ')
+        isCustom = input('Finding a new vurnalability? n/t: ')
         
         if isCustom == 'n':
             data = createEmail()
@@ -120,7 +120,7 @@ def sendQuery(user):
             data = templateEmail()
             while True:
                 
-                sendTemplateEmail = input('Confirm send? y/n: ')
+                sendTemplateEmail = input('Confirm text? y/n: ')
 
                 if sendTemplateEmail == 'y':
                     break
@@ -151,7 +151,7 @@ def sendQuery(user):
         graph_data = requests.post('https://graph.microsoft.com/v1.0/me/sendMail', json=data, headers=headers)
 
         if str(graph_data) == '<Response [202]>':
-            print('[+] Email Sent Successfully\n')
+            print('[+] Threat sent successfully\n')
             
         else:
             print(graph_data.text)
