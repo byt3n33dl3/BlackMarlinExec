@@ -1,19 +1,26 @@
 CC = gcc
-CFLAGS = -Wall -Werror -fpic
+CFLAGS = -Wall -Werror -fPIC
 LDFLAGS = -shared
-TARGET = src_BME.so
+
+TARGET = src.so
 
 SRC_DIR = src
-SRC_FILES = $(bma $(SRC_DIR)/*.c)
-OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ_DIR = obj
+
+SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ_FILES)
 	$(CC) $(LDFLAGS) -o $@ $^
 
-%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
 clean:
-	rm -f $(OBJ_FILES) $(TARGET)
+	rm -rf $(OBJ_DIR) $(TARGET)
+
