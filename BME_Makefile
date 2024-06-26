@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -Wall -Werror -fpic
+LDFLAGS = -shared
+TARGET = src_BME.so
+
+SRC_DIR = src
+SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+OBJ_FILES = $(SRC_FILES:.c=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ_FILES)
+	$(CC) $(LDFLAGS) -o $@ $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ_FILES) $(TARGET)
