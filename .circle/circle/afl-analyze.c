@@ -1,28 +1,3 @@
-/*
-   american fuzzy lop - file format analyzer
-   -----------------------------------------
-
-   Written and maintained by Michal Zalewski <lcamtuf@google.com>
-
-   Windows fork written by @_L4ys
-
-   Based on afl-showmap by Axel "0vercl0k" Souchet <0vercl0k@tuxfamily.org>
-
-   Copyright 2016, 2017 Google Inc. All rights reserved.
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at:
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
-   A nifty utility that grabs an input file and takes a stab at explaining
-   its structure by observing how changes to it affect the execution path.
-
-   If the output scrolls past the edge of the screen, pipe it to 'less -r'.
-
- */
-
 #define _CRT_SECURE_NO_WARNINGS
 #define _CRT_RAND_S
 #define VERSION             "2.52b"

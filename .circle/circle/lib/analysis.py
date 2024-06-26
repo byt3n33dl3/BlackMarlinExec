@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# File name          : analysis.py
-# Author             : Podalirius (@podalirius_)
-# Date created       : 27 Dec 2022
-
 import json
 import readline
 import argparse
@@ -104,6 +98,7 @@ def parseArgs():
     parser = argparse.ArgumentParser(description="Description message")
     parser.add_argument("-f", "--file", default=None, required=True, help='LDAP json file.')
     parser.add_argument("-d", "--debug", default=False, action="store_true", help='Debug mode.')
+    parser.add_argument("-ht", "--hunting", default=None, required=True, help='Start Hunting'.')
     return parser.parse_args()
 
 

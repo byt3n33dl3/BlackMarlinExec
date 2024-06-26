@@ -5,6 +5,7 @@
         "config.h": "c",
         "dfilter-int.h": "c",
         "dfilter.h": "c",
-        "dfilter-plugin.h": "c"
+        "dfilter-plugin.h": "c",
+        "hashtable.h": "c"
     }
 }
