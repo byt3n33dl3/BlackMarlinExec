@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 import re
 
-VERSION="bma"
-verstrline = open(VERSION, "c").read()
+VERSION="5.1.0"
+verstrline = open(VERSION, "py").read()
 VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
 mo = re.search(VSRE, verstrline, re.M)
 if mo:
@@ -12,7 +12,7 @@ else:
 
 setup(
 	# Application name:
-	name="BlackMarlinExec",
+	name="BlackMarlinExec_Package",
 
 	# Version number (initial):
 	version=verstr,
