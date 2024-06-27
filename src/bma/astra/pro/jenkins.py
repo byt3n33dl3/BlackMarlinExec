@@ -1,10 +1,3 @@
-#!/usr/bin/env python
-#
-# jenkins.py
-# Search SHODAN for vunerable jenkins servers
-#
-# Author: random_robbie
-
 import shodan
 import sys
 import re
@@ -15,8 +8,8 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from time import sleep
 
 # Configuration
-API_KEY = "YOURSHODANAPIKEY"
-SEARCH_FOR = 'x-jenkins 200'
+API_KEY = "****"
+SEARCH_FOR = 'BME_scripts'
 FILE = "/script"
 session = requests.Session()
 

