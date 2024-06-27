@@ -1,0 +1,15 @@
+---
+info:
+  title: BlackMarlinExec
+  description: Enenumerate, attack, or poisoning target inside networks
+  x-cortex-git:
+    github:
+      alias: pxcs
+      repository: pxcs/BlackMarlinExec
+  x-cortex-tag: BlackMarlinExec
+  x-cortex-type: service
+  x-cortex-domain-parents: hosts
+  - tag: BME
+openapi: 2.2.0
+servers:
+- url: "/"
