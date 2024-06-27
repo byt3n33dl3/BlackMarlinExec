@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import re
 
-VERSION = "5.5.7"
+VERSION = "5.5"
 verstrline = open(VERSION, "r").read()
 VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
 mo = re.search(VSRE, verstrline, re.M)
