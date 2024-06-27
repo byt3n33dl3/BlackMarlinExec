@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/BME-5.3.5-brightgreen.svg?maxAge=259200)](https://www.nuget.org/packages/BlackMarlinExec/)
+[![Version](https://img.shields.io/badge/BME-5.4.5-brightgreen.svg?maxAge=259200)](https://www.nuget.org/packages/BlackMarlinExec/)
 ![Downloads](https://img.shields.io/nuget/dt/SharpHoundCommon)
 [![Build](https://img.shields.io/badge/Best_OS-Linux-orange.svg?color=brown)]()
 [![License](https://img.shields.io/badge/License-GPL%20v3%2B-blue.svg)](https://github.com/pxcs/BlackMarlinExec/LICENSES)
@@ -120,7 +120,7 @@ CS might steal user credentials through phishing, allowing them to get a Ticket 
 
 > [!WARNING]
 > [<img src="https://darkcitygame.com/images/thumb/c/c3/Kerberos.png/500px-Kerberos.png" width="30">]()
-Attackers intercept communications between users and the Key Distribution Center (KDC) or between services and the LDAP directory to steal or alter data. LDAP injection is another potential attack, where CS manipulate directory queries to access or change data `illegally.`<br>
+Security can intercept communications between users and the Key Distribution Center (KDC) or between services and the LDAP directory to steal or alter data. LDAP injection is another potential attack, where CS manipulate directory queries to access or change data `illegally.`<br>
 
 ## What is the Flaws in Kerberos?
 Biggest lose was the assumption of secure time system, and resolution of synchronization required.
