@@ -22,7 +22,7 @@ DEFC dt_hx_yr  =  365+365+366+365+365+365+366+365+365
 DEFC date_hex  =  dt_hx_yr+31+28+31+30+28 
 
 date	macro
-	DEFM	"28 May 87"
+	DEFM	"****"
 	endm
 ;
 ;	this is only for Pre-Released versions (done in RED)
