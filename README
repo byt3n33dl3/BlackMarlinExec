@@ -158,7 +158,7 @@ imap	x-x-x
 
 Thanks to
 
-- Allah and pxcs p3xsouger
+- Allah and pxcs ( p3xsouger )
 - Our Offsec team GangstaCrew
 - People in Offensive Security
 - Some credit to U.G people
@@ -169,7 +169,7 @@ Note:
 BlackMarlinExec uses graph theory to reveal hidden relationships and attack paths in an Active Directory environment.
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU as published by the Free Software Foundation, either version of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GPL License for more details.
 
 BUGS & FEATURES
 ---------------
