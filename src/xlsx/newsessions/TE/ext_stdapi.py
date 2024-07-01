@@ -172,7 +172,7 @@ fe80::e8fa:527d:5e1a:ae4c%bridge100     f3.3a.1c.c6.f7.75               UHLI    
     @mock.patch("subprocess.Popen")
     def test_stdapi_net_config_get_interfaces_via_osx_ifconfig(self, mock_popen):
         command_result = b"""
-en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+en0: flags=0<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
         options=400<CHANNEL_IO>
         ether 11:22:33:44:55:66
         inet 192.168.1.166 netmask 0xffffff00 broadcast 192.168.1.255
@@ -201,7 +201,7 @@ en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
                         b"\xff\xff\xff\x00",
                     )
                 ],
-                "flags": 8863,
+                "flags": 0,
                 "flags_str": "UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST",
                 "hw_addr": '\x11"3DUf',
                 "index": 0,

@@ -9,7 +9,7 @@ IF NOT EXIST "source\ReflectiveDLLInjection\.git" (
   GOTO END
 )
 
-SET PSSDK_VER=19
+SET BlackMarlinExec_VER=19
 SET PTS_VER=v141_xp
 
 IF "%1"=="v120_xp" SET PTS_VER=%1
@@ -17,12 +17,12 @@ IF "%2"=="v120_xp" SET PTS_VER=%2
 IF "%3"=="v120_xp" SET PTS_VER=%3
 
 IF "%VisualStudioVersion%" == "12.0" (
-    SET PSSDK_VER=12
+    SET BlackMarlinExec_VER=12
     SET PTS_VER=v120_xp
 )
 
 SET PREF=
-IF EXIST "..\..\..\pssdk\PSSDK_VC%PSSDK_VER%_LIB\_Libs\pssdk_vc%PSSDK_VER%_mt.lib" SET PREF=r7_
+IF EXIST "..\..\..\BlackMarlinExec\BlackMarlinExec_VC%BlackMarlinExec_VER%_LIB\_Libs\BlackMarlinExec_vc%BlackMarlinExec_VER%_mt.lib" SET PREF=r7_
 
 IF "%1"=="x86" GOTO BUILD_X86
 IF "%1"=="X86" GOTO BUILD_X86
@@ -30,6 +30,8 @@ IF "%1"=="x64" GOTO BUILD_X64
 IF "%1"=="X64" GOTO BUILD_X64
 IF "%1"=="debug_x86" GOTO DEBUG_BUILD_X86
 IF "%1"=="debug_x64" GOTO DEBUG_BUILD_X64
+IF "%1"=="debug_X86" GOTO DEBUG_BUILD_X86
+IF "%1"=="debug_X64" GOTO DEBUG_BUILD_X64
 IF "%1"=="debug_X86" GOTO DEBUG_BUILD_X86
 IF "%1"=="debug_X64" GOTO DEBUG_BUILD_X64
 
@@ -65,15 +67,15 @@ msbuild.exe make.msbuild /target:%PREF%%PLAT% /p:PlatformToolset=%PTS_VER%
 POPD
 
 IF "%ERRORLEVEL%" == "0" (
-  IF NOT EXIST "..\..\..\pssdk\" (
+  IF NOT EXIST "..\..\..\BlackMarlinExec\" (
     ECHO Unable to build ext_server_sniffer:
-    ECHO PSSDK directory not found.
+    ECHO BlackMarlinExec directory not found.
     ECHO This is normal if you do not expect to have access to Rapid7 proprietary
     ECHO sniffer source. Meterpreter will still function normally without this.
   ) else (
-    IF NOT EXIST "..\..\..\pssdk\PSSDK_VC%PSSDK_VER%_LIB\_Libs\pssdk_vc%PSSDK_VER%_mt.lib" (
+    IF NOT EXIST "..\..\..\BlackMarlinExec\BlackMarlinExec_VC%BlackMarlinExec_VER%_LIB\_Libs\BlackMarlinExec_vc%BlackMarlinExec_VER%_mt.lib" (
       ECHO Unable to build ext_server_sniffer:
-      ECHO PSSDK lib version 'vc%PSSDK_VER%' not found.
+      ECHO BlackMarlinExec lib version 'vc%BlackMarlinExec_VER%' not found.
       ECHO This is normal if you do not expect to have access to Rapid7 proprietary
       ECHO sniffer source. Meterpreter will still function normally without this.
     )
