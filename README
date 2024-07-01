@@ -2,7 +2,8 @@ B L A C K M A R L I N E X E C
 
 Active Directory ( attack path ) finder                                                                                               
 
-A tool used to enumerate, attack, or poisoning target inside an online environment and networks
+A tool used to enumerate, attack, or poisoning target inside an online environment and networks,
+the most advanced online scenario ( pentesting ) tools
 Forged by @pxcs and @GangstaCrew 
 
 -------------------------------
@@ -14,6 +15,7 @@ Licensed under GPL (see LICENSE file)
 
 Please do not use in military or secret service organizations,
 or for illegal purposes.
+
 (This is the wish of the author and non-binding. Many people working
 in these organizations do not care for laws and ethics anyways.
 You are not one of the "good" ones if you ignore this.)
@@ -26,26 +28,26 @@ makefile pull pxcs/BlackMarlinExec
 ```
 
 
-INTRODUCTION
+INTRODUCTION 
 ------------
 BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or Active Environment. Security can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to quickly identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. CS can see thousand, even millions of attack paths within your existing architecture.
 
-Intro About Barracuda Attack
+Intro About Barracuda Attack ✓
 ------------
 TCP Killer
 Barracuda is a utility to kill all TCP connections on a network. It works by intercepting network traffic, and forging RST packets of existing connections to cause hangups. Works for both IPv4 connections and IPv6. Barracuda ( TCPkiller ) is a sneaky way to kill network connections. Any targeted system will appear to work when examined through typical diagnostics - DNS will resolve, ICMP's will go through, and the network card will be able to connect ( slow ) to the network-but no TCP connections will be sustained.
 
-LDAP Automatic Injections
+LDAP Automatic Injections ✓
 ------------
 Using BME to automate the process of detecting and exploiting LDAP injection vulnerabilities in AD scenario. With BME, CS researcher can quickly identify and exploit LDAP injection flaws, allowing CS to assess the security posture of the applications more effectively.
 
-More Features
+More Features 
 ------------
 Automated detection of LDAP injection vulnerabilities.
 Exploitation of LDAP injection vulnerabilities to extract sensitive information.
 Customizable payloads for fine-tuning injection attacks.
 
-Network Traffic Analysis
+Network Traffic Analysis ✓
 ------------
 This is a research project for classifying network traffic. We collected more than 300000 flows from some network. After that, we used nDPI to analyze the flows. We got more than 100 types of applications. Then we group that application into 10 classes. After that, we tried different ML algorithms to classify them.
 Our current results
@@ -67,6 +69,7 @@ There are already several active directory tools available, however, none does
 either support more than one protocol to find an attack path or support parallelized
 connections.
 
+
 HOW TO COMPILE
 --------------
 To configure, compile and install BME, just type:
@@ -77,13 +80,12 @@ make
 make install
 ```
 
-
 If you want the ssh module, you have to setup libssh (not libssh2!) on your
 system,  get it from https://www.libssh.org, for ssh v1 support you also need
 to add "x-x-x" option in the cmake command line.
 IMPORTANT: If you compile on MacOS then you must do this - do not install libssh via brew!
 
-If you use Ubuntu/Debian, this will install supplementary libraries needed
+If you use Ubuntu/Debian, this will install supplementary 'src' needed
 for a few optional modules (note that some might not be available on your distribution):
 
 This enables all optional modules and features with the exception of Oracle,
@@ -91,8 +93,8 @@ SAP R/3, NCP and the apple filing protocol - which you will need to download and
 install from the vendor's web sites.
 
 For all other Linux derivates and BSD based systems, use the system
-software installer and look for similarly named libraries like in the
-command above. In all other cases, you have to download all source libraries
+software installer and look for similarly named 'src' like in the
+command above. In all other cases, you have to download all source 'src'
 and compile them manually.
 
 SUPPORTED PLATFORMS
@@ -123,7 +125,6 @@ and FTP.
 Experiment with the task option (-t) to speed things up! The higher - the
 faster ;-) (but too high - and it disables the service)
 
-
 STATISTICS
 ----------
 Run against a SuSE Linux 7.2 on localhost with a "-C FILE" containing
@@ -142,7 +143,6 @@ imap	x-x-x
 
 
 Thanks to
-
 - Allah and pxcs ( p3xsouger )
 - Our Offsec team GangstaCrew
 - People in Offensive Security
