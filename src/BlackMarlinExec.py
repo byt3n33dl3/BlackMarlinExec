@@ -8,7 +8,7 @@ from functools import wraps
 from time import sleep
 from ipaddress import ip_address
 
-from bma.helpers.logger import highlight
+from bme.helpers.logger import highlight
 from bma.helpers.misc import identify_target_file
 from bma.parsers.ip import parse_targets
 from bma.parsers.nmap import parse_nmap_xml
