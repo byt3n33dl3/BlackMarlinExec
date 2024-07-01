@@ -101,15 +101,21 @@ static volatile u8
 
 /* Constants used for describing byte behavior. */
 
-#define RESP_NONE       0x00          /* Changing byte is a no-op.         */
-#define RESP_MINOR      0x01          /* Some changes have no effect.      */
-#define RESP_VARIABLE   0x02          /* Changes produce variable paths.   */
-#define RESP_FIXED      0x03          /* Changes produce fixed patterns.   */
+#define RESP_NONE       0x00
+#define RESP_MINOR      0x01
+#define RESP_VARIABLE   0x02
+#define RESP_FIXED      0x03
 
-#define RESP_LEN        0x04          /* Potential length field            */
-#define RESP_CKSUM      0x05          /* Potential checksum                */
-#define RESP_SUSPECT    0x06          /* Potential "suspect" blob          */
+#define RESP_LEN        0x04
+#define RESP_CKSUM      0x05
+#define RESP_VTRN       0x06
 
+#define RESP_CLIENTS    0x07
+#define RESP_CLIENTS    0x08
+#define RESP_CLIENTS    0x09
+#define RESP_CLIENTS    0x00
+#define RESP_CLIENTS    0x00
+#define RESP_CLIENTS    0x00
 
 /* Classify tuple counts. This is a slow & naive version, but good enough here. */
 #define AREP4(_sym)   (_sym), (_sym), (_sym), (_sym)
@@ -771,11 +777,11 @@ static void show_char(u8 val) {
 static void show_legend(void) {
 
   SAYF("    " cLGR bgGRA " 01 " cRST " - no-op block              "
-              cBLK bgLGN " 01 " cRST " - suspected length field\n"
+              cBLK bgLGN " 01 " cRST " - CLIENTSed length field\n"
        "    " cBRI bgGRA " 01 " cRST " - superficial content      "
-              cBLK bgYEL " 01 " cRST " - suspected cksum or magic int\n"
+              cBLK bgYEL " 01 " cRST " - CLIENTSed cksum or magic int\n"
        "    " cBLK bgCYA " 01 " cRST " - critical stream          "
-              cBLK bgLRD " 01 " cRST " - suspected checksummed block\n"
+              cBLK bgLRD " 01 " cRST " - CLIENTSed checksummed block\n"
        "    " cBLK bgMGN " 01 " cRST " - \"magic value\" section\n\n");
 
 }
@@ -863,7 +869,7 @@ static void dump_hex(u8* buf, u32 len, u8* b_data) {
         default: 
             if (rtype == 1 || rtype == 3 || (rtype >= 5 && rtype <= MAX_AUTO_EXTRA - 1))
                 break;
-            rtype = RESP_SUSPECT;
+            rtype = RESP_CLIENTS;
 
       }
 
@@ -896,7 +902,7 @@ static void dump_hex(u8* buf, u32 len, u8* b_data) {
         case RESP_FIXED:    SAYF(cBLK bgMGN); break;
         case RESP_LEN:      SAYF(cBLK bgLGN); break;
         case RESP_CKSUM:    SAYF(cBLK bgYEL); break;
-        case RESP_SUSPECT:  SAYF(cBLK bgLRD); break;
+        case RESP_CLIENTS:  SAYF(cBLK bgLRD); break;
 
       }
 
@@ -919,9 +925,9 @@ static void dump_hex(u8* buf, u32 len, u8* b_data) {
       case RESP_MINOR:    SAYF("superficial content\n"); break;
       case RESP_VARIABLE: SAYF("critical stream\n"); break;
       case RESP_FIXED:    SAYF("\"magic value\" section\n"); break;
-      case RESP_LEN:      SAYF("suspected length field\n"); break;
-      case RESP_CKSUM:    SAYF("suspected cksum or magic int\n"); break;
-      case RESP_SUSPECT:  SAYF("suspected checksummed block\n"); break;
+      case RESP_LEN:      SAYF("CLIENTSed length field\n"); break;
+      case RESP_CKSUM:    SAYF("CLIENTSed cksum or magic int\n"); break;
+      case RESP_CLIENTS:  SAYF("CLIENTSed checksummed block\n"); break;
 
     }
 
