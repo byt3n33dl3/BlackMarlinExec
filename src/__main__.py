@@ -2,7 +2,7 @@
 # (c) 2021 Michał Górny
 # 2-clause BSD license
 
-"""CLI support."""
+"""BlackMarlinExec support."""
 
 import argparse
 import datetime
