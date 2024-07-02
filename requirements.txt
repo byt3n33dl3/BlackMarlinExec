@@ -1,4 +1,4 @@
-protobuf~=3.20
+protobuf~=5.27
 pycryptodome
 scapy
 parsimonious
