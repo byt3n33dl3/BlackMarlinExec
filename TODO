@@ -1,5 +1,4 @@
 [*] Run in MiTM mode and inject fake DNS responses.
 [*] Perform a crossing network injections ( X-Cross )
-[*] Run LDAP autocut
 [*] More collectors
-[*] #remove delay calls
+[*] Enhance the Kerberos attacks
