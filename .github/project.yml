@@ -1,0 +1,4 @@
+# repo:     pxcs/BlackMarlinEXec
+# filename: project.YML
+
+custom: ["https://github.com/pxcs/BlackMarlinExec"]
