@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using src.bme.astra;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Maraki1982.Core.Models.Database;
 
