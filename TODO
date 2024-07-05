@@ -1,6 +1,7 @@
-[*] Run in MiTM mode and inject fake DNS responses.
-[*] Perform a crossing network injections ( X-Cross )
-[*] More collectors
-[*] Enhance the Kerberos attacks
-[*] 2 core
+[*] run in MiTM mode and inject fake DNS responses.
+[*] perform a crossing network injections ( X-Cross )
+[*] more collectors
+[*] enhance the Kerberos attacks
+[*] triple core
 [*] internal ( GUI )
+[*] external ( GUI )
