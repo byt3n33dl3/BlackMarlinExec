@@ -3,5 +3,5 @@ List of known issues:
 
 * Cygwin: more than 30 tasks (-t 31 or more) will lead to a stack smash
 * OS X: brew installed modules are not compiled correctly and will crash BlackMarlinExec
-* GUI : interfaces
+* GUI : interfaces ( both ways : TODO )
 * Collectors : not fast enough
