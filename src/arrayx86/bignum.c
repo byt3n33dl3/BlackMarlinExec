@@ -9,7 +9,7 @@
 
 **********************************************************************/
 
-#include "ruby/internal/config.h"
+#include "src/bme/Barracuda.h"
 
 #include <ctype.h>
 #include <float.h>
