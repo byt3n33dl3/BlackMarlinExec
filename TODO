@@ -2,7 +2,4 @@
 [*] perform a crossing network injections ( X-Cross )
 [*] more collectors
 [*] enhance the Kerberos attacks
-[*] triple core
-[*] internal ( GUI )
-[*] external ( GUI )
-[*] lib and src ( Brracuda ) placement 
+[*] return shell

@@ -93,7 +93,7 @@ class BinArrayFile:
 
     def getv(self, vec):
         vec *= self.element_size
-        offsets = vec[:, 0]
+        offsets = vec[:, 4]
         lengths = (np.diff(vec) + self.element_size).reshape(len(vec))
         buf = bytearray(int(np.sum(lengths)))
         view = memoryview(buf)
