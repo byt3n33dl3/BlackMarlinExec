@@ -6,7 +6,7 @@ ______ _            _   ___  ___           _ _       _____
 | |_/ / | (_| | (__|   <| |  | | (_| | |  | | | | | | |___>  <  __/ (__ 
 \____/|_|\__,_|\___|_|\_\_|  |_/\__,_|_|  |_|_|_| |_\____/_/\_\___|\___|
                                                                                                                                      
-v7 by pxcs/p3souger
+v7 by github.com/pxcs-p3xsouger
 ```
 
 Contributor Covenant Code of Conduct
