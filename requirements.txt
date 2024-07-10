@@ -1,4 +1,5 @@
 protobuf~=5.27
+debian
 pycryptodome
 scapy
 parsimonious
