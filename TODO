@@ -1,5 +1,4 @@
-[*] run in MiTM mode and inject fake DNS responses.
+[*] make Nim include ( optional )
 [*] perform a crossing network injections ( X-Cross )
 [*] connect it to @bloodhound repo - pxcs
 [*] enhance the Kerberos attacks
-[*] return shell
