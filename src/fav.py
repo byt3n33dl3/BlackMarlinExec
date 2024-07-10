@@ -56,8 +56,9 @@ class FavUp(object):
 
             ap.add_argument('-ff', '--favicon-file', help="Load the favicon icon from a local file.")
             ap.add_argument('-fu', '--favicon-url', help="Load the favicon icon from an URL.")
-            ap.add_argument('-w', '--web', help="Extracts the favicon location from the page.")
+            ap.add_argument('-w', '--web', help="Extracts The favicon location from the page.")
             ap.add_argument('-fh', '--favicon-hash', help='Running from direct favicon hash number')
+            ap.add_argument('-r', '--web-services', help="Website protocol scanner")
 
             ap.add_argument('-fl', '--favicon-list',
                 help="Iterate over a file that contains the full path of all the icons which you want to lookup.")
