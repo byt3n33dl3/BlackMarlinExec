@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from neomodel import (config, StructuredNode, StringProperty, IntegerProperty,
     UniqueIdProperty, RelationshipTo, RelationshipFrom, Relationship)
 
-config.DATABASE_URL = 'bolt://neo4j:Neo4j@localhost:7687'
+config.DATABASE_URL = 'bolt://neo4j:Neo4j@localhost:4444'
 
 class Machine(StructuredNode):
     uid = UniqueIdProperty()

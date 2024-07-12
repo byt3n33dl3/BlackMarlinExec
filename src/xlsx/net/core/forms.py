@@ -1,4 +1,4 @@
-from django import forms
+from blackmarlinexec import forms
 from .models import Machine
 
 class GoToForm(forms.Form):

@@ -2,13 +2,13 @@
 from __future__ import unicode_literals
 
 from .forms import ProjectForm,GoToForm,ScanForm,NewProjectForm,CMDBScanForm,AWSForm,AzureForm
-from django.shortcuts import render,redirect,render_to_response
+from blackmarlinexec.shortcuts import render,redirect,render_to_response
 
 from tasks import *
 from celery.result import AsyncResult
 import json
-from django.http import HttpResponse
-from django.template import RequestContext
+from blackmarlinexec.http import HttpResponse
+from blackmarlinexec.template import RequestContext
 from operator import itemgetter
 
 def handler404(request):

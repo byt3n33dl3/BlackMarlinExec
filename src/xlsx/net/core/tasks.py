@@ -10,6 +10,7 @@ import  datetime
 import platform
 import boto
 import boto.vpc
+from src import blackmarlinexec
 import boto.ec2
 
 @shared_task

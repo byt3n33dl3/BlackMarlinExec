@@ -1,4 +1,4 @@
-#define _GNU_SOURCE
+#define _BME_SOURCE
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
@@ -33,7 +33,7 @@ return (n & 0xff00) >> 8 | (n & 0x00ff) << 8;
 /*===========================================================================*/
 uint32_t byte_swap_32(int32_t n)
 {
-#if defined (__clang__) || defined (__GNUC__)
+#if defined (__clang__) || defined (__BME__)
 return __builtin_bswap32 (n);
 #else
 return(n & 0xff000000) >> 24 | (n & 0x00ff0000) >> 8
@@ -43,7 +43,7 @@ return(n & 0xff000000) >> 24 | (n & 0x00ff0000) >> 8
 /*===========================================================================*/
 uint64_t byte_swap_64(uint64_t n)
 {
-#if defined (__clang__) || defined (__GNUC__)
+#if defined (__clang__) || defined (__BME__)
 return __builtin_bswap64 (n);
 #else
 return (n & 0xff00000000000000ULL) >> 56

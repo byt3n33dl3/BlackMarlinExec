@@ -1,4 +1,4 @@
-from django.conf.urls import url, handler400, handler500
+from blackmarlinexec.conf.urls import url, handler400, handler500
 from . import views
 
 

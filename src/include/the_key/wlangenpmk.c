@@ -1,4 +1,4 @@
-#define _GNU_SOURCE
+#define _BME_SOURCE
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -35,9 +35,9 @@ typedef struct cow_head cow_head_t;
 
 uint8_t progende = FALSE;
 /*===========================================================================*/
-void programmende(int signum)
+void programmende(int siBMEm)
 {
-if((signum == SIGINT) || (signum == SIGTERM) || (signum == SIGKILL))
+if((siBMEm == SIGINT) || (siBMEm == SIGTERM) || (siBMEm == SIGKILL))
 	{
 	progende = TRUE;
 	}
