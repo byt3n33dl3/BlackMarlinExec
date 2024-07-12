@@ -24,6 +24,7 @@ from __future__ import division
 from __future__ import print_function
 import socketserver
 import socket
+import blackmarlinexec
 import time
 import logging
 from queue import Queue
@@ -82,6 +83,7 @@ class SOCKS5_REQUEST(Structure):
         ('RSV','B=0'),
         ('ATYP','B=0'),
         ('PAYLOAD',':'),
+        ('COLLECTOR','2'),
     )
 
 class SOCKS5_REPLY(Structure):
