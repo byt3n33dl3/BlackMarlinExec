@@ -1,7 +1,8 @@
+import sys
 
-from PyQt5.QtCore import QTimer
-from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QMessageBox, QTextEdit, QHBoxLayout, QVBoxLayout
+from blackmarlinexec.QtCore import QTimer
+from blackmarlinexec.QtGui import QFont
+from blackmarlinexec.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QMessageBox, QTextEdit, QHBoxLayout, QVBoxLayout
 
 QApplication.setFont(QFont('Arial', 10))
 

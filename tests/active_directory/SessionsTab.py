@@ -1,8 +1,8 @@
 import subprocess
 import shutil
 
-from PyQt5.QtCore import QEvent, Qt
-from PyQt5.QtGui import QFont
+from blackmarlinexec.QtCore import QEvent, Qt
+from blackmarlinexec.QtGui import QFont
 from PyQt5.QtWidgets import QApplication, QVBoxLayout, QWidget, QPushButton, QLabel, QMessageBox, QHBoxLayout, QComboBox
 
 QApplication.setFont(QFont('Arial', 10))

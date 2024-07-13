@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import (
     QLabel, QMessageBox, QSplitter, QHBoxLayout, 
     QComboBox
 )
-from PyQt5.QtCore import QTimer, QEvent, Qt
+from blackmarlinexec.QtCore import QTimer, QEvent, Qt
 from PyQt5.QtGui import QFont
 QApplication.setFont(QFont('Arial', 10))
 

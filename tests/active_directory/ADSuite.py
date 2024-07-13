@@ -1,6 +1,6 @@
-from PyQt5.QtCore import  Qt
-from PyQt5.QtGui import QFont, QPixmap
-from PyQt5.QtWidgets import (
+from blackmarlinexec.QtCore import  Qt
+from blackmarlinexec.QtGui import QFont, QPixmap
+from blackmarlinexec.QtWidgets import (
     QApplication, QMainWindow, QTabWidget, QVBoxLayout, QWidget, QLabel, QGridLayout, QHBoxLayout
 )
 from SessionsTab import SessionsTab

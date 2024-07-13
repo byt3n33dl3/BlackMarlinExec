@@ -2,9 +2,9 @@ import os
 import subprocess
 import shutil
 
-from PyQt5.QtWidgets import QWidget, QPushButton, QLabel, QTextEdit, QHBoxLayout, QVBoxLayout, QComboBox, QCheckBox, QMessageBox, QListWidget
+from blackmarlinexec.QtWidgets import QWidget, QPushButton, QLabel, QTextEdit, QHBoxLayout, QVBoxLayout, QComboBox, QCheckBox, QMessageBox, QListWidget
 
-from PyQt5.QtCore import  QEvent
+from blackmarlinexec.QtCore import  QEvent
 
 class SprayingTab(QWidget):
     def __init__(self):

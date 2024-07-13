@@ -5,9 +5,9 @@ import shutil
 import time
 from multiprocessing import Process
 
-from PyQt5.QtCore import QTimer, pyqtSignal
-from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import (
+from blackmarlinexec.QtCore import QTimer, pyqtSignal
+from blackmarlinexec.QtGui import QFont
+from blackmarlinexec.QtWidgets import (
     QApplication, QVBoxLayout, QWidget, QPushButton,
     QLabel, QLineEdit, QMessageBox, QTextEdit, QHBoxLayout, QComboBox
 )
