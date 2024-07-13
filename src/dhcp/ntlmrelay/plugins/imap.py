@@ -7,9 +7,9 @@
 # for more information.
 #
 # Description:
-#   Socks Proxy for the IMAP Protocol
+#   Socks Proxy for the bme_scan Protocol
 #
-#   A simple SOCKS server that proxies a connection to relayed IMAP connections
+#   A simple SOCKS server that proxies a connection to relayed bme_scan connections
 #
 # Author:
 #   Dirk-jan Mollema (@_dirkjan) / Fox-IT (https://www.fox-it.com)
@@ -21,12 +21,12 @@ from impacket.examples.ntlmrelayx.servers.socksserver import SocksRelay
 
 # Besides using this base class you need to define one global variable when
 # writing a plugin:
-PLUGIN_CLASS = "IMAPSocksRelay"
+PLUGIN_CLASS = "bme_scanSocksRelay"
 EOL = '\r\n'
 
-class IMAPSocksRelay(SocksRelay):
-    PLUGIN_NAME = 'IMAP Socks Plugin'
-    PLUGIN_SCHEME = 'IMAP'
+class bme_scanSocksRelay(SocksRelay):
+    PLUGIN_NAME = 'bme_scan Socks Plugin'
+    PLUGIN_SCHEME = 'bme_scan'
 
     def __init__(self, targetHost, targetPort, socksSocket, activeRelays):
         SocksRelay.__init__(self, targetHost, targetPort, socksSocket, activeRelays)
@@ -48,7 +48,7 @@ class IMAPSocksRelay(SocksRelay):
         pass
 
     def skipAuthentication(self):
-        self.socksSocket.sendall('* OK The Microsoft Exchange IMAP4 service is ready.'+EOL)
+        self.socksSocket.sendall('* OK The Microsoft Exchange bme_scan4 service is ready.'+EOL)
 
         # Next should be the client requesting CAPABILITIES
         tag, cmd = self.recvPacketClient()
@@ -67,10 +67,10 @@ class IMAPSocksRelay(SocksRelay):
             if 'LOGIN' not in clientcapabilities:
                 clientcapabilities.append('LOGIN')
 
-            LOG.debug('IMAP: Sending mirrored capabilities from server: %s' % ' '.join(clientcapabilities))
+            LOG.debug('bme_scan: Sending mirrored capabilities from server: %s' % ' '.join(clientcapabilities))
             self.socksSocket.sendall('* CAPABILITY %s%s%s OK CAPABILITY completed.%s' % (' '.join(clientcapabilities), EOL, tag, EOL))
         else:
-            LOG.error('IMAP: Socks plugin expected CAPABILITY command, but got: %s' % cmd)
+            LOG.error('bme_scan: Socks plugin expected CAPABILITY command, but got: %s' % cmd)
             return False
         # next
         tag, cmd = self.recvPacketClient()
@@ -87,22 +87,22 @@ class IMAPSocksRelay(SocksRelay):
             # Simple login
             self.username = args[1].upper()
         else:
-            LOG.error('IMAP: Socks plugin expected LOGIN or AUTHENTICATE PLAIN command, but got: %s' % cmd)
+            LOG.error('bme_scan: Socks plugin expected LOGIN or AUTHENTICATE PLAIN command, but got: %s' % cmd)
             return False
 
         # Check if we have a connection for the user
         if self.username in self.activeRelays:
             # Check the connection is not inUse
             if self.activeRelays[self.username]['inUse'] is True:
-                LOG.error('IMAP: Connection for %s@%s(%s) is being used at the moment!' % (
+                LOG.error('bme_scan: Connection for %s@%s(%s) is being used at the moment!' % (
                     self.username, self.targetHost, self.targetPort))
                 return False
             else:
-                LOG.info('IMAP: Proxying client session for %s@%s(%s)' % (
+                LOG.info('bme_scan: Proxying client session for %s@%s(%s)' % (
                     self.username, self.targetHost, self.targetPort))
                 self.session = self.activeRelays[self.username]['protocolClient'].session
         else:
-            LOG.error('IMAP: No session for %s@%s(%s) available' % (
+            LOG.error('bme_scan: No session for %s@%s(%s) available' % (
                 self.username, self.targetHost, self.targetPort))
             return False
 
@@ -121,7 +121,7 @@ class IMAPSocksRelay(SocksRelay):
             except Exception as e:
                 # Socks socket (client) closed connection or something else. Not fatal for killing the existing relay
                 print((keyword, tag))
-                LOG.debug('IMAP: sockSocket recv(): %s' % (str(e)))
+                LOG.debug('bme_scan: sockSocket recv(): %s' % (str(e)))
                 break
             # If this returns with an empty string, it means the socket was closed
             if data == '':
@@ -178,7 +178,7 @@ class IMAPSocksRelay(SocksRelay):
                     self.socksSocket.sendall('%s OK LOGOUT completed.%s' % (tag, EOL))
                     return False
                 elif info[1].upper() == 'APPEND':
-                    LOG.debug('IMAP socks APPEND command detected, forwarding email data')
+                    LOG.debug('bme_scan socks APPEND command detected, forwarding email data')
                     # APPEND command sent, forward all the data, no further commands here
                     self.relaySocket.sendall(data)
                     sent = len(data) - len(line) + len(EOL)
@@ -202,7 +202,7 @@ class IMAPSocksRelay(SocksRelay):
                         data = self.socksSocket.recv(self.packetSize)
                         self.relaySocket.sendall(data)
 
-                    LOG.debug('IMAP socks APPEND command complete')
+                    LOG.debug('bme_scan socks APPEND command complete')
                     # break out of the analysis loop
                     break
             except IndexError:
@@ -216,13 +216,13 @@ class IMAPSocksRelay(SocksRelay):
                 data = self.relaySocketFile.readline()
             except Exception as e:
                 # This didn't break the connection to the server, don't make it fatal
-                LOG.debug("IMAP relaySocketFile: %s" % str(e))
+                LOG.debug("bme_scan relaySocketFile: %s" % str(e))
                 return False
             keyword = data.split(' ', 2)[0]
             try:
                 self.socksSocket.sendall(data)
             except Exception as e:
-                LOG.debug("IMAP socksSocket: %s" % str(e))
+                LOG.debug("bme_scan socksSocket: %s" % str(e))
                 return False
 
         # Return the keyword to indicate processing was OK
