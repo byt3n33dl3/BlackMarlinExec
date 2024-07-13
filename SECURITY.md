@@ -17,7 +17,7 @@ We actively support the following versions of BlackMarlinExec with security upda
 
 | Version | Supported          |
 | ------- | ------------------ |
-| v7   | :check_mark: |
+| v7   | :check mark: |
 
 ## Reporting a Vulnerability
 
