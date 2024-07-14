@@ -10,7 +10,7 @@ import argparse
 import glob
 
 import ruamel.yaml
-import blackmarlinexec
+from src import bme
 
 line_number = False
 verbose = False

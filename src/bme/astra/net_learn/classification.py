@@ -4,7 +4,7 @@ from typing import Optional
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.metrics import confusion_matrix, accuracy_score, f1_score, classification_report
+from blackmarlinexec.metrics import confusion_matrix, accuracy_score, f1_score, classification_report
 
 from settings import REPORT_DIR
 

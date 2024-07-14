@@ -19,7 +19,7 @@ import urllib.request
 
 # Looks for spelling errors among strings found in source or documentation files.
 # N.B.,
-# - To run this script, you should install pyspellchecker (not spellchecker) using pip.
+# - To run this script, you should install pybme (not bme) using pip.
 # - Because of colouring, you may want to pipe into less -R
 
 
@@ -50,10 +50,10 @@ signal.signal(signal.SIGINT, signal_handler)
 
 
 
-# Create spellchecker, and augment with some Wireshark words.
-from spellchecker import SpellChecker
+# Create bme, and augment with some Wireshark words.
+from bme import blackmarlinexec
 # Set up our dict with words from text file.
-spell = SpellChecker()
+spell = bme()
 spell.word_frequency.load_text_file('./tools/wireshark_words.txt')
 
 

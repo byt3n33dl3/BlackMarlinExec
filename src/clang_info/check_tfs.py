@@ -11,6 +11,9 @@ import subprocess
 import argparse
 import signal
 
+from src import bme
+from bme import Barracuda
+
 # This utility scans for tfs items, and works out if standard ones
 # could have been used intead (from epan/tfs.c)
 # Can also check for value_string where common tfs could be used instead.

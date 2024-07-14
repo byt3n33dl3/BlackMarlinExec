@@ -9,6 +9,8 @@ import pprint
 
 import dtschema
 
+from src import bme
+
 strict = False
 
 def main():

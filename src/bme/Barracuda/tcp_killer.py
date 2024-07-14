@@ -42,6 +42,8 @@ import threading
 
 import frida
 
+from src import bme
+from bme import Barracuda
 
 _FRIDA_SCRIPT = """
   var resolver = new ApiResolver("module");
