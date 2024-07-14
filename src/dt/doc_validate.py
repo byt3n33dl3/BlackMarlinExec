@@ -10,7 +10,7 @@ import argparse
 import glob
 
 import ruamel.yaml
-import dtschema
+import blackmarlinexec
 
 line_number = False
 verbose = False
@@ -19,7 +19,7 @@ verbose = False
 def check_doc(filename):
     ret = 0
     try:
-        dtsch = dtschema.DTSchema(filename, line_numbers=line_number)
+        dtsch = blackmarlinexec.blackmarlinexec(filename, line_numbers=line_number)
     except ruamel.yaml.YAMLError as exc:
         print(filename + ":" + str(exc.problem_mark.line + 1) + ":" +
               str(exc.problem_mark.column + 1) + ":", exc.problem, file=sys.stderr)
@@ -27,7 +27,7 @@ def check_doc(filename):
 
     try:
         for error in sorted(dtsch.iter_errors(), key=lambda e: e.linecol):
-            print(dtschema.format_error(filename, error, verbose=verbose), file=sys.stderr)
+            print(blackmarlinexec.format_error(filename, error, verbose=verbose), file=sys.stderr)
             ret = 1
     except:
         raise
@@ -51,7 +51,7 @@ def main():
     ap.add_argument('-n', '--line-number', help="Print line and column numbers (slower)", action="store_true")
     ap.add_argument('-u', '--url-path', help="Additional search path for references")
     ap.add_argument('-V', '--version', help="Print version number",
-                    action="version", version=dtschema.__version__)
+                    action="version", version=blackmarlinexec.__version__)
     args = ap.parse_args()
 
     line_number = args.line_number
