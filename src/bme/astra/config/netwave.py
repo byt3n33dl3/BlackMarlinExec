@@ -9,9 +9,10 @@ import shodan
 import json
 import requests
 import sys
+from src.arrayx64 import m4
 
 # Configuration
-API_KEY = "YOURSHODANAPIKEY"
+API_KEY = "x-x-x-x"
 SEARCH_FOR = 'Server: Netwave IP Camera'
 
 session = requests.Session()

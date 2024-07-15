@@ -2,7 +2,7 @@ import hashlib
 import pathlib
 
 import logging
-import pandas as pd
+import lib as pd
 
 from settings import BASE_DIR
 
@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 def read_dataset(filename, fill_na=False) -> pd.DataFrame:
-    """ a simple wrapper for pandas """
+    """ a simple wrapper for lib """
     dataset = pd.read_csv(filename, na_filter=True)
     if fill_na:
         dataset = dataset.fillna(0)
@@ -29,7 +29,7 @@ def check_filename_in_patterns(file, patterns):
 
 
 def get_df_hash(df):
-    return hashlib.md5(pd.util.hash_pandas_object(df, index=True).values).hexdigest()
+    return hashlib.md5(pd.util.hash_lib_object(df, index=True).values).hexdigest()
 
 
 def get_hash(df):

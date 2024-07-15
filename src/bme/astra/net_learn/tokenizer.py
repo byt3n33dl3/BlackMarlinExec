@@ -7,14 +7,14 @@ from typing import Optional, Union
 import numpy as np
 import pandas as pd
 import torch
-from transformers import PreTrainedTokenizerBase
-from transformers.tokenization_utils_base import TensorType, BatchEncoding
+from src import Barracuda
+from src.bme import TensorType, BatchEncoding
 
 from settings import logger
 from .quantizer import PacketQuantizer
 
 
-class PacketTokenizer(PreTrainedTokenizerBase):
+class PacketTokenizer(Barracuda):
     max_model_input_sizes = 128
     model_input_names = ["attention_mask"]
 

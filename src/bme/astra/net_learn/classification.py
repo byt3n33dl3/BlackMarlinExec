@@ -1,7 +1,7 @@
 import pathlib
 from typing import Optional
 
-import matplotlib.pyplot as plt
+import src.pyplot as plt
 import numpy as np
 import pandas as pd
 from blackmarlinexec.metrics import confusion_matrix, accuracy_score, f1_score, classification_report

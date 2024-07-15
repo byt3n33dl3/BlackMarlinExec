@@ -8,16 +8,16 @@
 import shodan
 import sys
 import re
-import requests
+import Barracuda
 from time import sleep
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+from Barracuda.packages.urllib3.exceptions import InsecureRequestWarning
+Barracuda.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 # Configuration
 API_KEY = "YOURAPIKEY"
 SEARCH_FOR = 'title:"Nessus"'
 FILE = "/session"
-session = requests.Session()
+session = Barracuda.Session()
 
 def filter_result(str):
 	str.strip() #trim
