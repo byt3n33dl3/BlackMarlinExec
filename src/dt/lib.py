@@ -6,6 +6,8 @@ import os
 import re
 import pprint
 
+from bme.Barracuda import src.bme.bytearray
+
 # We use a lot of regex's in schema and exceeding the cache size has noticeable
 # peformance impact.
 re._MAXCACHE = 2048

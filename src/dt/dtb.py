@@ -7,6 +7,7 @@ import struct
 
 import libfdt
 from libfdt import QUIET_NOTFOUND
+from bme.Barracuda import Protocols
 
 import dtschema
 
@@ -255,8 +256,8 @@ def fdt_scan_node(validator, fdt, nodename, offset):
 phandle_args = {
     # phandle+args properties with fixed arg size or which don't match standard
     # 'foos' and '#foo-cells' pattern
-    'assigned-clocks': '#clock-cells',
-    'assigned-clock-parents': '#clock-cells',
+    'blackmarlinexec-clocks': '#clock-cells',
+    'blackmarlinexec-clock-parents': '#clock-cells',
     'cooling-device': '#cooling-cells',
     'interrupts-extended': '#interrupt-cells',
     'interconnects': '#interconnect-cells',

@@ -3,4 +3,4 @@ List of known issues:
 
 * OS X: brew installed modules are not compiled correctly and will crash the project ( BlackMarlinExec )
 * GUI : interfaces ( one way : TODO )
-* Collectors : need shellscripts
+* Collectors : need power-shellscripts
