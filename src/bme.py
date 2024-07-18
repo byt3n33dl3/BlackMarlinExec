@@ -8,24 +8,24 @@ from functools import wraps
 from time import sleep
 from ipaddress import ip_address
 
-from bme.helpers.logger import highlight
-from bme.helpers.misc import identify_target_file
-from bme.parsers.ip import parse_targets
-from bme.parsers.nmap import parse_nmap_xml
-from bme.parsers.nessus import parse_nessus_file
-from bme.BlackMarlinExec import BlackMarlinExec
-from bme.loaders.protocolloader import ProtocolLoader
-from bme.loaders.moduleloader import ModuleLoader
-from bme.servers.http import BMEServer
-from bme.BlackMarlinExec_run import BlackMarlinExec_run_setup
-from bme.context import Context
-from bme.paths import BME_PATH, DATA_PATH
-from bme.console import bme_console
-from bme.logger import bme_logger
-from bme.config import bme_config, bme_workspace, config_log, ignore_opsec
+from src.bme.helpers.logger import highlight
+from src.bme.helpers.misc import identify_target_file
+from src.bme.parsers.ip import parse_targets
+from src.bme.parsers.nmap import parse_nmap_xml
+from src.bme.parsers.nessus import parse_nessus_file
+from src.bme.BlackMarlinExec import BlackMarlinExec
+from src.bme.loaders.protocolloader import ProtocolLoader
+from src.bme.loaders.moduleloader import ModuleLoader
+from src.bme.servers.http import src.bmeServer
+from src.bme.BlackMarlinExec_run import BlackMarlinExec_run_setup
+from src.bme.context import Context
+from src.bme.paths import src.bme_PATH, DATA_PATH
+from src.bme.console import src.bme_console
+from src.bme.logger import src.bme_logger
+from src.bme.config import src.bme_config, src.bme_workspace, config_log, ignore_opsec
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import asyncio
-import bme.helpers.powershell as powershell
+import src.bme.helpers.powershell as powershell
 import shutil
 import webbrowser
 import random
@@ -39,18 +39,18 @@ from rich.progress import Progress
 from sys import platform
 
 import configparser
-from bme.paths import BME_PATH, DATA_PATH
-from bme.first_run import first_run_setup
-from bme.logger import bme_logger
+from src.bme.paths import src.bme_PATH, DATA_PATH
+from src.bme.first_run import first_run_setup
+from src.bme.logger import src.bme_logger
 from ast import literal_eval
 
 import argparse
 import sys
 from argparse import RawTextHelpFormatter
-from bme.loaders.protocolloader import ProtocolLoader
-from bme.helpers.logger import highlight
+from src.bme.loaders.protocolloader import ProtocolLoader
+from src.bme.helpers.logger import highlight
 from termcolor import colored
-from bme.logger import bme_logger
+from src.bme.logger import bme_logger
 import importlib.metadata
 
 import __init__
@@ -71,12 +71,12 @@ def gen_cli_args():
     CODENAME = "p3xsouger"
 
     parser = argparse.ArgumentParser(description=f"""
-.______    __          ___       ______  __  ___ .___  ___.      ___      .______       __       __  .__   __.  __________   ___  _______   ______ 
-|   _  \  |  |        /   \     /      ||  |/  / |   \/   |     /   \     |   _  \     |  |     |  | |  \ |  | |   ____\  \ /  / |   ____| /      |
-|  |_)  | |  |       /  ^  \   |  ,----'|  '  /  |  \  /  |    /  ^  \    |  |_)  |    |  |     |  | |   \|  | |  |__   \  V  /  |  |__   |  ,----'
-|   _  <  |  |      /  /_\  \  |  |     |    <   |  |\/|  |   /  /_\  \   |      /     |  |     |  | |  . `  | |   __|   >   <   |   __|  |  |     
-|  |_)  | |  `----./  _____  \ |  `----.|  .  \  |  |  |  |  /  _____  \  |  |\  \----.|  `----.|  | |  |\   | |  |____ /  .  \  |  |____ |  `----.
-|______/  |_______/__/     \__\ \______||__|\__\ |__|  |__| /__/     \__\ | _| `._____||_______||__| |__| \__| |_______/__/ \__\ |_______| \______|
+.______    __          ___       ______   __  ___ .___  ___.      ___      .______        __       __  .__   __.  __________   ___  _______   ______ 
+|   _  \  |  |        /   \     /      | |  |/  / |   \/   |     /   \     |   _  \      |  |     |  | |  \ |  | |   ____\  \ /  / |   ____| /      |
+|  |_)  | |  |       /  ^  \   |  ,----' |  '  /  |  \  /  |    /  ^  \    |  |_)  |     |  |     |  | |   \|  | |  |__   \  V  /  |  |__   |  ,----'
+|   _  <  |  |      /  /_\  \  |  |      |    <   |  |\/|  |   /  /_\  \   |      /      |  |     |  | |  . `  | |   __|   >   <   |   __|  |  |     
+|  |_)  | |  `----./  _____  \ |  `----. |  .  \  |  |  |  |  /  _____  \  |  |\  \----. |  `----.|  | |  |\   | |  |____ /  .  \  |  |____ |  `----.
+|______/  |_______/__/     \__\ \______| |__|\__\ |__|  |__| /__/     \__\ | _| `._____| |_______||__| |__| \__| |_______/__/ \__\ |_______| \______|
 
                                       Seven Degrees of Domain Admin, used for ( Pentesting the corporate )
                                         Forged by @pxcs and @GangstaCrew using python and C for ( lib )
@@ -113,7 +113,7 @@ def gen_cli_args():
     )
     parser.add_argument("--verbose", action="store_true", help="enable verbose output")
     parser.add_argument("--debug", action="store_true", help="enable debug level information")
-    parser.add_argument("--version", action="store_true", help="Display bme version")
+    parser.add_argument("--version", action="store_true", help="Display src.bme version")
 
     module_parser = argparse.ArgumentParser(add_help=False)
     mgroup = module_parser.add_mutually_exclusive_group()
@@ -242,7 +242,7 @@ def gen_cli_args():
             protocol_object = p_loader.load_protocol(protocols[protocol]["argspath"])
             subparsers = protocol_object.proto_args(subparsers, std_parser, module_parser)
         except:
-            bme_logger.exception(f"Error loading proto_args from proto_args.py file in protocol folder: {protocol}")
+            src.bme_logger.exception(f"Error loading proto_args from proto_args.py file in protocol folder: {protocol}")
 
     if len(sys.argv) == 1:
         parser.print_help()
@@ -276,21 +276,21 @@ def create_db_engine(db_path):
 
 
 async def start_run(protocol_obj, args, db, targets):
-    bme_logger.debug(f"Creating ThreadPoolExecutor")
+    src.bme_logger.debug(f"Creating ThreadPoolExecutor")
     if args.no_progress or len(targets) == 1:
         with ThreadPoolExecutor(max_workers=args.threads + 1) as executor:
-            bme_logger.debug(f"Creating thread for {protocol_obj}")
+            src.bme_logger.debug(f"Creating thread for {protocol_obj}")
             _ = [executor.submit(protocol_obj, args, db, target) for target in targets]
     else:
-        with Progress(console=bme_console) as progress:
+        with Progress(console=src.bme_console) as progress:
             with ThreadPoolExecutor(max_workers=args.threads + 1) as executor:
                 current = 0
                 total = len(targets)
                 tasks = progress.add_task(
-                    f"[green]Running bme against {total} {'target' if total == 1 else 'targets'}",
+                    f"[green]Running src.bme against {total} {'target' if total == 1 else 'targets'}",
                     total=total,
                 )
-                bme_logger.debug(f"Creating thread for {protocol_obj}")
+                src.bme_logger.debug(f"Creating thread for {protocol_obj}")
                 futures = [executor.submit(protocol_obj, args, db, target) for target in targets]
                 for _ in as_completed(futures):
                     current += 1
@@ -298,28 +298,28 @@ async def start_run(protocol_obj, args, db, targets):
 
 
 def main():
-    first_run_setup(bme_logger)
+    first_run_setup(src.bme_logger)
     root_logger = logging.getLogger("root")
     args = gen_cli_args()
 
     if args.verbose:
-        bme_logger.logger.setLevel(logging.INFO)
+        src.bme_logger.logger.setLevel(logging.INFO)
         root_logger.setLevel(logging.INFO)
     elif args.debug:
-        bme_logger.logger.setLevel(logging.DEBUG)
+        src.bme_logger.logger.setLevel(logging.DEBUG)
         root_logger.setLevel(logging.DEBUG)
     else:
-        bme_logger.logger.setLevel(logging.ERROR)
+        src.bme_logger.logger.setLevel(logging.ERROR)
         root_logger.setLevel(logging.ERROR)
 
     # if these are the same, it might double log to file (two FileHandlers will be added)
     # but this should never happen by accident
     if config_log:
-        bme_logger.add_file_log()
+        src.bme_logger.add_file_log()
     if hasattr(args, "log") and args.log:
-        bme_logger.add_file_log(args.log)
+        src.bme_logger.add_file_log(args.log)
 
-    bme_logger.debug(f"Passed args: {args}")
+    src.bme_logger.debug(f"Passed args: {args}")
 
     # FROM HERE ON A PROTOCOL IS REQUIRED
     if not args.protocol:
@@ -328,11 +328,11 @@ def main():
     if args.protocol == "ssh":
         if args.key_file:
             if not args.password:
-                bme_logger.fail(f"Password is required, even if a key file is used - if no passphrase for key, use `-p ''`")
+                src.bme_logger.fail(f"Password is required, even if a key file is used - if no passphrase for key, use `-p ''`")
                 exit(1)
 
     if args.use_kcache and not os.environ.get("KRB5CCNAME"):
-        bme_logger.error("KRB5CCNAME environment variable is not set")
+        src.bme_logger.error("KRB5CCNAME environment variable is not set")
         exit(1)
 
     module_server = None
@@ -348,7 +348,7 @@ def main():
                         args.cred_id.append(n)
                     args.cred_id.remove(cred_id)
                 except Exception as e:
-                    bme_logger.error(f"Error parsing database credential id: {e}")
+                    src.bme_logger.error(f"Error parsing database credential id: {e}")
                     exit(1)
 
     if hasattr(args, "target") and args.target:
@@ -368,66 +368,66 @@ def main():
 
     # The following is a quick hack for the powershell obfuscation functionality, I know this is yucky
     if hasattr(args, "clear_obfscripts") and args.clear_obfscripts:
-        shutil.rmtree(os.path.expanduser("~/.bme/obfuscated_scripts/"))
-        os.mkdir(os.path.expanduser("~/.bme/obfuscated_scripts/"))
-        bme_logger.success("Cleared cached obfuscated PowerShell scripts")
+        shutil.rmtree(os.path.expanduser("~/.src.bme/obfuscated_scripts/"))
+        os.mkdir(os.path.expanduser("~/.src.bme/obfuscated_scripts/"))
+        src.bme_logger.success("Cleared cached obfuscated PowerShell scripts")
 
     if hasattr(args, "obfs") and args.obfs:
         powershell.obfuscate_ps_scripts = True
 
-    bme_logger.debug(f"Protocol: {args.protocol}")
+    src.bme_logger.debug(f"Protocol: {args.protocol}")
     p_loader = ProtocolLoader()
     protocol_path = p_loader.get_protocols()[args.protocol]["path"]
-    bme_logger.debug(f"Protocol Path: {protocol_path}")
+    src.bme_logger.debug(f"Protocol Path: {protocol_path}")
     protocol_db_path = p_loader.get_protocols()[args.protocol]["dbpath"]
-    bme_logger.debug(f"Protocol DB Path: {protocol_db_path}")
+    src.bme_logger.debug(f"Protocol DB Path: {protocol_db_path}")
 
     protocol_object = getattr(p_loader.load_protocol(protocol_path), args.protocol)
-    bme_logger.debug(f"Protocol Object: {protocol_object}")
+    src.bme_logger.debug(f"Protocol Object: {protocol_object}")
     protocol_db_object = getattr(p_loader.load_protocol(protocol_db_path), "database")
-    bme_logger.debug(f"Protocol DB Object: {protocol_db_object}")
+    src.bme_logger.debug(f"Protocol DB Object: {protocol_db_object}")
 
-    db_path = path_join(bme_PATH, "workspaces", bme_workspace, f"{args.protocol}.db")
-    bme_logger.debug(f"DB Path: {db_path}")
+    db_path = path_join(src.bme_PATH, "workspaces", src.bme_workspace, f"{args.protocol}.db")
+    src.bme_logger.debug(f"DB Path: {db_path}")
 
     db_engine = create_db_engine(db_path)
 
     db = protocol_db_object(db_engine)
 
-    # with the new bme/config.py this can be eventually removed, as it can be imported anywhere
-    setattr(protocol_object, "config", bme_config)
+    # with the new src.bme/config.py this can be eventually removed, as it can be imported anywhere
+    setattr(protocol_object, "config", src.bme_config)
 
     if args.module or args.list_modules:
-        loader = ModuleLoader(args, db, bme_logger)
+        loader = ModuleLoader(args, db, src.bme_logger)
         modules = loader.list_modules()
 
     if args.list_modules:
         for name, props in sorted(modules.items()):
             if args.protocol in props["supported_protocols"]:
-                bme_logger.display(f"{name:<25} {props['description']}")
+                src.bme_logger.display(f"{name:<25} {props['description']}")
         exit(0)
     elif args.module and args.show_module_options:
         for module in args.module:
-            bme_logger.display(f"{module} module options:\n{modules[module]['options']}")
+            src.bme_logger.display(f"{module} module options:\n{modules[module]['options']}")
         exit(0)
     elif args.module:
-        bme_logger.debug(f"Modules to be Loaded: {args.module}, {type(args.module)}")
+        src.bme_logger.debug(f"Modules to be Loaded: {args.module}, {type(args.module)}")
         for m in map(str.lower, args.module):
             if m not in modules:
-                bme_logger.error(f"Module not found: {m}")
+                src.bme_logger.error(f"Module not found: {m}")
                 exit(1)
 
-            bme_logger.debug(f"Loading module {m} at path {modules[m]['path']}")
+            src.bme_logger.debug(f"Loading module {m} at path {modules[m]['path']}")
             module = loader.init_module(modules[m]["path"])
 
             if not module.opsec_safe:
                 if ignore_opsec:
-                    bme_logger.debug(f"ignore_opsec is set in the configuration, skipping prompt")
-                    bme_logger.display(f"Ignore OPSEC in configuration is set and OPSEC unsafe module loaded")
+                    src.bme_logger.debug(f"ignore_opsec is set in the configuration, skipping prompt")
+                    src.bme_logger.display(f"Ignore OPSEC in configuration is set and OPSEC unsafe module loaded")
                 else:
                     ans = input(
                         highlight(
-                            "[!] Module is not opsec safe, are you sure you want to run this? [Y/n] For global configuration, change ignore_opsec value to True on ~/bme/bme.conf",
+                            "[!] Module is not opsec safe, are you sure you want to run this? [Y/n] For global configuration, change ignore_opsec value to True on ~/src.bme/src.bme.conf",
                             "red",
                         )
                     )
@@ -453,11 +453,11 @@ def main():
 
                 # loading a module server multiple times will obviously fail
                 try:
-                    context = Context(db, bme_logger, args)
-                    module_server = bmeServer(
+                    context = Context(db, src.bme_logger, args)
+                    module_server = src.bmeServer(
                         module,
                         context,
-                        bme_logger,
+                        src.bme_logger,
                         args.server_host,
                         args.server_port,
                         args.server,
@@ -465,15 +465,15 @@ def main():
                     module_server.start()
                     protocol_object.server = module_server.server
                 except Exception as e:
-                    bme_logger.error(f"Error loading module server for {module}: {e}")
+                    src.bme_logger.error(f"Error loading module server for {module}: {e}")
 
-            bme_logger.debug(f"proto_object: {protocol_object}, type: {type(protocol_object)}")
-            bme_logger.debug(f"proto object dir: {dir(protocol_object)}")
+            src.bme_logger.debug(f"proto_object: {protocol_object}, type: {type(protocol_object)}")
+            src.bme_logger.debug(f"proto object dir: {dir(protocol_object)}")
             # get currently set modules, otherwise default to empty list
             current_modules = getattr(protocol_object, "module", [])
             current_modules.append(module)
             setattr(protocol_object, "module", current_modules)
-            bme_logger.debug(f"proto object module after adding: {protocol_object.module}")
+            src.bme_logger.debug(f"proto object module after adding: {protocol_object.module}")
 
     if hasattr(args, "ntds") and args.ntds and not args.userntds:
         ans = input(
@@ -488,7 +488,7 @@ def main():
     try:
         asyncio.run(start_run(protocol_object, args, db, targets))
     except KeyboardInterrupt:
-        bme_logger.debug("Got keyboard interrupt")
+        src.bme_logger.debug("Got keyboard interrupt")
     finally:
         if module_server:
             module_server.shutdown()

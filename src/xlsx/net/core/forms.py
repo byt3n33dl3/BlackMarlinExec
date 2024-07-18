@@ -1,4 +1,4 @@
-from blackmarlinexec import forms
+from src.bme.blackmarlinexec import forms
 from .models import Machine
 
 class GoToForm(forms.Form):

@@ -15,6 +15,7 @@ from shodan import Shodan
 from shodan.cli.helpers import get_api_key
 from fake_useragent import UserAgent
 from fake_useragent.errors import FakeUserAgentError
+from src.bme import BlackMarlinExec
 
 class FavUp(object):
     def __init__(self, *args, **kwargs):

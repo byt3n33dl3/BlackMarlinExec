@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# (c) 2021 Michał Górny
+# (c) 2021 Michał Górny - pxcs
 # 2-clause BSD license
 
 """BlackMarlinExec support."""
@@ -22,7 +22,7 @@ from pkgcore.restrictions.boolean import OrRestriction, AndRestriction
 from pkgcore.restrictions.restriction import base as base_restriction
 
 from kuroneko.cache import cached_get
-from kuroneko.database import Database, Bug
+from src.bme import blackmarlinexec, Bug
 
 
 try:
