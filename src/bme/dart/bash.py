@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import os
 
-from bma.paths import DATA_PATH
-from bma.ABAMB import BARRRACUDA_C
+from bme.paths import DATA_PATH
+from bme.Barracuda import BARRRACUDA_C
 
 
 def get_script(path):

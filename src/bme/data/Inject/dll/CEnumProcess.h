@@ -2,8 +2,6 @@
 #include "afxcmn.h"
 #include "Common.h"
 
-// CCEnumProcess ¶Ô»°¿ò
-
 
 
 typedef struct _PROCESS_INFORMATION_ENTRY_
@@ -28,16 +26,16 @@ class CEnumProcess : public CDialogEx
 	DECLARE_DYNAMIC(CEnumProcess)
 
 public:
-	CEnumProcess(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êý
+	CEnumProcess(CWnd* pParent = NULL);   // ï¿½ï¿½×¼ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 	virtual ~CEnumProcess();
 	PPROCESS_INFORMATION_OWN ProcessInformation;
 	VOID CEnumProcess::EnumProcess(ULONG_PTR Code);
 	VOID AddItemToControlList(PPROCESS_INFORMATION_OWN ProcessInformation);
-// ¶Ô»°¿òÊý¾Ý
+// ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	enum { IDD = IDD_DIALOG_ENUMPROCESS };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§ï¿½ï¿½
 
 	DECLARE_MESSAGE_MAP()
 public:

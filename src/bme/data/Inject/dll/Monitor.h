@@ -1,17 +1,17 @@
 #pragma once
 #include "resource.h"
 #include "afxwin.h"
-// CMonitor ¶Ô»°¿ò
+// CMonitor ï¿½Ô»ï¿½ï¿½ï¿½
 
 class CMonitor : public CDialogEx
 {
 	DECLARE_DYNAMIC(CMonitor)
 
 public:
-	CMonitor(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êý
+	CMonitor(CWnd* pParent = NULL);   // ï¿½ï¿½×¼ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 	virtual ~CMonitor();
 
-// ¶Ô»°¿òÊý¾Ý
+// ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	enum { IDD = IDD_DIALOG_MONITOR };
 		HANDLE    m_hThread;
 		static  DWORD WINAPI  ThreadProc(LPVOID lPParam);
@@ -27,7 +27,7 @@ public:
 
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§ï¿½ï¿½
 	afx_msg LRESULT OnNotifyDlg(WPARAM wParam,LPARAM lParam);
 	DECLARE_MESSAGE_MAP()
 public:
@@ -38,4 +38,17 @@ public:
 	afx_msg void OnBnClickedButtonsus();
 	afx_msg void OnBnClickedButtonGoon();
 	afx_msg void OnBnClickedButtonStop();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
+	afx_msg void OnBnClickedButtonGoon();
 };

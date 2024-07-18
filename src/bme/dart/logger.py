@@ -6,7 +6,7 @@ from termcolor import colored
 
 
 def write_log(data, log_name):
-    logs_dir = os.path.join(os.path.expanduser("~/.cme"), "logs")
+    logs_dir = os.path.join(os.path.expanduser("~/.bme"), "logs")
     with open(os.path.join(logs_dir, log_name), "w") as log_output:
         log_output.write(data)
 
