@@ -45,7 +45,7 @@ def printDataTree(vlansDict,contextsDict):
 # Process arguments from the user
 parser = argparse.ArgumentParser(
     description = 'A python script that visually maps network configurations automatically.',
-    epilog = 'example: python NetworkMap.py -c fwsm_contexts.txt -s fwsm_contexts.txt  -f switch_config.txt -v switch_vlans.txt')
+    epilog = 'example: python NetworkMap.py -c fwsm_contexts.txt -s fwsm_contexts.txt  -f config.txt -v vlans.txt')
 requiredNamed = parser.add_argument_group('required arguments')
 requiredNamed.add_argument("-c", "--contexts", nargs="+", help="Name of the FWSM contexts file", required=True)
 requiredNamed.add_argument("-f", "--config", nargs="+", help="Name of the distribution switch config file", required=True)
