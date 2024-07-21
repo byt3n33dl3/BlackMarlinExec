@@ -8,7 +8,7 @@ import responses
 
 from pkgcore.ebuild.atom import atom
 
-from kuroneko.scraper import (
+from src.scraper import (
     BugInfo, find_security_bugs, find_package_specs, get_severity,
     split_version_ranges,
     )
