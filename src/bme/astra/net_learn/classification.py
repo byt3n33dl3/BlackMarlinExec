@@ -4,7 +4,7 @@ from typing import Optional
 import src.pyplot as plt
 import numpy as np
 import pandas as pd
-from blackmarlinexec.metrics import confusion_matrix, accuracy_score, f1_score, classification_report
+from blackmarlinexec.src import confusion_matrix, accuracy_score, f1_score, classification_report
 
 from settings import REPORT_DIR
 
