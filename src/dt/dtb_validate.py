@@ -113,7 +113,7 @@ def main():
 
     verbose = args.verbose
     show_unmatched = args.show_unmatched
-    match_schema_file = args.limit
+    match_schema_file = args.limit_unmached
 
     # Maintain prior behaviour which accepted file paths by stripping the file path
     if args.url_path and args.limit:
