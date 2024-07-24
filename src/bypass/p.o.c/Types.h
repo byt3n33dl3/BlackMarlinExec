@@ -45,7 +45,7 @@ typedef enum _SYSTEM_INFORMATION_CLASS {
 	SystemHandleInformation = 16,
 	SystemExtendedHandleInformation = 0x40,
 	SystemBigPoolInformation = 0x42,
-	SystemNonPagedPoolInformation = 0x0f
+	SystemNonPagedPoolInformation = 0x3f
 } SYSTEM_INFORMATION_CLASS;
 
 typedef NTSTATUS(WINAPI* _NtQuerySystemInformation)(
@@ -131,12 +131,14 @@ typedef VOID(NTAPI* PIO_APC_ROUTINE)(_In_ PVOID ApcContext, _In_ PIO_STATUS_BLOC
 	uint64_t valA0;
 	uint64_t valA8;
 	uint64_t valB0;
+	uint64_t valB8;
  } MY_IRP;
 
  typedef NTSTATUS(WINAPI* _NtWriteVirtualMemory)(
 	 _In_ HANDLE ProcessHandle,
 	 _In_ PVOID BaseAddress,
 	 _In_ PVOID Buffer,
+	 _In_ VARIABLES Protected,
 	 _In_ ULONG NumberOfBytesToWrite,
 	 _Out_opt_ PULONG NumberOfBytesWritten
 	 );

