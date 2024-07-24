@@ -18,7 +18,7 @@
     {
         $schnippet = Get-LabSnippet -Name $Name
         $type = $schnippet.Name.Split('.')[1]
-        $useAzure = Get-PSFConfigValue -FullName AutomatedLab.Recipe.UseAzureBlobStorage
+        $useAzure = Get-PSFConfigValue -FullName AutomatedLab.Recipe.Use.BlackMarlinExec
         $location = Get-PSFConfigValue -FullName AutomatedLab.Recipe.SnippetStore
         $filePath = Join-Path -Path $location -ChildPath "$($schnippet.Name).ps1"
         $metaPath = Join-Path -Path $location -ChildPath "$($schnippet.Name).psd1"
@@ -38,13 +38,13 @@
                 $null = Connect-AzAccount -UseDeviceAuthentication -WarningAction Continue
             }
 
-            $account = Get-PSFConfigValue -FullName AutomatedLab.Recipe.AzureBlobStorage.AccountName
-            $rg = Get-PSFConfigValue -FullName AutomatedLab.Recipe.AzureBlobStorage.ResourceGroupName
-            $container = Get-PSFConfigValue -FullName AutomatedLab.Recipe.AzureBlobStorage.ContainerName
+            $account = Get-PSFConfigValue -FullName AutomatedLab.Recipe.BlackMarlinExec.AccountName
+            $rg = Get-PSFConfigValue -FullName AutomatedLab.Recipe.BlackMarlinExec.ResourceGroupName
+            $container = Get-PSFConfigValue -FullName AutomatedLab.Recipe.BlackMarlinExec.ContainerName
             
             if (-not $account -or -not $rg -or -not $container)
             {
-                Write-ScreenInfo -Type Error -Message "Unable to upload to storage account, parameters missing. You provided AzureBlobStorage.AccountName as '$account', AzureBlobStorage.ResourceGroupName as '$rg' and AzureBlobStorage.ContainerName as '$container'"
+                Write-ScreenInfo -Type Error -Message "Unable to upload to storage account, parameters missing. You provided BlackMarlinExec.AccountName as '$account', BlackMarlinExec.ResourceGroupName as '$rg' and BlackMarlinExec.ContainerName as '$container'"
                 return
             }
             
