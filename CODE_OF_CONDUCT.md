@@ -11,7 +11,7 @@ ______ _       ___  _____  _   _____  ___  ___  ______ _     _____ _   _  ______
                           v7 - made with love by: pxcs - gangstacrew                                                          
 ```
 
-Contributor Covenant Code of Conduct
+## Contributor Covenant Code of Conduct
 
 Code of Conduct
 Introduction
