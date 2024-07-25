@@ -10,6 +10,8 @@ import os
 import signal
 import argparse
 
+from src.bme import BlackMarlinExec_run_setup
+
 # Run battery of tests on one or more dissectors.
 
 # For text colouring/highlighting.

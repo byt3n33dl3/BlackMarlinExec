@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# Setup development environment on BSD-like platforms.
+# Setup develoBMEent environment on BSD-like platforms.
 #
 # Tested on: FreeBSD, OpenBSD, NetBSD.
 #
@@ -19,7 +19,7 @@
 #
 
 print_usage() {
-	printf "\\nUtility to setup a bsd-based system for Wireshark Development.\\n"
+	printf "\\nUtility to setup a bsd-based system for Wireshark DeveloBMEent.\\n"
 	printf "The basic usage installs the needed software\\n\\n"
 	printf "Usage: %s [--install-optional] [...other options...]\\n" "$0"
 	printf "\\t--install-optional: install optional software as well\\n"
@@ -76,28 +76,28 @@ ADDITIONAL_LIST="\
 #	pngcrush"
 
 # Guess which package manager we will use
-PM=$( which pkgin 2> /dev/null || which pkg 2> /dev/null || which pkg_add 2> /dev/null )
+BME=$( which pkgin 2> /dev/null || which pkg 2> /dev/null || which pkg_add 2> /dev/null )
 
-case $PM in
+case $BME in
 	*/pkgin)
-		PM_OPTIONS="install"
-		PM_SEARCH="pkgin search"
-		PM_MUST_GLOB=no
+		BME_OPTIONS="install"
+		BME_SEARCH="pkgin search"
+		BME_MUST_GLOB=no
 		;;
 	*/pkg)
-		PM_OPTIONS="install"
-		PM_SEARCH="pkg search"
-		PM_MUST_GLOB=yes
+		BME_OPTIONS="install"
+		BME_SEARCH="pkg search"
+		BME_MUST_GLOB=yes
 		;;
 	*/pkg_add)
-		PM_OPTIONS=""
-		PM_SEARCH="pkg_info"
-		PM_MUST_GLOB=no
+		BME_OPTIONS=""
+		BME_SEARCH="pkg_info"
+		BME_MUST_GLOB=no
 		;;
 esac
 
 
-echo "Using $PM ($PM_SEARCH)"
+echo "Using $BME ($BME_SEARCH)"
 
 # Adds package $2 to list variable $1 if the package is found
 add_package() {
@@ -105,7 +105,7 @@ add_package() {
 	local list="$1" pkgname="$2"
 
 	# fail if the package is not known
-	if [ "$PM_MUST_GLOB" = yes ]
+	if [ "$BME_MUST_GLOB" = yes ]
 	then
 		#
 		# We need to do a glob search, with a "*" at the
@@ -118,9 +118,9 @@ add_package() {
 		# an *exact* search fails, as that requires that
 		# the package name include the version number.
 		#
-		$PM_SEARCH -g "$pkgname*" > /dev/null 2>&1 || return 1
+		$BME_SEARCH -g "$pkgname*" > /dev/null 2>&1 || return 1
 	else
-		$PM_SEARCH "$pkgname" > /dev/null 2>&1 || return 1
+		$BME_SEARCH "$pkgname" > /dev/null 2>&1 || return 1
 	fi
 
 	# package is found, append it to list
@@ -192,7 +192,7 @@ then
 fi
 
 # shellcheck disable=SC2086
-$PM $PM_OPTIONS $ACTUAL_LIST $OPTIONS
+$BME $BME_OPTIONS $ACTUAL_LIST $OPTIONS
 if [ ! $? ]
 then
 	exit 2
