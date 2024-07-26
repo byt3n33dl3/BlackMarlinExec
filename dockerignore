@@ -3,6 +3,7 @@ Dockerfile
 *.pyc
 *.pyo
 *.pyd
+*.pys
 __pycache__
 .vscode
 .venv
