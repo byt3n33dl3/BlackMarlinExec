@@ -4,4 +4,4 @@ List of known issues:
 * OS X: macOS `brew` installed modules are not compiled correctly and will crash the project ( BlackMarlinExec )
 * GUI : interfaces ( one way : TODO )
 * Collectors : need power-shellscripts
-* Return-shell : back, but slow ( why!! )
+* Sharp-Return-shell : back, but slow ( why!! )
