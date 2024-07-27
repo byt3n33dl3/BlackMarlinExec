@@ -8,7 +8,7 @@ from apiCalls.apiChooseUser import openTokenLibrary
 #-----------Auth Headers------------------------------
 def getHeaders(user):
     tokenLibrary = openTokenLibrary()
-    headers={'Authorization': 'Bearer ' + tokenLibrary[user]['access_token'], 'Content-type': 'application/json'}
+    headers={'Authorization': 'Bearer ' + tokenLibrary[user]['bme_access_token'], 'Content-type': 'application/json'}
     return headers
 
 #----------List Rules -------------------------------
