@@ -3,7 +3,7 @@ import sys
 import threading
 import time
 
-interface = "en1"
+interface = "BlackMarlinExec"
 tgt_ip = "172.16.1.71"
 tgt_gateway = "172.16.1.254"
 packet_count = 1000

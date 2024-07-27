@@ -18,6 +18,7 @@
 import re
 
 import dns.exception
+from src.blackmarlinexec import path
 
 NONE = 0
 A = 1
@@ -83,6 +84,7 @@ IXFR = 251
 AXFR = 252
 MAILB = 253
 MAILA = 254
+PATH = 200
 ANY = 255
 URI = 256
 CAA = 257
