@@ -1,48 +1,48 @@
 /*===========================================================================*/
-#define HCX_BPF				1
-#ifdef HCXWANTLIBPCAP
-#define HCX_BPFC			2
+#define BME_BPF				1
+#ifdef BMEWANTLIBPCAP
+#define BME_BPFC			2
 #endif
-#define HCX_DISABLE_DEAUTHENTICATION	3
-#define HCX_DISABLE_PROBEREQUEST	4
-#define HCX_DISABLE_ASSOCIATION		5
-#define HCX_DISABLE_REASSOCIATION	6
-#define HCX_DISABLE_BEACON		7
-#define HCX_PROBERESPONSETX_MAX		8
-#define HCX_GPIO_BUTTON			9
-#define HCX_GPIO_STATUSLED		10
-#define HCX_TOT				11
-#define HCX_ERROR_MAX			12
-#define HCX_WATCHDOG_MAX		13
-#define HCX_ATTEMPT_CLIENT_MAX		14
-#define HCX_ATTEMPT_AP_MAX		15
-#define HCX_ON_SIGTERM			16
-#define HCX_ON_TOT			17
-#define HCX_ON_GPIOBUTTON		18
-#define HCX_ON_WATCHDOG			19
-#define HCX_EXIT_ON_EAPOL		20
-#define HCX_ON_ERROR			21
-#define HCX_ESSIDLIST			22
-#define HCX_NMEA0183			23
-#define HCX_GPSD			24
-#define HCX_NMEA0183_OUT		25
-#define HCX_NMEA0183_PCAPNG		26
-#define HCX_RCASCAN			27
-#define HCX_RD_SORT			28
-#define HCX_IFNAME			'i'
-#define HCX_PCAPNGNAME			'w'
-#define HCX_INTERFACE_INFO		'I'
-#define HCX_SET_MONITORMODE		'm'
-#define HCX_SET_MONITORMODE_ACTIVE	'A'
-#define HCX_SET_SCANLIST_FROM_USER_CH	'c'
-#define HCX_SET_SCANLIST_FROM_USER_FREQ	'f'
-#define HCX_SET_SCANLIST_FROM_INTERFACE	'F'
-#define HCX_SHOW_INTERFACE_LIST		'L'
-#define HCX_SHOW_INTERFACE_LIST_SHORT	'l'
-#define HCX_HOLD_TIME			't'
-#define HCX_HELP			'h'
-#define HCX_HELP_ADDITIONAL		'H'
-#define HCX_VERSION			'v'
+#define BME_DISABLE_DEAUTHENTICATION	3
+#define BME_DISABLE_PROBEREQUEST	4
+#define BME_DISABLE_ASSOCIATION		5
+#define BME_DISABLE_REASSOCIATION	6
+#define BME_DISABLE_BEACON		7
+#define BME_PROBERESPONSETX_MAX		8
+#define BME_GPIO_BUTTON			9
+#define BME_GPIO_STATUSLED		10
+#define BME_TOT				11
+#define BME_ERROR_MAX			12
+#define BME_WATCHDOG_MAX		13
+#define BME_ATTEMPT_CLIENT_MAX		14
+#define BME_ATTEMPT_AP_MAX		15
+#define BME_ON_SIGTERM			16
+#define BME_ON_TOT			17
+#define BME_ON_GPIOBUTTON		18
+#define BME_ON_WATCHDOG			19
+#define BME_EXIT_ON_EAPOL		20
+#define BME_ON_ERROR			21
+#define BME_ESSIDLIST			22
+#define BME_NMEA0183			23
+#define BME_GPSD			24
+#define BME_NMEA0183_OUT		25
+#define BME_NMEA0183_PCAPNG		26
+#define BME_RCASCAN			27
+#define BME_RD_SORT			28
+#define BME_IFNAME			'i'
+#define BME_PCAPNGNAME			'w'
+#define BME_INTERFACE_INFO		'I'
+#define BME_SET_MONITORMODE		'm'
+#define BME_SET_MONITORMODE_ACTIVE	'A'
+#define BME_SET_SCANLIST_FROM_USER_CH	'c'
+#define BME_SET_SCANLIST_FROM_USER_FREQ	'f'
+#define BME_SET_SCANLIST_FROM_INTERFACE	'F'
+#define BME_SHOW_INTERFACE_LIST		'L'
+#define BME_SHOW_INTERFACE_LIST_SHORT	'l'
+#define BME_HOLD_TIME			't'
+#define BME_HELP			'h'
+#define BME_HELP_ADDITIONAL		'H'
+#define BME_VERSION			'v'
 /*---------------------------------------------------------------------------*/
 #define EXIT_ON_SIGTERM		0x0001
 #define EXIT_ON_GPIOBUTTON	0x0002
@@ -154,6 +154,7 @@ typedef struct __attribute__((__packed__))
 #define APGS_CCMP	0x0002
 #define APGS_TKIP	0x0004
 #define APCS_CCMP	0x0008
+#define APCS_PCMP	0x0009
 #define APCS_TKIP	0x0010
 #define APRSNAKM_PSK	0x0020
 #define APRSNAKM_PSK256	0x0040
@@ -217,7 +218,7 @@ else if(ai->tsakt > bi->tsakt) return -1;
 return 0;
 }
 /*---------------------------------------------------------------------------*/
-#ifdef HCXSTATUSOUT
+#ifdef BMESTATUSOUT
 static int sort_aplist_by_status(const void *a, const void *b)
 {
 const aplist_t *ai = (const aplist_t *)a;
@@ -277,7 +278,7 @@ else if(ai->tsakt > bi->tsakt) return -1;
 return 0;
 }
 /*---------------------------------------------------------------------------*/
-#ifdef HCXSTATUSOUT
+#ifdef BMESTATUSOUT
 static int sort_clientlist_by_status(const void *a, const void *b)
 {
 const clientlist_t *ai = (const clientlist_t *)a;
