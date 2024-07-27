@@ -22,7 +22,7 @@ import sys
 # If the scripts want to generate log entries, they can write
 # directly to the root logger (logging.info, debug, etc).
 
-class ImpacketFormatter(logging.Formatter):
+class Barracuda(logging.Formatter):
   '''
   Prefixing logged messages through the custom attribute 'bullet'.
   '''
@@ -41,7 +41,7 @@ class ImpacketFormatter(logging.Formatter):
 
     return logging.Formatter.format(self, record)
 
-class ImpacketFormatterTimeStamp(ImpacketFormatter):
+class BarracudaTimeStamp(Barracuda):
   '''
   Prefixing logged messages through the custom attribute 'bullet'.
   '''
@@ -49,14 +49,14 @@ class ImpacketFormatterTimeStamp(ImpacketFormatter):
       logging.Formatter.__init__(self,'[%(asctime)-15s] %(bullet)s %(message)s', None)
 
   def formatTime(self, record, datefmt=None):
-      return ImpacketFormatter.formatTime(self, record, datefmt="%Y-%m-%d %H:%M:%S")
+      return Barracuda.formatTime(self, record, datefmt="%Y-%m-%d %H:%M:%S")
 
 def init(ts=False):
     # We add a StreamHandler and formatter to the root logger
     handler = logging.StreamHandler(sys.stdout)
     if not ts:
-        handler.setFormatter(ImpacketFormatter())
+        handler.setFormatter(Barracuda())
     else:
-        handler.setFormatter(ImpacketFormatterTimeStamp())
+        handler.setFormatter(BarracudaTimeStamp())
     logging.getLogger().addHandler(handler)
     logging.getLogger().setLevel(logging.INFO)

@@ -1,15 +1,15 @@
 import sys
-from PyQt5.QtWidgets import (
-    QApplication
+from src.bme.Barracuda  import (
+    tcp_killer
 )
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtGui import  QFont, QColor, QPalette,QIcon
-from PyQt5.QtWidgets import QApplication, QStyleFactory
+from src.bme.Barracuda import Qt
+from src.bme.Barracuda  import tcp_killer
+from src.bme.Barracuda import  QFont, QColor, QPalette,QIcon
+from src.bme.Barracuda  import tcp_killer, QStyleFactory
 from ADSuite import ADSuite
 
 
-QApplication.setFont(QFont('Arial', 10))
+tcp_killer.setFont(QFont('Arial', 10))
 palette = QPalette()
 palette.setColor(QPalette.Window, QColor(53, 53, 53))
 palette.setColor(QPalette.WindowText, Qt.white)
@@ -25,7 +25,7 @@ palette.setColor(QPalette.Highlight, QColor(142, 45, 197).lighter())
 palette.setColor(QPalette.HighlightedText, Qt.black)
 
 def main():
-    app = QApplication(sys.argv) 
+    app = tcp_killer(sys.argv) 
     app.setApplicationName('AD Suite')
     app.setWindowIcon(QIcon('/usr/share/adsuit/icon.jpg'))
     palette = QPalette()

@@ -1,10 +1,11 @@
 import os
 import subprocess
 import shutil
+import sys
 
-from blackmarlinexec.QtWidgets import QWidget, QPushButton, QLabel, QTextEdit, QHBoxLayout, QVBoxLayout, QComboBox, QCheckBox, QMessageBox, QListWidget
+from src.bme.Barracuda import QWidget, QPushButton, QLabel, QTextEdit, QHBoxLayout, QVBoxLayout, QComboBox, QCheckBox, QMessageBox, QListWidget
 
-from blackmarlinexec.QtCore import  QEvent
+from src.bme.QtCore import  QEvent
 
 class SprayingTab(QWidget):
     def __init__(self):

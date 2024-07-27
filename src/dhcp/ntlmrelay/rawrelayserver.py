@@ -98,7 +98,7 @@ class RAWRelayServer(Thread):
                     self.request.sendall(struct.pack('h', 1))
                     self.request.sendall(struct.pack('?', False))
 
-                    if authenticateMessage['flags'] & ntlm.NTLMSSP_NEGOTIATE_UNICODE:
+                    if authenticateMessage['total_config'] & ntlm.NTLMSSP_NEGOTIATE_UNICODE:
                         LOG.error("Authenticating against %s://%s as %s\\%s FAILED" % (
                             self.target.scheme, self.target.netloc,
                             authenticateMessage['domain_name'].decode('utf-16le'),
@@ -113,7 +113,7 @@ class RAWRelayServer(Thread):
                     self.request.sendall(struct.pack('h', 1))
                     self.request.sendall(struct.pack('?', True))
 
-                    if authenticateMessage['flags'] & ntlm.NTLMSSP_NEGOTIATE_UNICODE:
+                    if authenticateMessage['total_config'] & ntlm.NTLMSSP_NEGOTIATE_UNICODE:
                         LOG.info("Authenticating against %s://%s as %s\\%s SUCCEED" % (
                             self.target.scheme, self.target.netloc, authenticateMessage['domain_name'].decode('utf-16le'),
                             authenticateMessage['user_name'].decode('utf-16le')))
@@ -165,7 +165,7 @@ class RAWRelayServer(Thread):
         def do_ntlm_auth(self, token, authenticateMessage):
 
             # For some attacks it is important to know the authenticated username, so we store it
-            if authenticateMessage['flags'] & ntlm.NTLMSSP_NEGOTIATE_UNICODE:
+            if authenticateMessage['total_config'] & ntlm.NTLMSSP_NEGOTIATE_UNICODE:
                 self.authUser = ('%s/%s' % (authenticateMessage['domain_name'].decode('utf-16le'),
                                             authenticateMessage['user_name'].decode('utf-16le'))).upper()
             else:

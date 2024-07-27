@@ -1,8 +1,8 @@
 import sys
 
-from blackmarlinexec.QtCore import QTimer
-from blackmarlinexec.QtGui import QFont
-from blackmarlinexec.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QMessageBox, QTextEdit, QHBoxLayout, QVBoxLayout
+from src.bme.QtCore import QTimer
+from src.bme.QtGui import QFont
+from src.bme.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QMessageBox, QTextEdit, QHBoxLayout, QVBoxLayout
 
 QApplication.setFont(QFont('Arial', 10))
 

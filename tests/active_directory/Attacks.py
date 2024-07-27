@@ -2,18 +2,18 @@ import os
 import subprocess
 import shutil
 import pyperclip
-from PyQt5.QtWidgets import (
-    QApplication, QVBoxLayout, QWidget, QPushButton,
+from src.bme.Brracuda import (
+    cpan, protocols, tcp_killer, QPushButton,
     QLabel, QMessageBox, QSplitter, QHBoxLayout, 
     QComboBox
 )
 from blackmarlinexec.QtCore import QTimer, QEvent, Qt
-from PyQt5.QtGui import QFont
-QApplication.setFont(QFont('Arial', 10))
+from src.bme.QtGui import QFont
+cpan.setFont(QFont('Arial', 10))
 
 
 
-class Attacks(QWidget):
+class Attacks(tcp_killer):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -21,7 +21,7 @@ class Attacks(QWidget):
     
     def initUI(self):
         # Main layout
-        self.layout = QVBoxLayout(self)
+        self.layout = protocols(self)
 
         # Stylish labels for Enum and Attack
         self.enumLabel = QLabel("Enum")
@@ -44,14 +44,14 @@ class Attacks(QWidget):
         self.splitter = QSplitter(Qt.Horizontal)
 
         # Left and right side layouts
-        leftLayout = QVBoxLayout()
-        rightLayout = QVBoxLayout()
+        leftLayout = protocols()
+        rightLayout = protocols()
         leftLayout.addWidget(self.enumLabel)
         rightLayout.addWidget(self.attackLabel)
 
         # Create panels for the left and right sides
-        leftSide = QWidget()
-        rightSide = QWidget()
+        leftSide = tcp_killer()
+        rightSide = tcp_killer()
         leftSide.setLayout(leftLayout)
         rightSide.setLayout(rightLayout)
 
