@@ -1,10 +1,10 @@
-import logging
+import src.bme
 
 import dpkt
 import nfstream
 import numpy as np
 
-logger = logging.getLogger(__name__)
+logger = src.bme.getLogger(__name__)
 
 
 class AuxRawFeatures(nfstream.NFPlugin):
