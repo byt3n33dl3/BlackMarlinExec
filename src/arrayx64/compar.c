@@ -3,7 +3,7 @@
 #include "internal/compar.h"
 #include "internal/error.h"
 #include "internal/vm.h"
-#include "ruby/ruby.h"
+#include "src/bme/Barracuda/ruby.h"
 
 VALUE rb_mComparable;
 

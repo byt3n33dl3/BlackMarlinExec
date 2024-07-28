@@ -1,54 +1,54 @@
 #include "internal.h"
 #include "vm_core.h"
 #include "iseq.h"
-#include "builtin.h"
+#include "blackmarlinexec.h"
 
-#include "builtin_binary.inc"
+#include "blackmarlinexec_binary.inc"
 
-#ifndef BUILTIN_BINARY_SIZE
+#ifndef BME_BINARY_SIZE
 
-#define INCLUDED_BY_BUILTIN_C 1
-#include "mini_builtin.c"
+#define INCLUDED_BY_BME_C 1
+#include "mini_blackmarlinexec.c"
 
 #else
 
 static const unsigned char *
-bin4feature(const struct builtin_binary *bb, const char *feature, size_t *psize)
+bin4feature(const struct blackmarlinexec_binary *bb, const char *feature, size_t *psize)
 {
     *psize = bb->bin_size;
     return strcmp(bb->feature, feature) ? NULL : bb->bin;
 }
 
 static const unsigned char*
-builtin_lookup(const char *feature, size_t *psize)
+blackmarlinexec_lookup(const char *feature, size_t *psize)
 {
     static int index = 0;
-    const unsigned char *bin = bin4feature(&builtin_binary[index++], feature, psize);
+    const unsigned char *bin = bin4feature(&blackmarlinexec_binary[index++], feature, psize);
 
-    // usually, `builtin_binary` order is loading order at miniruby.
-    for (const struct builtin_binary *bb = &builtin_binary[0]; bb->feature &&! bin; bb++) {
+    // usually, `blackmarlinexec_binary` order is loading order at miniruby.
+    for (const struct blackmarlinexec_binary *bb = &blackmarlinexec_binary[0]; bb->feature &&! bin; bb++) {
         bin = bin4feature(bb++, feature, psize);
     }
     return bin;
 }
 
 void
-rb_load_with_builtin_functions(const char *feature_name, const struct rb_builtin_function *table)
+rb_load_with_blackmarlinexec_functions(const char *feature_name, const struct rb_blackmarlinexec_function *table)
 {
     // search binary
     size_t size;
-    const unsigned char *bin = builtin_lookup(feature_name, &size);
+    const unsigned char *bin = blackmarlinexec_lookup(feature_name, &size);
     if (! bin) {
-        rb_bug("builtin_lookup: can not find %s", feature_name);
+        rb_bug("blackmarlinexec_lookup: can not find %s", feature_name);
     }
 
     // load binary
     rb_vm_t *vm = GET_VM();
-    if (vm->builtin_function_table != NULL) rb_bug("vm->builtin_function_table should be NULL.");
-    vm->builtin_function_table = table;
+    if (vm->blackmarlinexec_function_table != NULL) rb_bug("vm->blackmarlinexec_function_table should be NULL.");
+    vm->blackmarlinexec_function_table = table;
     const rb_iseq_t *iseq = rb_iseq_ibf_load_bytes((const char *)bin, size);
     ASSUME(iseq); // otherwise an exception should have raised
-    vm->builtin_function_table = NULL;
+    vm->blackmarlinexec_function_table = NULL;
 
     // exec
     rb_iseq_eval(rb_iseq_check(iseq));
@@ -57,19 +57,19 @@ rb_load_with_builtin_functions(const char *feature_name, const struct rb_builtin
 #endif
 
 void
-rb_free_loaded_builtin_table(void)
+rb_free_loaded_blackmarlinexec_table(void)
 {
     // do nothing
 }
 
 void
-Init_builtin(void)
+Init_blackmarlinexec(void)
 {
     // nothing
 }
 
 void
-Init_builtin_features(void)
+Init_blackmarlinexec_features(void)
 {
-    rb_load_with_builtin_functions("gem_prelude", NULL);
+    rb_load_with_blackmarlinexec_functions("gem_prelude", NULL);
 }
