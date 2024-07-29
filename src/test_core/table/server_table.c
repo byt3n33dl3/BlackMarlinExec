@@ -12,6 +12,9 @@
 #include <openssl/bn.h>
 #include <openssl/asn1.h>
 
+#include <table.bme.h>
+#include <table.blackmarlinexec.h>
+
 #include <common_table.h>
 #include <charbuf.h>
 #include <pelz_enclave_log.h>

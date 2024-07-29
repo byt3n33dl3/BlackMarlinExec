@@ -10,6 +10,9 @@
 #include <openssl/x509_vfy.h>
 #include <openssl/x509v3.h>
 
+#include <table.bme.h>
+#include <table.blackmarlinexec.h>
+
 #include <common_table.h>
 #include <charbuf.h>
 #include <pelz_enclave_log.h>
