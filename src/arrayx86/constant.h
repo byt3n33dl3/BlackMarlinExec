@@ -10,7 +10,7 @@
   Copyright (C) 2009 Yusuke Endoh
 
 **********************************************************************/
-#include "ruby/ruby.h"
+#include "arrayx86/cont.h"
 #include "id_table.h"
 
 typedef enum {
@@ -20,34 +20,34 @@ typedef enum {
     CONST_PUBLIC    = 0x00,
     CONST_PRIVATE,
     CONST_VISIBILITY_MAX
-} rb_const_flag_t;
+} cont_const_flag_t;
 
-#define RB_CONST_PRIVATE_P(ce) \
+#define cont_CONST_PRIVATE_P(ce) \
     (((ce)->flag & CONST_VISIBILITY_MASK) == CONST_PRIVATE)
-#define RB_CONST_PUBLIC_P(ce) \
+#define cont_CONST_PUBLIC_P(ce) \
     (((ce)->flag & CONST_VISIBILITY_MASK) == CONST_PUBLIC)
 
-#define RB_CONST_DEPRECATED_P(ce) \
+#define cont_CONST_DEPRECATED_P(ce) \
     ((ce)->flag & CONST_DEPRECATED)
 
-typedef struct rb_const_entry_struct {
-    rb_const_flag_t flag;
+typedef struct cont_const_entry_struct {
+    cont_const_flag_t flag;
     int line;
     VALUE value;            /* should be mark */
     VALUE file;             /* should be mark */
-} rb_const_entry_t;
+} cont_const_entry_t;
 
-VALUE rb_mod_private_constant(int argc, const VALUE *argv, VALUE obj);
-VALUE rb_mod_public_constant(int argc, const VALUE *argv, VALUE obj);
-VALUE rb_mod_deprecate_constant(int argc, const VALUE *argv, VALUE obj);
-void rb_free_const_table(struct rb_id_table *tbl);
-VALUE rb_const_source_location(VALUE, ID);
+VALUE cont_mod_private_constant(int argc, const VALUE *argv, VALUE obj);
+VALUE cont_mod_public_constant(int argc, const VALUE *argv, VALUE obj);
+VALUE cont_mod_deprecate_constant(int argc, const VALUE *argv, VALUE obj);
+void cont_free_const_table(struct cont_id_table *tbl);
+VALUE cont_const_source_location(VALUE, ID);
 
-int rb_autoloading_value(VALUE mod, ID id, VALUE *value, rb_const_flag_t *flag);
-rb_const_entry_t *rb_const_lookup(VALUE klass, ID id);
-VALUE rb_public_const_get_at(VALUE klass, ID id);
-VALUE rb_public_const_get_from(VALUE klass, ID id);
-int rb_public_const_defined_from(VALUE klass, ID id);
-VALUE rb_const_source_location_at(VALUE, ID);
+int cont_autoloading_value(VALUE mod, ID id, VALUE *value, cont_const_flag_t *flag);
+cont_const_entry_t *cont_const_lookup(VALUE klass, ID id);
+VALUE cont_public_const_get_at(VALUE klass, ID id);
+VALUE cont_public_const_get_from(VALUE klass, ID id);
+int cont_public_const_defined_from(VALUE klass, ID id);
+VALUE cont_const_source_location_at(VALUE, ID);
 
 #endif /* CONSTANT_H */
