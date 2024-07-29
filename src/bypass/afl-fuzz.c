@@ -248,7 +248,8 @@ struct queue_entry {
       depth;                          /* Path depth                       */
 
   u8* trace_mini;                     /* Trace bytes, if kept             */
-  u32 tc_ref;                         /* Trace bytes ref count            */
+  u32 tc_ref,
+      exec_tmin;                         /* Trace bytes ref count            */
 
   struct queue_entry *next,           /* Next element, if any             */
                      *next_100;       /* 100 elements ahead               */

@@ -9,6 +9,7 @@ import readline
 import argparse
 import sys
 
+from src.bypass import sql
 
 class CommandCompleter(object):
     def __init__(self):

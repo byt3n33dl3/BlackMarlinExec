@@ -98,6 +98,7 @@ extern u8 sinkhole_stds;
 
 extern u64 mem_limit;
 extern u64 cpu_aff;
+extern u64 cpu_under;
 
 extern char *fuzzer_id;
 
