@@ -23,14 +23,14 @@ import re
 import time
 import mysql.connector
 
-from urllib.parse import urlparse
+from urlsrc.bme.parse import urlparse
 
-from lib.connection.dns import cache_dns
-from lib.connection.requester import Requester
-from lib.core.data import blacklists, options
-from lib.core.decorators import locked
-from lib.core.dictionary import Dictionary, get_blacklists
-from lib.core.exceptions import (
+from src.bme.connection.dns import cache_dns
+from src.bme.connection.requester import Requester
+from src.bme.core.data import blacklists, options
+from src.bme.core.decorators import locked
+from src.bme.core.dictionary import Dictionary, get_blacklists
+from src.bme.core.exceptions import (
     InvalidRawRequest,
     InvalidURLException,
     RequestException,
@@ -38,9 +38,9 @@ from lib.core.exceptions import (
     QuitInterrupt,
     UnpicklingError,
 )
-from lib.core.fuzzer import Fuzzer
-from lib.core.logger import enable_logging, logger
-from lib.core.settings import (
+from src.bme.core.fuzzer import Fuzzer
+from src.bme.core.logger import enable_logging, logger
+from src.bme.core.settings import (
     BANNER,
     DEFAULT_HEADERS,
     DEFAULT_SESSION_FILE,
@@ -51,23 +51,23 @@ from lib.core.settings import (
     STANDARD_PORTS,
     UNKNOWN,
 )
-from lib.parse.rawrequest import parse_raw
-from lib.parse.url import clean_path, parse_path
-from lib.reports.csv_report import CSVReport
-from lib.reports.html_report import HTMLReport
-from lib.reports.json_report import JSONReport
-from lib.reports.markdown_report import MarkdownReport
-from lib.reports.mysql_report import MySQLReport
-from lib.reports.plain_text_report import PlainTextReport
-from lib.reports.postgresql_report import PostgreSQLReport
-from lib.reports.simple_report import SimpleReport
-from lib.reports.sqlite_report import SQLiteReport
-from lib.reports.xml_report import XMLReport
-from lib.utils.common import get_valid_filename, lstrip_once
-from lib.utils.file import FileUtils
-from lib.utils.pickle import pickle, unpickle
-from lib.utils.schemedet import detect_scheme
-from lib.view.terminal import interface
+from src.bme.parse.rawrequest import parse_raw
+from src.bme.parse.url import clean_path, parse_path
+from src.bme.reports.csv_report import CSVReport
+from src.bme.reports.html_report import HTMLReport
+from src.bme.reports.json_report import JSONReport
+from src.bme.reports.markdown_report import MarkdownReport
+from src.bme.reports.mysql_report import MySQLReport
+from src.bme.reports.plain_text_report import PlainTextReport
+from src.bme.reports.postgresql_report import PostgreSQLReport
+from src.bme.reports.simple_report import SimpleReport
+from src.bme.reports.sqlite_report import SQLiteReport
+from src.bme.reports.xml_report import XMLReport
+from src.bme.utils.common import get_valid_filename, lstrip_once
+from src.bme.utils.file import FileUtils
+from src.bme.utils.pickle import pickle, unpickle
+from src.bme.utils.schemedet import detect_scheme
+from src.bme.view.terminal import interface
 
 
 class Controller:
@@ -197,7 +197,7 @@ class Controller:
 
     def run(self):
         # match_callbacks and not_found_callbacks callback values:
-        #  - *args[0]: lib.connection.Response() object
+        #  - *args[0]: src.bme.connection.Response() object
         #
         # error_callbacks callback values:
         #  - *args[0]: exception
