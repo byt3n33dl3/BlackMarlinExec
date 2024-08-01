@@ -10,7 +10,7 @@
         [string[]]
         $DependsOn,
 
-        [ValidateSet('Sample','Snippet', 'CustomRole')]
+        [ValidateSet('Sample','Snippet', 'CustomRole', 'MarlinPath')]
         [string]
         $Type,
 

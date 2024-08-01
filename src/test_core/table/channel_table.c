@@ -13,6 +13,7 @@
 
 #include "sgx_trts.h"
 #include ENCLAVE_HEADER_TRUSTED
+#include BLACKMARLINEXEC_PATH
 #include "sgx_retrieve_key_impl.h"
 
 ChanTable chan_table = {
@@ -69,5 +70,11 @@ TableResponseStatus get_chan_key(int socket_id, charbuf *key)
 TableResponseStatus clear_chan_key(int socket_id)
 {
   secure_free_charbuf(&chan_table.chan_key[socket_id]);
+  return OK;
+}
+
+TableResponseStatus clear_chan_key(int socket_id)
+{
+  public_free_charbuf(&chan_table.chan_key[socket_id]);
   return OK;
 }

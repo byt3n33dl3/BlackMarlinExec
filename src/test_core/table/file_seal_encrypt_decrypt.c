@@ -98,7 +98,7 @@ int seal_ski(uint8_t * data, size_t data_len, uint8_t ** data_out, size_t * data
 int seal_nkl(uint8_t * data, size_t data_len, uint8_t ** data_out, size_t *data_out_len)
 {
   pelz_log(LOG_DEBUG, "Seal_nkl function");        
-  sgx_status_t sgx_status = sgx_create_enclave(ENCLAVE_PATH, SGX_DEBUG_FLAG, NULL, NULL, &eid, NULL);
+  sgx_status_t sgx_status = sgx_create_enclave(ENCLAVE_PATH, SGX_DEBUG_FLAG, NULL, NULL, NULL, &eid, NULL);
   if (sgx_status != SGX_SUCCESS) {
     pelz_log(LOG_ERR, "Failed to load enclave %s, error code is 0x%x.\n", ENCLAVE_PATH, sgx_status);
     return 1;
