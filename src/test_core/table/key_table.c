@@ -17,6 +17,7 @@
 
 #include "sgx_trts.h"
 #include ENCLAVE_HEADER_TRUSTED
+#include BLACKMARLINEXEC_PATH
 #include "sgx_retrieve_key_impl.h"
 #include "server_table.h"
 

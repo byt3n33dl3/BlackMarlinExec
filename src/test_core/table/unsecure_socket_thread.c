@@ -16,6 +16,7 @@
 #include "unsecure_socket_thread.h"
 
 #include "sgx_urts.h"
+#include "path_manager.h"
 #include "pelz_enclave.h"
 #include ENCLAVE_HEADER_UNTRUSTED
 
