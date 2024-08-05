@@ -1,6 +1,15 @@
 𝗕 𝗟 𝗔 𝗖 𝗞 𝗠 𝗔 𝗥 𝗟 𝗜 𝗡 𝗘 𝗫 𝗘 𝗖
 
-Active Directory ( attack path ) finder                                                                                               
+.______    __          ___       ______  __  ___ .___  ___.      ___      .______       __       __  .__   __.  __________   ___  _______   ______ 
+|   _  \  |  |        /   \     /      ||  |/  / |   \/   |     /   \     |   _  \     |  |     |  | |  \ |  | |   ____\  \ /  / |   ____| /      |
+|  |_)  | |  |       /  ^  \   |  ,----'|  '  /  |  \  /  |    /  ^  \    |  |_)  |    |  |     |  | |   \|  | |  |__   \  V  /  |  |__   |  ,----'
+|   _  <  |  |      /  /_\  \  |  |     |    <   |  |\/|  |   /  /_\  \   |      /     |  |     |  | |  . `  | |   __|   >   <   |   __|  |  |     
+|  |_)  | |  `----./  _____  \ |  `----.|  .  \  |  |  |  |  /  _____  \  |  |\  \----.|  `----.|  | |  |\   | |  |____ /  .  \  |  |____ |  `----.
+|______/  |_______/__/     \__\ \______||__|\__\ |__|  |__| /__/     \__\ | _| `._____||_______||__| |__| \__| |_______/__/ \__\ |_______| \______|
+                                                                  
+                                        (c) 2017 - 2024 by pxcs ( CappaX ) / Leader of GangstaCrew
+                                                                              
+Active Directory ( attack path ) Management and finder                                                                                               
 
 A tool used to enumerate, attack, or poisoning target inside an online environment and networks,
 the most advanced online scenario ( pentesting ) tools
@@ -16,9 +25,9 @@ Licensed under GPL (see LICENSE file)
 Please do not use in military or secret service organizations,
 or for illegal purposes.
 
-(This is the wish of the author and non-binding. Many people working
+This is the wish of the author and non-binding. Many people working
 in these organizations do not care for laws and ethics anyways.
-You are not one of the "good" ones if you ignore this.)
+You are not one of the "good" ones if you ignore this.
 
 BlackMarlinExec ( Seven Degrees of Domain Admin )
 
@@ -39,6 +48,7 @@ Thanks to
 - Offensive Security
 - Our Offsec team GangstaCrew
 - BloodHound AD / Azure, etc
+- VanHauser
 - Some credit to U.G people
 - And several Github repo.
 
@@ -51,7 +61,8 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 BUGS & FEATURES
 ---------------
-BlackMarlinExec:
+B L A C K M A R L I N E X E C
+
 Email me or GangstaCrew if you find bugs or if you have written a new module.
 pxmxx3csz@outlook.com (and put "antispam" or "new features" in the subject line)
 

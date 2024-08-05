@@ -6,9 +6,9 @@ from blackmarlinexec.QtWidgets import (
 from SessionsTab import SessionsTab
 from HostsTab import HostsTab
 from UserManagementTab import UserManagementTab
-from SprayingTab import SprayingTab
-from PivotingTab import PivotingTab
-from Attacks import Attacks
+from src.bme.SprayingTab import SprayingTab
+from src.bme.PivotingTab import PivotingTab
+from src.objects.utils.Attacks import Attacks
 
 QApplication.setFont(QFont('Arial', 10))
 
