@@ -67,6 +67,7 @@ help:
 	@echo "  lint         - Lint source code"
 	@echo "  docs         - Generate documentation"
 	@echo "  help         - Display this help message"
+	@echo "  docker-setup - Build the RAW-Docker"
 	@echo "  docker-build - Build the Docker image"
 	@echo "  docker-run   - Run the Docker container"
 
