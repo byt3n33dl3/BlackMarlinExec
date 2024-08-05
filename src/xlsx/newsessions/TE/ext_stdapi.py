@@ -62,8 +62,8 @@ class ExtServerStdApiTest(unittest.TestCase):
             self.mock_meterpreter, self.meterpreter_context
         )
 
-    def assertMethodErrorSuccess(self, method_name, request, response):
-        result = self.ext_server_stdapi[method_name](request, response)
+    def assertMethodErrorSuccess(self, shell_collectors, request, response):
+        result = self.ext_server_stdapi[shell_collectors](request, response)
         self.assertErrorSuccess(result)
 
         return result
