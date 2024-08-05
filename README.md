@@ -10,5 +10,5 @@ __________;"o,-------------......"""""`'-._/(
                      '-._                    '._
 ```
 
-# README
-**This** readme file doesn't really matter, the real one was under [here!](https://github.com/pxcs/BlackMarlinExec/blob/main/README)
+# BlackMarlinExec
+**This** BlackMarlinExec readme file doesn't really matter, the real one was under [here!](https://github.com/pxcs/BlackMarlinExec/blob/main/README)
