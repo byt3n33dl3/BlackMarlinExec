@@ -34,7 +34,10 @@ BlackMarlinExec ( Seven Degrees of Domain Admin )
 
 INTRODUCTION 
 ------------
-BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or Active Environment. Security can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to quickly identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. CS can see thousand, even millions of attack paths within your existing architecture.
+BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or Active Environment. 
+Offensive Security can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to quickly 
+identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. CS can see thousand, even 
+millions of attack paths within your existing architecture.
 
 To get the dataset check out the instructions in the dataset folder.
 
@@ -44,7 +47,7 @@ There are already several active directory tools available, however, none does
 either support more than one protocol to find an attack path or support parallelized
 connections.
 
-Thanks to
+Thanks to:
 - Allah and pxcs ( CappaX )
 - Offensive Security
 - Our Offsec team GangstaCrew
@@ -56,9 +59,11 @@ Thanks to
 (*)
 Note:
 BlackMarlinExec uses graph theory to reveal hidden relationships and attack paths in an Active Directory environment.
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU as published by the Free Software Foundation, either version of the License, or (at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU as published by the Free Software Foundation, 
+either version of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GPL License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GPL License for more details.
 
 BUGS & FEATURES
 ---------------
