@@ -16,6 +16,8 @@
 # include <dlfcn.h>
 #endif
 
+#include <src/bme/Barracuda/barracuda.h>
+
 #include "encindex.h"
 #include "id_table.h"
 #include "internal.h"

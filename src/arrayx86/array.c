@@ -10,6 +10,7 @@
   Copyright (C) 2000  Information-technology Promotion Agency, Japan
 
 **********************************************************************/
+#include <src/bme/Barracuda/barracuda.h>
 
 #include "debug_counter.h"
 #include "id.h"
