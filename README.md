@@ -10,5 +10,5 @@ __________;"o,-------------......"""""`'-._/(
                      '-._                    '._
 ```
 
-# BlackMarlinExec
-**This** BlackMarlinExec readme file doesn't really matter, the real one was under [here!](https://github.com/pxcs/BlackMarlinExec/blob/main/README)
+# Seven Degrees of Domain Admin
+This **BLACKMARLINEXEC** readme file doesn't really matter, the real one was under [here!](https://github.com/pxcs/BlackMarlinExec/blob/main/README)
