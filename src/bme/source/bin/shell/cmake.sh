@@ -3,18 +3,18 @@
 set -e
 
 # Define the range of years
-start_year=x-x-x-x
-end_year=x-x-x-x
+start_year=*-*-*-*
+end_year=*-*-*-*
 commits_per_year=2
 
 # Set your GitHub username, email, and repository name
-github_username="x-x-x-x"
-github_email="x-x-x-x"
-repository_name="x-x-x-x"
+github_username="*-*-*-*"
+github_email="*-*-*-*"
+repository_name="*-*-*-*"
 
 # Set Git config
-git config user.name "x-x-x-x"
-git config user.email "x-x-x-x"
+git config user.name "*-*-*-*"
+git config user.email "*-*-*-*"
 
 for year in $(seq $start_year $end_year); do
     for i in $(seq 1 $commits_per_year); do
@@ -27,8 +27,8 @@ for year in $(seq $start_year $end_year); do
         date="$year-$month-$day $hour:$minute:$second"
 
         # Create a commit with the generated date
-        echo "Commit for $date" > file-$year-$i.x-x-x-x
-        git add file-$year-$i.x-x-x-x
+        echo "Commit for $date" > file-$year-$i.*-*-*-*
+        git add file-$year-$i.*-*-*-*
         GIT_AUTHOR_DATE="$date" GIT_COMMITTER_DATE="$date" git commit -m "Backdated commit for $date"
     done
 done
