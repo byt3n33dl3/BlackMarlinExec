@@ -1,27 +1,28 @@
-.______    __          ___       ______  __  ___ .___  ___.      ___      .______       __       __  .__   __.  __________   ___  _______   ______ 
-|   _  \  |  |        /   \     /      ||  |/  / |   \/   |     /   \     |   _  \     |  |     |  | |  \ |  | |   ____\  \ /  / |   ____| /      |
-|  |_)  | |  |       /  ^  \   |  ,----'|  '  /  |  \  /  |    /  ^  \    |  |_)  |    |  |     |  | |   \|  | |  |__   \  V  /  |  |__   |  ,----'
-|   _  <  |  |      /  /_\  \  |  |     |    <   |  |\/|  |   /  /_\  \   |      /     |  |     |  | |  . `  | |   __|   >   <   |   __|  |  |     
-|  |_)  | |  `----./  _____  \ |  `----.|  .  \  |  |  |  |  /  _____  \  |  |\  \----.|  `----.|  | |  |\   | |  |____ /  .  \  |  |____ |  `----.
-|______/  |_______/__/     \__\ \______||__|\__\ |__|  |__| /__/     \__\ | _| `._____||_______||__| |__| \__| |_______/__/ \__\ |_______| \______|
+.______    __          ___       ______   __  ___  .___  ___.      ___      .______        __        __  .__   __.  __________   ___  _______   ______ 
+|   _  \  |  |        /   \     /      | |  |/  /  |   \/   |     /   \     |   _  \      |  |      |  | |  \ |  | |   ____\  \ /  / |   ____| /      |
+|  |_)  | |  |       /  ^  \   |  ,----' |  '  /   |  \  /  |    /  ^  \    |  |_)  |     |  |      |  | |   \|  | |  |__   \  V  /  |  |__   |  ,----'
+|   _  <  |  |      /  /_\  \  |  |      |    <    |  |\/|  |   /  /_\  \   |      /      |  |      |  | |  . `  | |   __|   >   <   |   __|  |  |     
+|  |_)  | |  `----./  _____  \ |  `----. |  .  \   |  |  |  |  /  _____  \  |  |\  \----. |  `----. |  | |  |\   | |  |____ /  .  \  |  |____ |  `----.
+|______/  |_______/__/     \__\ \______| |__|\__\  |__|  |__| /__/     \__\ | _| `._____| |_______| |__| |__| \__| |_______/__/ \__\ |_______| \______|
                                                                   
-                                      (c) 2017 - 2024 by pxcs ( Sulaiman ) / Leader of GangstaCrew
-                                                     𝗕 𝗟 𝗔 𝗖 𝗞 𝗠 𝗔 𝗥 𝗟 𝗜 𝗡 𝗘 𝗫 𝗘 𝗖
+                                        (c) 2017 - 2024 by pxcs ( Sulaiman ) / Leader of GangstaCrew
+                                                       𝗕 𝗟 𝗔 𝗖 𝗞 𝗠 𝗔 𝗥 𝗟 𝗜 𝗡 𝗘 𝗫 𝗘 𝗖
 
 Seven Degrees of Domain Admin
 
-Active Directory ( attack path ) management and finder                                                                                               
+Active Directory attack path management and finder                                                                                               
 
 A tool used to enumerate, attack, or poisoning target inside an online environment and networks,
-the most advanced online scenario ( pentesting ) tools
-Forged by @pxcs and @GangstaCrew 
+the most advanced online scenario pentesting tools
+
+Forged by @pxcs ( Sulaiman ) and @GangstaCrew 
 
 -------------------------------
 
 (c) 2017 - 2024 by pxcs ( CappaX ) / Leader of GangstaCrew
 <pxmxx3csz@outlook.com> https://github.com/pxcs/BlackMarlinExec
 
-Licensed under GPL vol3.0 (see LICENSE file)
+Licensed under GPL 3.0 ( see licenses file )
 
 Please do not use in military or secret service organizations,
 or for illegal purposes.
@@ -34,10 +35,10 @@ BlackMarlinExec ( Seven Degrees of Domain Admin )
 
 INTRODUCTION 
 ------------
-BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory or Active Environment. 
-Offensive Security can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be impossible to quickly 
-identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. CS can see thousand, even 
-millions of attack paths within your existing architecture.
+BlackMarlinExec uses graph and analysis theory to reveal the hidden and unintended relationships within an Active Directory and Active Environment. 
+Offensive Security can use BlackMarlinExec to easily identify highly complex attack paths that would otherwise be Impossible to quickly 
+identify. It also has it's own attack path management that continuously maps and quantifies Active Directory attack paths. Offensive Security can see 
+thousand, even millions of attack paths within your existing architecture.
 
 To get the dataset check out the instructions in the dataset folder.
 
@@ -58,7 +59,6 @@ Thanks to:
 
 (*)
 Note:
-BlackMarlinExec uses graph theory to reveal hidden relationships and attack paths in an Active Directory environment.
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU as published by the Free Software Foundation, 
 either version of the License, or (at your option) any later version.
 
@@ -75,3 +75,5 @@ pxmxx3csz@outlook.com (and put "antispam" or "new features" in the subject line)
 If you want to report a problem, open un ( Issue )
 If you want to contribute, open a ( Pull Request )
 If you want to discuss, open a ( Discussion )
+
+Thank you, and be happy!!
