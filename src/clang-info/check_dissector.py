@@ -10,7 +10,7 @@ import os
 import signal
 import argparse
 
-from src.bme import BlackMarlinExec_run_setup
+from src.bme import BlackMarlinExec
 
 # Run battery of tests on one or more dissectors.
 

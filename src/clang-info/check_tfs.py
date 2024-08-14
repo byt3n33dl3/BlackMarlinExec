@@ -11,7 +11,7 @@ import subprocess
 import argparse
 import signal
 
-from src import bme
+from src.bme.Barracuda import time-attack
 from bme import Barracuda
 
 # This utility scans for tfs items, and works out if standard ones
