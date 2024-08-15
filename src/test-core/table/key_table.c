@@ -84,7 +84,7 @@ TableResponseStatus key_table_add_from_handle(charbuf key_id, uint64_t handle)
   }
   memcpy(key.chars, data, key.len);
 
-  status = key_table_add_key(key_id, key);
+  status = key_table_add_key(key_id, key, DIST_POINT_free);
   return status;
 }
 

@@ -25,17 +25,18 @@
 #include "sgx_urts.h"
 #include "sgx_seal_unseal_impl.h"
 #include "pelz_enclave.h"
+#include "blackmarlinexec.h"
 #include ENCLAVE_HEADER_UNTRUSTED
 
 #define BUFSIZE 1024
 
-int write_to_pipe_fd(int fd, char *msg)
+int write_to_pipe_fp(int fp, char *msg)
 {
   size_t msg_len;
   ssize_t bytes_written;
 
   msg_len = strlen(msg);
-  bytes_written = write(fd, msg, msg_len);
+  bytes_written = write(fp, msg, msg_len);
   if ((bytes_written >= 0) && ((size_t)bytes_written == msg_len))
   {
     return 0;
@@ -49,20 +50,20 @@ int write_to_pipe_fd(int fd, char *msg)
 
 int write_to_pipe(const char *pipe, char *msg)
 {
-  int fd;
+  int fp;
   int ret;
 
-  fd = open_write_pipe(pipe);
-  if (fd == -1)
+  fp = open_write_pipe(pipe);
+  if (fp == -1)
   {
     pelz_log(LOG_ERR, "Error opening pipe");
     perror("open");
     return 1;
   }
 
-  ret = write_to_pipe_fd(fd, msg);
+  ret = write_to_pipe_fp(fp, msg);
 
-  if (close(fd) == -1)
+  if (close(fp) == -1)
   {
     pelz_log(LOG_ERR, "Error closing pipe");
   }
@@ -71,7 +72,7 @@ int write_to_pipe(const char *pipe, char *msg)
 
 int read_from_pipe(const char *pipe, char **msg)
 {
-  int fd;
+  int fp;
   ssize_t ret;
   char buf[BUFSIZE];
 
@@ -82,20 +83,20 @@ int read_from_pipe(const char *pipe, char **msg)
     return 1;
   }
 
-  fd = open(pipe, O_RDONLY);
-  if (fd == -1)
+  fp = open(pipe, O_RDONLY);
+  if (fp == -1)
   {
     pelz_log(LOG_ERR, "Error opening pipe");
     perror("open");
     return 1;
   }
 
-  ret = read(fd, buf, sizeof(buf));
+  ret = read(fp, buf, sizeof(buf));
   if (ret < 0)
   {
     pelz_log(LOG_ERR, "Pipe read failed");
   }
-  if (close(fd) == -1)
+  if (close(fp) == -1)
   {
     pelz_log(LOG_ERR, "Error closing pipe");
     return 1;
@@ -124,17 +125,17 @@ int read_from_pipe(const char *pipe, char **msg)
   return 0;
 }
 
-int read_listener(int fd)
+int read_listener(int fp)
 {
-  fd_set set;
+  fp set;
   struct timeval timeout;
   int rv;
   char msg[BUFSIZE];
   int line_start, line_len, i;
   ssize_t bytes_read;
 
-  FD_ZERO(&set);      // clear the set
-  FD_SET(fd, &set);   // add file descriptor to the set
+  fp_ZERO(&set);      // clear the set
+  fp_SET(fp, &set);   // add file descriptor to the set
 
   timeout.tv_sec = 5;
   timeout.tv_usec = 0;
@@ -142,23 +143,23 @@ int read_listener(int fd)
   // Read from the pipe until we see an END terminator, get an error, or time out
   while (true)
   {
-    rv = select(fd + 1, &set, NULL, NULL, &timeout);
+    rv = select(fp + 1, &set, NULL, NULL, &timeout);
     if (rv == -1)
     {
       pelz_log(LOG_DEBUG, "Error in timeout of pipe.");
       fprintf(stdout, "Error in timeout of pipe.\n");
-      close(fd);
+      close(fp);
       return 1;
     }
     else if (rv == 0)
     {
       pelz_log(LOG_DEBUG, "No response received from pelz-service.");
       fprintf(stdout, "No response received from pelz-service.\n");
-      close(fd);
+      close(fp);
       return 1;
     }
 
-    bytes_read = read(fd, msg, BUFSIZE);
+    bytes_read = read(fp, msg, BUFSIZE);
     if (bytes_read < 0)
     {
       if (errno == EWOULDBLOCK) {
@@ -167,7 +168,7 @@ int read_listener(int fd)
       }
       pelz_log(LOG_ERR, "Pipe read failed");
       perror("read");
-      close(fd);
+      close(fp);
       return 1;
     }
 
@@ -182,7 +183,7 @@ int read_listener(int fd)
         if (line_len == 3 && memcmp(&msg[line_start], "END", 3) == 0)
         {
           pelz_log(LOG_DEBUG, "Got END message");
-          close(fd);
+          close(fp);
           return 0;
         }
         else
@@ -197,7 +198,7 @@ int read_listener(int fd)
       {
         line_len = i - line_start;
         pelz_log(LOG_ERR, "Incomplete response message - missing newline: %.*s.", line_len, &msg[line_start]);
-        close(fd);
+        close(fp);
         return 1;
       }
     }
