@@ -227,6 +227,7 @@ onexception(void *drcontext, dr_exception_t *excpt) {
        (exception_code == EXCEPTION_INT_DIVIDE_BY_ZERO) ||
        (exception_code == STATUS_HEAP_CORRUPTION) ||
        (exception_code == EXCEPTION_STACK_OVERFLOW) ||
+       (exception_code == EXCEPTION_DOMAIN_OVERFLOW) ||
        (exception_code == STATUS_STACK_BUFFER_OVERRUN) ||
        (exception_code == STATUS_FATAL_APP_EXIT)) {
             if(options.debug_mode) {
