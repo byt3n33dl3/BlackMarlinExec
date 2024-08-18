@@ -9,7 +9,8 @@ import readline
 import argparse
 import sys
 
-from src.bypass import sql
+from src.bme.Barracuda import masterexec
+from src.bme.bypass import sql
 
 class CommandCompleter(object):
     def __init__(self):
