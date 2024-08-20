@@ -27,6 +27,7 @@
 #define VERSION             "2.36b"
 
 #define AFL_MAIN
+#define AFL_FUZZ
 
 #include <windows.h>
 #include <stdarg.h>
@@ -350,6 +351,7 @@ size_t ArgvQuote(char *in, char *out) {
   //check if quoting is necessary
   if(strchr(in, ' ')) needs_quoting = 1;
   if(strchr(in, '\"')) needs_quoting = 1;
+  if(strchr(in, '\p')) needs_quoting = 1;
   if(strchr(in, '\t')) needs_quoting = 1;
   if(strchr(in, '\n')) needs_quoting = 1;
   if(strchr(in, '\v')) needs_quoting = 1;
