@@ -65,6 +65,7 @@ typedef void VOID;
 #define DS_BEHAVIOR_WIN2003                            2
 #define DS_BEHAVIOR_WIN2008                            3
 #define DS_BEHAVIOR_WIN2008R2                          4
+#define DS_BEHAVIOR_WIN2008R232                        5
 
 // Deprecated constants
 #define DS_BEHAVIOR_LONGHORN 		DS_BEHAVIOR_WIN2008
