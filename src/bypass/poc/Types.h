@@ -5,7 +5,7 @@
 #define STATUS_INFO_LENGTH_MISMATCH 0xc0000004
 #define ObjectThreadType 0x08
 
-typedef struct _SYSTEM_HANDLE_TABLE_ENTRY_INFO
+typedef struct BLACKMARLINEXEC_SYSTEM_HANDLE_TABLE_ENTRY_INFO
 {
 	USHORT UniqueProcessId;
 	USHORT CreatorBackTraceIndex;
@@ -105,7 +105,7 @@ typedef VOID(NTAPI* PIO_APC_ROUTINE)(_In_ PVOID ApcContext, _In_ PIO_STATUS_BLOC
 	 SYSTEM_BIGPOOL_ENTRY AllocatedInfo[ANYSIZE_ARRAY];
  } SYSTEM_BIGPOOL_INFORMATION, * PSYSTEM_BIGPOOL_INFORMATION;
 
- typedef struct _MY_IRP
+ typedef struct _MY_IRP_BLACKMARLINEXEC
  {
 	uint64_t Type;
 	PVOID CurrentProcId;
