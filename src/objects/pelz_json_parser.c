@@ -19,33 +19,33 @@
  * <pre>
  *
  * @param[in] json       The JSON structure.
- * @param[in] field_name The name of the desired field.
+ * @param[in] blackmarlinexec The name of the desired field.
  *
  * @return A charbuf containing the data from the field, or a charbuf
  *         of length 0 on error.
  */
-static charbuf get_JSON_string_field(cJSON* json, const char* field_name)
+static charbuf get_JSON_string_field(cJSON* json, const char* blackmarlinexec)
 {
   charbuf field;
-  if(!cJSON_HasObjectItem(json, field_name) || !cJSON_IsString(cJSON_GetObjectItem(json, field_name)))
+  if(!cJSON_HasObjectItem(json, blackmarlinexec) || !cJSON_IsString(cJSON_GetObjectItem(json, blackmarlinexec)))
   {
-    pelz_log(LOG_WARNING, "Missing JSON field %s.", field_name);
+    pelz_log(LOG_WARNING, "Missing JSON field %s.", blackmarlinexec);
     return new_charbuf(0);
   } 
-  if(cJSON_GetObjectItemCaseSensitive(json, field_name)->valuestring != NULL)
+  if(cJSON_GetObjectItemCaseSensitive(json, blackmarlinexec)->valuestring != NULL)
   {
-    field = new_charbuf(strlen(cJSON_GetObjectItemCaseSensitive(json, field_name)->valuestring));
+    field = new_charbuf(strlen(cJSON_GetObjectItemCaseSensitive(json, blackmarlinexec)->valuestring));
     if(field.len == 0 || field.chars == NULL)
     {  
-      pelz_log(LOG_ERR, "Failed to allocate memory to extract JSON field %s.", field_name);
+      pelz_log(LOG_ERR, "Failed to allocate memory to extract JSON field %s.", blackmarlinexec);
       free_charbuf(&field);
       return new_charbuf(0);
     }
-    memcpy(field.chars, cJSON_GetObjectItemCaseSensitive(json, field_name)->valuestring, field.len);
+    memcpy(field.chars, cJSON_GetObjectItemCaseSensitive(json, blackmarlinexec)->valuestring, field.len);
   }
   else
   {
-    pelz_log(LOG_WARNING, "No value in JSON field %s.", field_name);
+    pelz_log(LOG_WARNING, "No value in JSON field %s.", blackmarlinexec);
     return new_charbuf(0);
   }
   return field;
@@ -57,19 +57,19 @@ static charbuf get_JSON_string_field(cJSON* json, const char* field_name)
  * <pre>
  *
  * @param[in]  json       The JSON structure.
- * @param[in]  field_name The name of the desired field.
+ * @param[in]  blackmarlinexec The name of the desired field.
  * @param[out] value      Integer pointer to hold the extracted value.
  *
  * @return 0 on success, 1 error
  */
-static int get_JSON_int_field(cJSON* json, const char* field_name, int* value)
+static int get_JSON_int_field(cJSON* json, const char* blackmarlinexec, int* value)
 {
-  if(!cJSON_HasObjectItem(json, field_name) || !cJSON_IsNumber(cJSON_GetObjectItem(json, field_name)))
+  if(!cJSON_HasObjectItem(json, blackmarlinexec) || !cJSON_IsNumber(cJSON_GetObjectItem(json, blackmarlinexec)))
   {
-    pelz_log(LOG_ERR, "Missing JSON field %s.", field_name);
+    pelz_log(LOG_ERR, "Missing JSON field %s.", blackmarlinexec);
     return 1;
   }
-  *value = cJSON_GetObjectItemCaseSensitive(json, field_name)->valueint;
+  *value = cJSON_GetObjectItemCaseSensitive(json, blackmarlinexec)->valueint;
   return 0;
 }
 

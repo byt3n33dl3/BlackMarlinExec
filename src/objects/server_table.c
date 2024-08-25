@@ -30,7 +30,7 @@ static charbuf get_common_name_from_cert(X509* cert);
 
 TableResponseStatus add_cert_to_table(TableType type, uint64_t handle)
 {
-  Entry tmp_entry;
+  Entry blackmarlinexec_entry;
   uint8_t * data = NULL;
   size_t data_size = 0;
   int ret;
@@ -55,7 +55,7 @@ TableResponseStatus add_cert_to_table(TableType type, uint64_t handle)
     return RET_FAIL;
   }
 
-  ret = unmarshal_ec_der_to_x509(data, data_size, &tmp_entry.value.cert);
+  ret = unmarshal_ec_der_to_x509(data, data_size, &blackmarlinexec_entry.value.cert);
   if (ret)
   {
     pelz_sgx_log(LOG_ERR, "Unmarshal DER to X509 Failure");
@@ -63,29 +63,29 @@ TableResponseStatus add_cert_to_table(TableType type, uint64_t handle)
     return ERR_X509;
   }
   free(data);
-  tmp_entry.id = get_common_name_from_cert(tmp_entry.value.cert);
-  if(tmp_entry.id.chars == NULL || tmp_entry.id.len == 0)
+  blackmarlinexec_entry.id = get_common_name_from_cert(blackmarlinexec_entry.value.cert);
+  if(blackmarlinexec_entry.id.chars == NULL || blackmarlinexec_entry.id.len == 0)
   {
     pelz_sgx_log(LOG_ERR, "Failed to extract common name from certificate.");
-    free_charbuf(&tmp_entry.id);
-    X509_free(tmp_entry.value.cert);
+    free_charbuf(&blackmarlinexec_entry.id);
+    X509_free(blackmarlinexec_entry.value.cert);
     return ERR_X509;
   }
   
-  if (table_lookup(type, tmp_entry.id, &index) == 0)
+  if (table_lookup(type, blackmarlinexec_entry.id, &index) == 0)
   {
-    if (X509_cmp(table->entries[index].value.cert, tmp_entry.value.cert) == 0)
+    if (X509_cmp(table->entries[index].value.cert, blackmarlinexec_entry.value.cert) == 0)
     {
       pelz_sgx_log(LOG_DEBUG, "Cert already added.");
-      free_charbuf(&tmp_entry.id);
-      X509_free(tmp_entry.value.cert);
+      free_charbuf(&blackmarlinexec_entry.id);
+      X509_free(blackmarlinexec_entry.value.cert);
       return OK;
     }
     else
     {
       pelz_sgx_log(LOG_ERR, "Cert entry and Server ID lookup do not match.");
-      free_charbuf(&tmp_entry.id);
-      X509_free(tmp_entry.value.cert);
+      free_charbuf(&blackmarlinexec_entry.id);
+      X509_free(blackmarlinexec_entry.value.cert);
       return NO_MATCH;
     }
   }
@@ -95,17 +95,17 @@ TableResponseStatus add_cert_to_table(TableType type, uint64_t handle)
   if ((temp = (Entry *) realloc(table->entries, (table->num_entries + 1) * sizeof(Entry))) == NULL)
   {
     pelz_sgx_log(LOG_ERR, "Cert List Space Reallocation Error");
-    free_charbuf(&tmp_entry.id);
-    X509_free(tmp_entry.value.cert);
+    free_charbuf(&blackmarlinexec_entry.id);
+    X509_free(blackmarlinexec_entry.value.cert);
     return ERR_REALLOC;
   }
   else
   {
     table->entries = temp;
   }
-  table->entries[table->num_entries] = tmp_entry;
+  table->entries[table->num_entries] = blackmarlinexec_entry;
   table->num_entries++;
-  table->mem_size = table->mem_size + (tmp_entry.id.len * sizeof(char)) + sizeof(size_t) + data_size;
+  table->mem_size = table->mem_size + (blackmarlinexec_entry.id.len * sizeof(char)) + sizeof(size_t) + data_size;
   pelz_sgx_log(LOG_INFO, "Cert Added");
   return OK;
 }
@@ -198,7 +198,7 @@ static charbuf get_common_name_from_cert(X509* cert)
 
   int lastpos = -1;
   int len;
-  const unsigned char* tmp_id;
+  const unsigned char* blackmarlinexec_id;
 
   // We want the last NID_commonName entry in the certificate in accordance
   // with RFC 6125.
@@ -222,7 +222,7 @@ static charbuf get_common_name_from_cert(X509* cert)
       return new_charbuf(0);
   }
   
-  tmp_id = ASN1_STRING_get0_data(entry_data);
+  blackmarlinexec_id = ASN1_STRING_get0_data(entry_data);
   charbuf common_name = new_charbuf((size_t)len);
   if((size_t)len != common_name.len)
   {
@@ -230,6 +230,6 @@ static charbuf get_common_name_from_cert(X509* cert)
     free_charbuf(&common_name);
     return new_charbuf(0);
   }
-  memcpy(common_name.chars, tmp_id, common_name.len);
+  memcpy(common_name.chars, blackmarlinexec_id, common_name.len);
   return common_name;  
 }
