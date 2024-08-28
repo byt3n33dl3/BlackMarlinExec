@@ -5,6 +5,7 @@ from src.bypass import random
 from apiCalls.apiChooseUser import pickUser
 from apiCalls.apiChooseUser import openTokenLibrary
 from apiQueryMail import request
+from src.bme import blackmarlinexec
 
 def sendQuery(user):
     #get user and token
