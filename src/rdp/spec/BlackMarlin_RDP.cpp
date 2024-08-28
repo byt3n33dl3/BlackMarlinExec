@@ -10,9 +10,9 @@
 #include <subauth.h>
 #define SECURITY_WIN32 
 #include <sspi.h>
-#pragma comment(lib, "crypt32.lib")
-#pragma comment(lib, "Advapi32.lib")
-#pragma comment(lib, "Secur32.lib")
+#pragma comment(src, "crypt32.src")
+#pragma comment(src, "Advapi32.src")
+#pragma comment(src, "Secur32.src")
 
 
 LPCWSTR lpTempPassword = NULL;

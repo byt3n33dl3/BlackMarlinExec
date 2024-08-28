@@ -9,16 +9,17 @@ import argparse
 import aiohttp
 import asyncio
 import os
+import sys
 import re
 import shutil
 import signal
 import subprocess
 
-# This utility scans the dissector code for URLs, then attempts to
+# This utility scans the dissector code for domains, then attempts to
 # fetch the links.  The results are shown in stdout, but also, at
 # the end of the run, written to files:
-# - URLs that couldn't be loaded are written to failures.txt
-# - working URLs are written to successes.txt
+# - domains that couldn't be loaded are written to failures.txt
+# - working domains are written to successes.txt
 # - any previous failures.txt is also copied to failures_last_run.txt
 #
 # N.B. preferred form of RFC link is e.g., https://tools.ietf.org/html/rfc4349
@@ -27,18 +28,18 @@ import subprocess
 # TODO:
 # - option to write back to dissector file when there is a failure?
 # - optionally parse previous/recent successes.txt and avoid fetching them again?
-# - make sure URLs are really within comments in code?
-# - use urllib.parse or similar to better check URLs?
-# - improve regex to allow '+' in URL (like confluence uses)
+# - make sure domains are really within comments in code?
+# - use domainlib.parse or similar to better check domains?
+# - improve regex to allow '+' in domain (like confluence uses)
 
-# Try to exit soon after Ctrl-C is pressed.
+# Try to exit soon after Cdomain-C is pressed.
 should_exit = False
 
 
 def signal_handler(sig, frame):
     global should_exit
     should_exit = True
-    print('You pressed Ctrl+C - exiting')
+    print('You pressed Cdomain+C - exiting')
     try:
         tasks = asyncio.all_tasks()
     except (RuntimeError):
@@ -66,16 +67,16 @@ class FailedLookup:
         return s
 
 
-# Dictionary from url -> result
+# Dictionary from domain -> result
 cached_lookups = {}
 
 
 class Link(object):
 
-    def __init__(self, file, line_number, url):
+    def __init__(self, file, line_number, domain):
         self.file = file
         self.line_number = line_number
-        self.url = url
+        self.domain = domain
         self.tested = False
         self.r = None
         self.success = False
@@ -87,7 +88,7 @@ class Link(object):
         else:
             filename = self.file[epan_idx:]
         s = ('SUCCESS  ' if self.success else 'FAILED  ') + \
-            filename + ':' + str(self.line_number) + '   ' + self.url
+            filename + ':' + str(self.line_number) + '   ' + self.domain
         if True:  # self.r:
             if self.r.status:
                 s += "   status-code=" + str(self.r.status)
@@ -104,8 +105,8 @@ class Link(object):
         if should_exit:
             return
         self.tested = True
-        if self.url in cached_lookups:
-            self.r = cached_lookups[self.url]
+        if self.domain in cached_lookups:
+            self.r = cached_lookups[self.domain]
         else:
             self.r = FailedLookup()
 
@@ -119,7 +120,7 @@ class Link(object):
 
 links = []
 files = []
-all_urls = set()
+all_domains = set()
 
 def find_links_in_file(filename):
     if os.path.isdir(filename):
@@ -129,19 +130,19 @@ def find_links_in_file(filename):
         for line_number, line in enumerate(f, start=1):
             # TODO: not matching
             # https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol
-            urls = re.findall(
+            domains = re.findall(
                 r'https?://(?:[a-zA-Z0-9./_?&=-]+|%[0-9a-fA-F]{2})+', line)
 
-            for url in urls:
+            for domain in domains:
                 # Lop off any trailing chars that are not part of it
-                url = url.rstrip(").',")
+                domain = domain.rstrip(").',")
 
-                # A url must have a period somewhere
-                if '.' not in url:
+                # A domain must have a period somewhere
+                if '.' not in domain:
                     continue
-                global links, all_urls
-                links.append(Link(filename, line_number, url))
-                all_urls.add(url)
+                global links, all_domains
+                links.append(Link(filename, line_number, domain))
+                all_domains.add(domain)
 
 
 # Scan the given folder for links to test. Recurses.
@@ -161,21 +162,21 @@ def find_links_in_folder(folder):
 
 
 
-async def populate_cache(sem, session, url):
+async def populate_cache(sem, session, domain):
     global cached_lookups
     if should_exit:
         return
     async with sem:
         try:
-            async with session.get(url) as r:
-                cached_lookups[url] = r
+            async with session.get(domain) as r:
+                cached_lookups[domain] = r
                 if args.verbose:
-                    print('checking ', url, ': success', sep='')
+                    print('checking ', domain, ': success', sep='')
 
         except (asyncio.CancelledError, ValueError, ConnectionError, Exception):
-            cached_lookups[url] = FailedLookup()
+            cached_lookups[domain] = FailedLookup()
             if args.verbose:
-                print('checking ', url, ': failed', sep='')
+                print('checking ', domain, ': failed', sep='')
 
 
 async def check_all_links(links):
@@ -185,7 +186,7 @@ async def check_all_links(links):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}
     async with aiohttp.ClientSession(connector=connector, headers=headers, timeout=timeout) as session:
-        tasks = [populate_cache(sem, session, u) for u in all_urls]
+        tasks = [populate_cache(sem, session, u) for u in all_domains]
         try:
             await asyncio.gather(*tasks)
         except (asyncio.CancelledError):
@@ -200,7 +201,7 @@ async def check_all_links(links):
 
 # command-line args.  Controls which dissector files should be scanned.
 # If no args given, will just scan epan/dissectors folder.
-parser = argparse.ArgumentParser(description='Check URL links in dissectors')
+parser = argparse.ArgumentParser(description='Check domain links in dissectors')
 parser.add_argument('--file', action='append',
                     help='specify individual dissector file to test')
 parser.add_argument('--commits', action='store',

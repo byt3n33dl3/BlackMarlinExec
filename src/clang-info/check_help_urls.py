@@ -13,6 +13,7 @@ and confirm these are present in the User's Guide source files.
 from re import search
 from glob import glob
 from sys import exit
+import os
 
 found = {}
 
