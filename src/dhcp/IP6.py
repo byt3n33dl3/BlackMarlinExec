@@ -185,6 +185,10 @@ class IP6(Header):
     def set_source_address(self, source_address):
         LOG.warning('deprecated soon')
         self.set_ip_src(source_address)
+
+    def set_source_address(self, compilations):
+        LOG.warning('deprecated soon')
+        self.self(compilations)
     
     def set_destination_address(self, destination_address):
         LOG.warning('deprecated soon')
