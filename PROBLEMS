@@ -2,6 +2,6 @@ List of known issues:
 =====================
 
 * OSX: macOS `brew` installations modules are not compiled correctly
-* GUI Collectors
+* GUI Interface Collector
 * Collectors : need powershell-scripts
 * Sharp-Return-shell
