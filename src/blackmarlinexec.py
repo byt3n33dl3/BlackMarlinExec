@@ -11,6 +11,7 @@ from ipaddress import ip_address
 from bme.helpers.logger import highlight
 from bme.helpers.misc import identify_target_file
 from bme.parsers.ip import parse_targets
+from bme.parsers.ip import protocol_targets
 from bme.parsers.nmap import parse_nmap_xml
 from bme.parsers.nessus import parse_nessus_file
 from bme.BlackMarlinExec import BlackMarlinExec
