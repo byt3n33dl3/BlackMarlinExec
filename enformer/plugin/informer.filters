@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{a9876874-6172-4c9f-9d7e-e37acb380d0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{74f42162-ac90-4d9e-b56f-76be379c3763}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Doc">
+      <UniqueIdentifier>{457050d4-f1f3-4a27-972f-11271f76b0de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Custom UI">
+      <UniqueIdentifier>{dca459a9-ec13-47ca-9fa9-9d9951dddc84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{dd7ba64d-d074-493d-9850-868de31096d7}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{e0c522c9-a6a4-40e2-a4d6-fc62cb3e5aed}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Utility.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RTTI.cpp" />
+    <ClCompile Include="Vftable.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_MainDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MainDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="MainDialog.cpp" />
+    <ClCompile Include="GeneratedFiles\qrc_QtResource.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Core.h" />
+    <CustomBuild Include="RTTI.h" />
+    <CustomBuild Include="StdAfx.h" />
+    <CustomBuild Include="Vftable.h" />
+    <CustomBuild Include="undname.h">
+      <Filter>Misc</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Utility.h">
+      <Filter>Misc</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Class_Informer.txt">
+      <Filter>Doc</Filter>
+    </CustomBuild>
+    <CustomBuild Include="dialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MainDialog.h" />
+    <CustomBuild Include="QtResource.qrc">
+      <Filter>Resources</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_dialog.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitBoxEx.h">
+      <Filter>Custom UI</Filter>
+    </ClInclude>
+    <ClInclude Include="IdaOgg.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="progress-style.qss">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="style.qss">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="view-style.qss">
+      <Filter>Resources</Filter>
+    </None>
+  </ItemGroup>
+</Project>
