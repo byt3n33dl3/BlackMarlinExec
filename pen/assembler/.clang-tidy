@@ -1,0 +1,28 @@
+Checks: >
+    bugprone-*,
+    -bugprone-easily-swappable-parameters,
+    clang-diagnostic-*,
+    clang-analyzer-*,
+    cppcoreguidelines-*,
+    -cppcoreguidelines-pro-type-union-access,
+    -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+    -cppcoreguidelines-non-private-member-variables-in-classes,
+    mpi-*,
+    modernize-*,
+    -modernize-use-trailing-return-type,
+    -modernize-use-nodiscard,
+    misc-*,
+    -misc-non-private-member-variables-in-classes,
+    performance-*,
+    readability-*,
+    -readability-function-cognitive-complexity,
+    -readability-convert-member-functions-to-static,
+WarningsAsErrors: true
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle: file
+CheckOptions:
+  - key:    cppcoreguidelines-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
+    value:  '1'
+  - key:    modernize-use-nullptr.NullMacros
+    value:  'NULL'
