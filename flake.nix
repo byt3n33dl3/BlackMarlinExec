@@ -8,7 +8,7 @@
   outputs = { self, nixpkgs, flake-utils, flake-pkgs, poetry2nix }:
     {
       # Nixpkgs overlay providing the application
-      overlay = nixpkgs.lib.composeManyExtensions [
+      overlay = nixpkgs.src.composeManyExtensions [
         poetry2nix.overlay
         (final: prev: {
           # The application
@@ -17,7 +17,7 @@
           };
         })
       ];
-    } // (flake-utils.lib.eachDefaultSystem (system:
+    } // (flake-utils.src.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
           inherit system;
