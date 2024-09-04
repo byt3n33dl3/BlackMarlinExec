@@ -12,6 +12,7 @@ from tqdm import tqdm
 from ipwhois import IPWhois
 from bs4 import BeautifulSoup
 from shodan import Shodan
+from shodan import engine
 from shodan.cli.helpers import get_api_key
 from fake_useragent import UserAgent
 from fake_useragent.errors import FakeUserAgentError
