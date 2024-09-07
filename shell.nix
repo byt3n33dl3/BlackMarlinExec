@@ -4,6 +4,7 @@ let
 		CompressRawLzma
 		DigestMD4
 		DigestSHA1
+    DigestSHA256
 		GetoptLong
 		perlldap
 	]);
