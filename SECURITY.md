@@ -17,7 +17,7 @@ We actively support the following versions of BlackMarlinExec with security upda
 
 | Version | Supported          |
 | ------- | ------------------ |
-| k1ll1ng b3r05   | :check mark: |
+| Kerberos Execution | :check mark: |
 
 ## Reporting a Vulnerability
 
