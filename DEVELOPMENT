@@ -1,0 +1,20 @@
+B L A C K M A R L I N E X E C
+
+Notes for developers
+====================
+
+Development is taking place at Github:
+https://github.com/pxcs/BlackMarlinExec
+
+
+To extract format list from BlackMarlinExec's ouput:
+BlackMarlinExec | perl -ne '$f = 1 if /^--format/; $f = 0 if /^--[^f]/; print "$1\n" while m!([-\w\(\)]+)(/|$)!g and $f; ' > format-list
+Drop 'BOF.NET' out, it will be replaced with subformats list.
+
+To add subformats list to existing one:
+run/BlackMarlinExec -subformat=list | perl -ne 'print "$1\n" if /type =\s+(.*)$/' >> format-list
+I am not sure about this way so check output by your eyes.
+
+To prepare part of ui for the list:
+perl -ne 'chomp; print "<item><property name=\"text\"><string>$_</string></property></item>\n"' format-list > format-list.partui
+Then reformat it using designer/qtcreator.
