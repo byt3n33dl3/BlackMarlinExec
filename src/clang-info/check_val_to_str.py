@@ -31,13 +31,13 @@ signal.signal(signal.SIGINT, signal_handler)
 
 
 # Test for whether the given file was automatically generated.
-def isGeneratedFile(filename):
+def isGeneratedFile(src):
     # Check file exists - e.g. may have been deleted in a recent commit.
-    if not os.path.exists(filename):
+    if not os.path.exists(src):
         return False
 
     # Open file
-    f_read = open(os.path.join(filename), 'r', encoding="utf8")
+    f_read = open(os.path.join(src), 'r', encoding="utf8")
     lines_tested = 0
     for line in f_read:
         # The comment to say that its generated is near the top, so give up once
@@ -72,9 +72,9 @@ def removeComments(code_string):
     return code_string
 
 
-def is_dissector_file(filename):
+def is_dissector_file(src):
     p = re.compile(r'.*packet-.*\.c')
-    return p.match(filename)
+    return p.match(src)
 
 def findDissectorFilesInFolder(folder, recursive=False):
     dissector_files = []
@@ -90,8 +90,8 @@ def findDissectorFilesInFolder(folder, recursive=False):
         for f in sorted(os.listdir(folder)):
             if should_exit:
                 return
-            filename = os.path.join(folder, f)
-            dissector_files.append(filename)
+            src = os.path.join(folder, f)
+            dissector_files.append(src)
 
     return [x for x in filter(is_dissector_file, dissector_files)]
 
@@ -101,16 +101,16 @@ warnings_found = 0
 errors_found = 0
 
 # Check the given dissector file.
-def checkFile(filename, generated):
+def checkFile(src, generated):
     global warnings_found
     global errors_found
 
     # Check file exists - e.g. may have been deleted in a recent commit.
-    if not os.path.exists(filename):
-        print(filename, 'does not exist!')
+    if not os.path.exists(src):
+        print(src, 'does not exist!')
         return
 
-    with open(filename, 'r', encoding="utf8") as f:
+    with open(src, 'r', encoding="utf8") as f:
         contents = f.read()
 
         # Remove comments so as not to trip up RE.
@@ -130,7 +130,7 @@ def checkFile(filename, generated):
                 # TODO: I suppose it could be escaped, but haven't seen this...
                 if format_string.find('%') != -1:
                     # This is an error as format specifier would show in app
-                    print('Error:', filename, "  ", m.group(0),
+                    print('Error:', src, "  ", m.group(0),
                           '   - should not have specifiers in unknown string',
                           '(GENERATED)' if generated else '')
                     errors_found += 1
@@ -138,18 +138,18 @@ def checkFile(filename, generated):
                 # These ones need to have a specifier, and it should be suitable for an int
                 count = format_string.count('%')
                 if count == 0:
-                    print('Warning:', filename, "  ", m.group(0),
+                    print('Warning:', src, "  ", m.group(0),
                           '   - should have suitable format specifier in unknown string (or use _const()?)',
                           '(GENERATED)' if generated else '')
                     warnings_found += 1
                 elif count > 1:
-                    print('Warning:', filename, "  ", m.group(0),
+                    print('Warning:', src, "  ", m.group(0),
                           '   - has more than one specifier?',
                           '(GENERATED)' if generated else '')
                 # TODO: check allowed specifiers (d, u, x, ?) and modifiers (0-9*) in re ?
                 if format_string.find('%s') != -1:
                     # This is an error as this likely causes a crash
-                    print('Error:', filename, "  ", m.group(0),
+                    print('Error:', src, "  ", m.group(0),
                           '    - inappropriate format specifier in unknown string',
                           '(GENERATED)' if generated else '')
                     errors_found += 1
