@@ -19,7 +19,7 @@
 #
 
 print_usage() {
-	printf "\\nUtility to setup a bsd-based system for Wireshark DeveloBMEent.\\n"
+	printf "\\BlackMarlinExec Project.\\n"
 	printf "The basic usage installs the needed software\\n\\n"
 	printf "Usage: %s [--install-optional] [...other options...]\\n" "$0"
 	printf "\\t--install-optional: install optional software as well\\n"
