@@ -1,4 +1,4 @@
-## Security Policy for BME
+## Security BlackMarlinExec
 
 ```sh
   ____  _        _    ____ _  ____  __    _    ____  _     ___ _   _ _______  _______ ____ 
@@ -8,8 +8,8 @@
  |____/|_____/_/   \_\____|_|\_\_|  |_/_/   \_\_| \_\_____|___|_| \_|_____/_/\_\_____\____|
                                                                                            
                                     
-                        v7.7 - Made with love by: pxcs - gangstacrew                                                          
-````
+                    v8 - Made with love by: byt3n33dl3 - GangstaCrew                                                          
+```
 
 ## Supported Versions
 
@@ -17,7 +17,7 @@ We actively support the following versions of BlackMarlinExec with security upda
 
 | Version | Supported          |
 | ------- | ------------------ |
-| Kerberos Execution | :check mark: |
+| SwordfishExec | :check mark: |
 
 ## Reporting a Vulnerability
 
@@ -25,7 +25,7 @@ If you discover a security vulnerability within BlackMarlinExec, please take the
 
 1. **Do not disclose it publicly:** Avoid publicly discussing the issue, including on GitHub issues, public forums, or social media.
 
-2. **Email us directly:** Send an email to [pxmxx3csz@outlook.com](pxmxx3csz@outlook.com) with the details of the vulnerability. Please include as much information as possible, including:
+2. **Email us directly:** Send an email to [byt3n33dl3@proton.me](byt3n33dl3@proton.me) with the details of the vulnerability. Please include as much information as possible, including:
     - A description of the vulnerability.
     - Steps to reproduce the issue.
     - Any potential impact.
@@ -46,7 +46,7 @@ To ensure the security of your implementation of BlackMarlinExec, follow these b
 
 ## Contact
 
-For any security-related questions or concerns, please contact us at [pxmxx3csz@outlook.com](pxmxx3csz@outlook.com).
+For any security-related questions or concerns, please contact us at [byt3n33dl3@proton.me](byt3n33dl3@proton.me).
 
 Thank you for helping us maintain the security of BlackMarlinExec!
 
