@@ -8,7 +8,7 @@
  |____/|_____/_/   \_\____|_|\_\_|  |_/_/   \_\_| \_\_____|___|_| \_|_____/_/\_\_____\____|
                                                                                            
                                     
-                        v7.7 - Made with love by: pxcs - gangstacrew                                                          
+                    v8 - Made with love by: byt3n33dl3 - GangstaCrew                                                          
 ```
 
 ## Contributor Covenant Code of Conduct
