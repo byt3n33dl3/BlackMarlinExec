@@ -1,8 +1,4 @@
 List of known issues:
 =====================
 
-* OSX: macOS `brew` installations modules are not compiled correctly
-* GUI Interface Collector
-* Collectors : need powershell-scripts
-* Return-shell in cli
-* C2 Concept (mode)
+* Execution DDL's from x86
