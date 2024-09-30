@@ -1,3 +1,0 @@
-#include "python_core.rh"
-
-IDR_PYTHON_CORE BINARY MOVEABLE PURE "python_core.cz"
