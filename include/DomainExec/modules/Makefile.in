@@ -1,0 +1,22 @@
+CC = @CC@
+CXX = @CXX@
+
+SRCS = @MODULES_SRCS@
+OBJS = @MODULES_OBJS@
+
+include_dirs := .. ../nsock/include ../nbase ../opensshlib
+CPPFLAGS += $(addprefix -I,$(include_dirs)) -DHAVE_CONFIG_H
+CXXFLAGS = @CXXFLAGS@ -Wno-attributes
+
+vpath %.h $(include_dirs)
+
+
+all: $(OBJS)
+
+.cc.o :
+	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $< -o $@
+
+clean :
+	rm -f $(OBJS) 
+
+
