@@ -68,7 +68,7 @@ if [ "$CMAKE" = no ]; then
         LD_LIBRARY_PATH="$PREFIX/lib"
         export LD_LIBRARY_PATH
     else
-        run_after_echo ./autogen.sh
+        run_after_echo ./blackmarlinexec.sh
         run_after_echo ./configure --with-crypto="$CRYPTO" \
             --enable-smb="$SMB" --prefix="$PREFIX" --disable-local-libpcap
     fi
