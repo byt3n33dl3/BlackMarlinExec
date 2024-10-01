@@ -1,1 +1,0 @@
-ACCENT_COLOR = "#005c45"

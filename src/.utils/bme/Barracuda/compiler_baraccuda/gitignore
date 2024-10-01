@@ -1,7 +1,0 @@
-*.bin
-*.o
-*.s
-*~
-8cc
-stage?
-utiltest
