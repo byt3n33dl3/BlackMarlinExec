@@ -1,21 +1,21 @@
 [[package]]
-name = "pxcs"
+name = "byt3n33dl3"
 version = "0.2.7"
 description = "Asynchronous RDP protocol implementation"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pxcs-0.2.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:53543661b0b199dc879eaf06f96c65c0a177404e0b34ab1cd762a799a69394c5"},
-    {file = "pxcs-0.2.7-cp310-cp310-win_amd64.whl", hash = "sha256:dc45f3315c40c7c262fc060c3d492d746a265fdc521bbbb075b5745bc6d82875"},
-    {file = "pxcs-0.2.7-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f289556734a5c7c4cfbde23e125ee73b6f6815ce1381a9de62eb5f1d0273ed03"},
-    {file = "pxcs-0.2.7-cp311-cp311-win_amd64.whl", hash = "sha256:a6242dd3d15ec6e2f7ee58e46a4bb441c025912adf2de33414281f25b04c646a"},
-    {file = "pxcs-0.2.7-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ae81032a24aecf091e810b798196370833e073b25936f9bb6e3bfc1c49c7618b"},
-    {file = "pxcs-0.2.7-cp38-cp38-win_amd64.whl", hash = "sha256:0582560a4596a16ac46bef7d496d1b73dbb6d17ef826e977c8c23c31510cac0a"},
-    {file = "pxcs-0.2.7-cp39-cp39-linux_armv7l.whl", hash = "sha256:d6b819fd090bbe8463e8c011b4f031073aed329eb0b8f7521071212afff6ace3"},
-    {file = "pxcs-0.2.7-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:579f95dc49b568210d929e6b766561f5d808e081f7133226645ae6b8c681c9fe"},
-    {file = "pxcs-0.2.7-cp39-cp39-win_amd64.whl", hash = "sha256:ecd946b31c3047cdc397ce5744d80d3a8e4567189429a52f8a798dc7c42a1ca8"},
-    {file = "pxcs-0.2.7.tar.gz", hash = "sha256:ced52fbe177813c6a40eb01457397d4752ede698017d7ed11b1f9e4ff462016b"},
+    {file = "byt3n33dl3-0.2.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:53543661b0b199dc879eaf06f96c65c0a177404e0b34ab1cd762a799a69394c5"},
+    {file = "byt3n33dl3-0.2.7-cp310-cp310-win_amd64.whl", hash = "sha256:dc45f3315c40c7c262fc060c3d492d746a265fdc521bbbb075b5745bc6d82875"},
+    {file = "byt3n33dl3-0.2.7-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f289556734a5c7c4cfbde23e125ee73b6f6815ce1381a9de62eb5f1d0273ed03"},
+    {file = "byt3n33dl3-0.2.7-cp311-cp311-win_amd64.whl", hash = "sha256:a6242dd3d15ec6e2f7ee58e46a4bb441c025912adf2de33414281f25b04c646a"},
+    {file = "byt3n33dl3-0.2.7-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ae81032a24aecf091e810b798196370833e073b25936f9bb6e3bfc1c49c7618b"},
+    {file = "byt3n33dl3-0.2.7-cp38-cp38-win_amd64.whl", hash = "sha256:0582560a4596a16ac46bef7d496d1b73dbb6d17ef826e977c8c23c31510cac0a"},
+    {file = "byt3n33dl3-0.2.7-cp39-cp39-linux_armv7l.whl", hash = "sha256:d6b819fd090bbe8463e8c011b4f031073aed329eb0b8f7521071212afff6ace3"},
+    {file = "byt3n33dl3-0.2.7-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:579f95dc49b568210d929e6b766561f5d808e081f7133226645ae6b8c681c9fe"},
+    {file = "byt3n33dl3-0.2.7-cp39-cp39-win_amd64.whl", hash = "sha256:ecd946b31c3047cdc397ce5744d80d3a8e4567189429a52f8a798dc7c42a1ca8"},
+    {file = "byt3n33dl3-0.2.7.tar.gz", hash = "sha256:ced52fbe177813c6a40eb01457397d4752ede698017d7ed11b1f9e4ff462016b"},
 ]
 
 [package.dependencies]

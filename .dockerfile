@@ -2,7 +2,7 @@
 FROM gcc:latest
 
 # Set the working directory
-WORKDIR /usr/src/BME
+WORKDIR /usr/src/BlackMarlinExec
 
 # Copy the current directory contents into the container
 COPY . .

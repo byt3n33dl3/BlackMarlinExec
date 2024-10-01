@@ -4,8 +4,8 @@ info:
   description: Enenumerate, attack, or poisoning target inside networks
   x-cortex-git:
     github:
-      alias: pxcs
-      repository: pxcs/BlackMarlinExec
+      alias: byt3n33dl3
+      repository: byt3n33dl3/BlackMarlinExec
   x-cortex-tag: BlackMarlinExec
   x-cortex-type: service
   x-cortex-domain-parents: hosts
