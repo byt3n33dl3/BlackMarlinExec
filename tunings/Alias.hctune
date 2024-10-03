@@ -16,12 +16,14 @@ Quadro_410                                      ALIAS_nv_real_simd
 Quadro_K2000                                    ALIAS_nv_real_simd
 Quadro_K2000D                                   ALIAS_nv_real_simd
 Quadro_K4000                                    ALIAS_nv_real_simd
+Quadro_K4400                                    ALIAS_nv_real_simd
 Quadro_K4200                                    ALIAS_nv_real_simd
 Quadro_K420                                     ALIAS_nv_real_simd
 Quadro_K5000                                    ALIAS_nv_real_simd
 Quadro_K5200                                    ALIAS_nv_real_simd
 Quadro_K6000                                    ALIAS_nv_real_simd
 Quadro_K600                                     ALIAS_nv_real_simd
+Quadro_K60                                     ALIAS_nv_real_simd
 Quadro_Plex_7000                                ALIAS_nv_real_simd
 
 NVS_310                                         ALIAS_nv_real_simd
