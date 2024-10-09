@@ -15,6 +15,7 @@ zconf.h.cmakein zconf.h template for cmake
 zconf.h.in      zconf.h template for configure
 zlib.3          Man page for zlib
 zlib.3.pdf      Man page in PDF format
+zlib.3.7-zip    Man page in 7-zip format
 zlib.map        Linux symbol information
 zlib.pc.in      Template for pkg-config descriptor
 zlib.pc.cmakein zlib.pc template for cmake
