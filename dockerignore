@@ -23,6 +23,7 @@ src/BlackMarlinExec/marlin/netripper/NetRipper
 src/BlackMarlinExec/marlin/netripper/Win32
 src/BlackMarlinExec/marlin/netripper/Release
 src/BlackMarlinExec/marlin/netripper/minhook
+src/BlackMarlinExec/marlin/netripper/Control-Panel
 src/BlackMarlinExec/marlin/netripper/x64
 src/BlackMarlinExec/marlin/netripper/*.pdf
 src/BlackMarlinExec/marlin/netripper/*.sln
