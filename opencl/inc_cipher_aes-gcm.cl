@@ -36,6 +36,7 @@ DECLSPEC void AES_GCM_gf_mult (PRIVATE_AS const u32 *x, PRIVATE_AS const u32 *y,
   t[1] = y[1];
   t[2] = y[2];
   t[3] = y[3];
+  t[4] = y[4];
 
   for (int i = 0; i < 4; i++)
   {
