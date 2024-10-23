@@ -1,3 +1,17 @@
+# Seven Degrees of Domain Admin
+
+<a href="https://github.com/byt3n33dl3/"><p align="center">
+<img src="/art/blackmarlinexec.png">
+</p></a>
+
+## This **BlackMarlinExec** readme file `Doesn't really Matter`, the real one was Under [Here!](https://github.com/byt3n33dl3/BlackMarlinExec/blob/main/README)
+
+You are on the **latest Up to Date** repository of the project BlackMarlinExec
+
+- If you want to report a problem, open un [Issue](https://github.com/byt3n33dl3/BlackMarlinExec/issues) 
+- If you want to contribute, open a [Pull Request](https://github.com/byt3n33dl3/BlackMarlinExec/pulls)
+- If you want to discuss, open a [Discussion](https://github.com/byt3n33dl3/BlackMarlinExec/discussions)
+
 ```shell
                 ,"(
                ////\                           _
@@ -9,6 +23,3 @@ __________;"o,-------------......"""""`'-._/(
                  '-._      `-._("           \\
                      '-._                    '._
 ```
-
-# Seven Degrees of Domain Admin
-This **BlackMarlinExec** readme file doesn't really matter, the real one was under [here!](https://github.com/byt3n33dl3/BlackMarlinExec/blob/main/README)
