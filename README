@@ -9,17 +9,18 @@
                                                        𝗕 𝗟 𝗔 𝗖 𝗞 𝗠 𝗔 𝗥 𝗟 𝗜 𝗡 𝗘 𝗫 𝗘 𝗖
 
 Seven Degrees of Domain Admin
+=============================
 
-Active Directory attack path management and finder                                                                                               
+Attack path Management and for Every End-Point                                                                                               
 
 A tool used to enumerate, attack, or poisoning target inside an online environment and networks,
 the most advanced online scenario pentesting tools
 
-Forged by @pxcs ( Sulaiman ) and @GangstaCrew 
+Forged by @byt3n33dl3 ( Sulaiman ) and @GangstaCrew 
 
 -------------------------------
 
-(c) 2017 - 2024 by @byt3n33dl3 ( CappaX ) / Leader of GangstaCrew
+(c) 2017 - 2024 by @byt3n33dl3 ( Sulaiman ) / Leader of GangstaCrew
 <byt3n33dl3@proton.me> https://github.com/byt3n33dl3/BlackMarlinExec
 
 Licensed under GPL 3.0 ( see licenses file )
@@ -54,6 +55,7 @@ Thanks to:
 - Our Offsec team GangstaCrew
 - BloodHound AD / Azure, etc
 - VanHauser
+- NetExec
 - Some credit to U.G people
 - And several Github repo.
 
