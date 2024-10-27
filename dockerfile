@@ -17,4 +17,4 @@ RUN apt-get update && apt-get install -y \
 RUN make all
 
 # Run the executable
-CMD ["./bin/BlackMarlinExec"]
+CMD ["/bin/BlackMarlinExec"]
