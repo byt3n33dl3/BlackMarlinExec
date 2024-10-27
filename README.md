@@ -23,7 +23,7 @@ You are on the **latest Up to Date** repository of the project BlackMarlinExec
             _;"""----/////_______;,,        //
 __________;"o,-------------......"""""`'-._/(
       ""'==._.__,;;;;"""           ____,.-.==     B L A C K M A R L I N E X E C
-             "-.:______,...;---""/"   "    \(      By: byt3n33dl3 GangstaCrew
+             "-.:______,...;---""/"   "    \(      By:byt3n33dl3 | GangstaCrew
                  '-._      `-._("           \\
                      '-._                    '._
 ```
